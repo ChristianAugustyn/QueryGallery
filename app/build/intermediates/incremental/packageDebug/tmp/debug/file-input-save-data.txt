@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Wed Mar 31 21:48:56 EDT 2021
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1

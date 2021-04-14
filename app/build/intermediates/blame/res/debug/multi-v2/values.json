@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,15,-1,16,14,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,4,-1,4,4,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,717,-1,778,662,-1,-1",
+                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,59,-1,50,53,-1,-1",
+                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,772,-1,824,711,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,104,154,200,253,306,357,403,462,522,582,633,687,746",
+                        "endColumns": "48,49,45,52,52,50,45,58,59,59,50,53,58,59",
+                        "endOffsets": "99,149,195,248,301,352,398,457,517,577,628,682,741,801"
+                    }
+                }
+            ]
+        }
+    ]
+}
