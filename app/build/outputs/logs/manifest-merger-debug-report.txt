@@ -1,18 +1,17 @@
 -- Merging decision tree log ---
 manifest
-<<<<<<< HEAD
-ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
+ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [androidx.room:room-guava:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-guava-2.2.6.aar\8adbcf6540867fef6bc97e9e246840ba\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\sqlite-framework-2.0.1.aar\081bf2bf420532588c6e0473527ce8f0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\sqlite-2.0.1.aar\ace110c5175e075b1118498bbc6d6e49\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.1.aar\d541a669221faf21cb93be3669e50ccc\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:11-55
 		INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
@@ -40,7 +39,7 @@ ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\Andro
 	android:name
 		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:9:19-57
 application
-ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:11:5-33:19
+ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:11:5-29:19
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:24:5-29:19
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:24:5-29:19
 	android:label
@@ -71,22 +70,14 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:22:17-76
 	android:name
 		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:22:27-74
-activity#ca.yorku.eecs.mack.democamera71179.ImageListViewerActivity
+activity#ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity
 ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:25:9-26:20
 	android:name
-		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:25:19-92
-activity#ca.yorku.eecs.mack.democamera71179.VideoViewerActivity
+		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:25:19-90
+activity#ca.yorku.eecs.mack.democamera71179.ImageViewerActivity
 ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:27:9-28:20
 	android:name
 		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:27:19-88
-activity#ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity
-ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:29:9-30:20
-	android:name
-		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:29:19-90
-activity#ca.yorku.eecs.mack.democamera71179.ImageViewerActivity
-ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:31:9-32:20
-	android:name
-		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:31:19-88
 uses-sdk
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
@@ -119,90 +110,3 @@ ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\tran
 		ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:27:13-43
 	android:name
 		ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:26:13-74
-=======
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:2:1-31:12
-	package
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:2:11-55
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-	android:versionName
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:5:11-36
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-	xmlns:android
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:3:11-69
-	android:versionCode
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:4:11-34
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-uses-permission#android.permission.CAMERA
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:7:5-64
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:7:22-62
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:8:5-80
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:8:22-78
-uses-feature#android.hardware.camera
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:9:5-59
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:9:19-57
-application
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:11:5-29:19
-	android:label
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:14:9-41
-	android:icon
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:13:9-38
-	android:allowBackup
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:12:9-36
-activity#ca.yorku.eecs.mack.democamera71179.DemoCamera71179Activity
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:15:9-24:20
-	android:label
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:18:13-45
-	android:configChanges
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:17:13-59
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:16:13-86
-intent-filter#action:name:android.intent.action.MAIN+action:name:android.intent.action.VIEW+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:19:13-23:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:20:17-68
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:20:25-66
-action#android.intent.action.VIEW
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:21:17-69
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:21:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:22:17-76
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:22:27-74
-activity#ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:25:9-26:20
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:25:19-90
-activity#ca.yorku.eecs.mack.democamera71179.ImageViewerActivity
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:27:9-28:20
-	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:27:19-88
-uses-sdk
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-	android:targetSdkVersion
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-	android:minSdkVersion
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml
->>>>>>> bc47277b5d00a26a21f57f44be7499981cc55452

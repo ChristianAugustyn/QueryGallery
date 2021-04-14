@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\debug\jniLibs"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\debug\jniLibs"/></dataSet></merger>
->>>>>>> bc47277b5d00a26a21f57f44be7499981cc55452

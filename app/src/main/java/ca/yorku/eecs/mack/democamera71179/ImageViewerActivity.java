@@ -102,8 +102,11 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                 return true;
             case R.id.addTag:
                 System.out.println(path);
-                Integer numOfBeans = new AsyncGetAll(db).doInBackground();
-                System.out.println(numOfBeans);
+                //get dao instance
+                ImageDAO imageDao = db.imageDAO();
+                //run dao methods
+                List<ImageBean> beans = imageDao.getAll();
+                System.out.println(beans.size());
 
         }
         return true;
@@ -549,19 +552,19 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         }
     }
 
-    private static class AsyncGetAll extends AsyncTask<Void, Void, Integer> {
-        private TagDB db;
-        public AsyncGetAll(TagDB db) {
-            this.db = db;
-        }
-
-        @Override
-        protected Integer doInBackground(Void... voids) {
-            //get instance of dao
-            ImageDAO imageDao = db.imageDAO();
-            //run dao methods
-            List<ImageBean> beans = imageDao.getAll();
-            return beans.size();
-        }
-    }
+//    private static class AsyncGetAll extends AsyncTask<Void, Void, Integer> {
+//        private TagDB db;
+//        public AsyncGetAll(TagDB db) {
+//            this.db = db;
+//        }
+//
+//        @Override
+//        protected Integer doInBackground(Void... voids) {
+//            //get instance of dao
+//            ImageDAO imageDao = db.imageDAO();
+//            //run dao methods
+//            List<ImageBean> beans = imageDao.getAll();
+//            return beans.size();
+//        }
+//    }
 }

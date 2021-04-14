@@ -46,14 +46,9 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
     private static final int IMAGE_VIEWER_MODE = 300;
     private static final int VIDEO_VIEWER_MODE = 400;
     Uri fileUri;
-<<<<<<< HEAD
     static TagDB db;
     ImageButton imageCameraButton, videoCameraButton;
     ImageButton imagePrevButton, imageNextButton, videoPrevButton, videoNextButton;
-=======
-    ImageButton imageCameraButton;
-    ImageButton imagePrevButton, imageNextButton;
->>>>>>> bc47277b5d00a26a21f57f44be7499981cc55452
     ImageView imageView;
 
     File mediaStorageDirectory;
@@ -99,7 +94,7 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
             getActionBar().hide();
         //setup db
         db = Room.databaseBuilder(getApplicationContext(),
-                TagDB.class, "tagDB").build();
+                TagDB.class, "tagDB").allowMainThreadQueries().build();
 
         // get references to UI widgets
         imageCameraButton = (ImageButton) findViewById(R.id.button1);
