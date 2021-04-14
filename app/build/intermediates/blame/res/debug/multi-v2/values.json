@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "4,8,9,7,10,13,3,11,15,5,16,14,12,6",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",

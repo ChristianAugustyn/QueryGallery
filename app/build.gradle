@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "ca.yorku.eecs.mack.democamera"
-        minSdkVersion 13
-        targetSdkVersion 22
+        minSdkVersion 14
+        targetSdkVersion 26
     }
 
     buildTypes {
@@ -16,4 +16,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+}
+
+dependencies {
+    def room_version = "2.2.6"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
 }

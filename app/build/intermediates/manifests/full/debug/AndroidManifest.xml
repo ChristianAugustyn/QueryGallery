@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="13"
-        android:targetSdkVersion="22" />
+        android:minSdkVersion="14"
+        android:targetSdkVersion="26" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -34,6 +34,11 @@
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity" >
         </activity>
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
     </application>
 
 </manifest>

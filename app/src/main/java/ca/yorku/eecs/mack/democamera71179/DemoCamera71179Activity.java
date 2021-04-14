@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import androidx.room.Room;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.text.SimpleDateFormat;
@@ -43,10 +45,10 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
     private static final int VIDEO_CAMERA_MODE = 200;
     private static final int IMAGE_VIEWER_MODE = 300;
     private static final int VIDEO_VIEWER_MODE = 400;
-
     Uri fileUri;
-    ImageButton imageCameraButton;
-    ImageButton imagePrevButton, imageNextButton;
+    static TagDB db;
+    ImageButton imageCameraButton, videoCameraButton;
+    ImageButton imagePrevButton, imageNextButton, videoPrevButton, videoNextButton;
     ImageView imageView;
 
     File mediaStorageDirectory;
@@ -90,6 +92,9 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
         // hide the action bar (gives more display space on small screens)
         if (getActionBar() != null)
             getActionBar().hide();
+        //setup db
+        db = Room.databaseBuilder(getApplicationContext(),
+                TagDB.class, "tagDB").allowMainThreadQueries().build();
 
         // get references to UI widgets
         imageCameraButton = (ImageButton) findViewById(R.id.button1);

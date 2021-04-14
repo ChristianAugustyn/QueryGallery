@@ -6,4 +6,6 @@
     </item>
     <item android:id="@+id/delete" android:title="delete">
     </item>
+    <item android:id="@+id/addTag" android:title="Add Tag">
+    </item>
 </menu>
