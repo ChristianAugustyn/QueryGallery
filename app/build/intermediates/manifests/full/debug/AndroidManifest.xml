@@ -30,12 +30,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageListViewerActivity" >
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.VideoViewerActivity" >
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity" >
         </activity>
+=======
+        <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity" >
+        </activity>
+>>>>>>> bc47277b5d00a26a21f57f44be7499981cc55452
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity" >
         </activity>
 
