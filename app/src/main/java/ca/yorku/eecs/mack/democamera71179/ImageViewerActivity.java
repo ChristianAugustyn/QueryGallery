@@ -104,10 +104,20 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                 System.out.println(path);
                 //get dao instance
                 ImageDAO imageDao = db.imageDAO();
-                //run dao methods
-                List<ImageBean> beans = imageDao.getAll();
-                System.out.println(beans.size());
-
+                //run dao to check if bean already exists
+                ImageBean bean = imageDao.getImageById(path);
+                if (bean == null) {
+                    //create new bean
+                    System.out.println("ERROR: this bean is null");
+                    System.out.println("creating new bean");
+                    ImageBean entry = new ImageBean();
+                    entry.id = path;
+                    entry.tags = "tag";
+                    imageDao.insert(entry);
+                } else { //display the bean data
+                    ImageBean check = imageDao.getImageById(path);
+                    System.out.println("BEAN: " + check.id + " " + check.tags);
+                }
         }
         return true;
     }
