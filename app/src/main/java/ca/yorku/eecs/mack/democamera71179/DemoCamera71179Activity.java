@@ -31,12 +31,12 @@ import java.util.Locale;
 public class DemoCamera71179Activity extends Activity implements OnClickListener, OnTouchListener
 {
     public static final int MEDIA_TYPE_IMAGE = 1;
-    public static final int MEDIA_TYPE_VIDEO = 2;
+
     public static final String WORKING_DIRECTORY = "CameraStuff";
-    final static String VIDEO_INDEX_KEY = "video_index";
+
     final static String IMAGE_INDEX_KEY = "image_index";
     final static String DIRECTORY_KEY = "directory";
-    final static String VIDEO_FILENAMES_KEY = "video_filenames";
+
     final static String IMAGE_FILENAMES_KEY = "image_filenames";
     private static final String MYDEBUG = "MYDEBUG"; // for Log.i messages
     private static final int IMAGE_CAMERA_MODE = 100;
@@ -45,15 +45,15 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
     private static final int VIDEO_VIEWER_MODE = 400;
 
     Uri fileUri;
-    ImageButton imageCameraButton, videoCameraButton;
-    ImageButton imagePrevButton, imageNextButton, videoPrevButton, videoNextButton;
+    ImageButton imageCameraButton;
+    ImageButton imagePrevButton, imageNextButton;
     ImageView imageView;
-    VideoView videoView;
+
     File mediaStorageDirectory;
-    String[] imageFilenames, videoFilenames;
-    int imageIdx, videoIdx;
+    String[] imageFilenames;
+    int imageIdx;
     TextView statusTextView;
-    TextView imageCountView, videoCountView;
+    TextView imageCountView;
 
     // create a file Uri for saving an image or video
     private static Uri getOutputMediaFileUri(File directory, int type)
@@ -70,9 +70,6 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
         if (type == MEDIA_TYPE_IMAGE)
         {
             mediaFile = new File(directory.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
-        } else if (type == MEDIA_TYPE_VIDEO)
-        {
-            mediaFile = new File(directory.getPath() + File.separator + "VID_" + timeStamp + ".mp4");
         } else
         {
             return null;
@@ -96,26 +93,21 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
 
         // get references to UI widgets
         imageCameraButton = (ImageButton) findViewById(R.id.button1);
-        videoCameraButton = (ImageButton)findViewById(R.id.button2);
+
         imageView = (ImageView)findViewById(R.id.imageView1);
-        videoView = (VideoView)findViewById(R.id.videoView1);
+
         imagePrevButton = (ImageButton)findViewById(R.id.button1a);
         imageNextButton = (ImageButton)findViewById(R.id.button1b);
-        videoPrevButton = (ImageButton)findViewById(R.id.button2a);
-        videoNextButton = (ImageButton)findViewById(R.id.button2b);
         imageCountView = (TextView)findViewById(R.id.imageCount);
-        videoCountView = (TextView)findViewById(R.id.videoCount);
-        statusTextView = (TextView)findViewById(R.id.indexandcount);
+
+
 
         // attach listeners to UI widgets
         imageView.setOnTouchListener(this);
-        videoView.setOnTouchListener(this);
         imageCameraButton.setOnClickListener(this);
-        videoCameraButton.setOnClickListener(this);
+
         imagePrevButton.setOnClickListener(this);
         imageNextButton.setOnClickListener(this);
-        videoPrevButton.setOnClickListener(this);
-        videoNextButton.setOnClickListener(this);
 
         // make a working directory (if necessary) to store the images and videos
         mediaStorageDirectory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
@@ -129,29 +121,26 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
 
         // fill arrays for image/video filenames currently in the working directory
         imageFilenames = mediaStorageDirectory.list(new MyFilenameFilter(".jpg"));
-        videoFilenames = mediaStorageDirectory.list(new MyFilenameFilter(".mp4"));
+
 
 		/*
          * Sort the arrays into chronological order. Note: This only works because the date and time
 		 * of creation are embedded in the filenames.
 		 */
         Arrays.sort(imageFilenames);
-        Arrays.sort(videoFilenames);
+
 
         Log.i(MYDEBUG, "Number of image files: " + imageFilenames.length);
-        Log.i(MYDEBUG, "Number of video files: " + videoFilenames.length);
+
 
         // index of last (most recent) image (or -1 if none)
         imageIdx = imageFilenames == null ? -1 : imageFilenames.length - 1;
 
-        // index of last (most recent) video (or -1 in none)
-        videoIdx = videoFilenames == null ? -1 : videoFilenames.length - 1;
+
 
         if (imageIdx >= 0) // there is at least one image in the directory (show it!)
             displayImage();
 
-        if (videoIdx >= 0) // there is at least one video in the directory (show it!)
-            displayVideo();
     }
 
     // touch callback for picture and video views
@@ -173,17 +162,6 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
             i.putExtras(b);
             startActivityForResult(i, IMAGE_VIEWER_MODE);
 
-        } else if (v == videoView && videoFilenames.length > 0)
-        {
-            final Bundle b = new Bundle();
-            b.putStringArray(VIDEO_FILENAMES_KEY, videoFilenames);
-            b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
-            b.putInt(VIDEO_INDEX_KEY, videoIdx);
-
-            // start video viewer activity
-            Intent i = new Intent(getApplicationContext(), VideoViewerActivity.class);
-            i.putExtras(b);
-            startActivityForResult(i, VIDEO_VIEWER_MODE);
         }
         return true;
     }
@@ -207,40 +185,13 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
             // Note: the 2nd argument is the Request Code (will be returned to onActivityResult)
             startActivityForResult(intent, IMAGE_CAMERA_MODE);
 
-        } else if (v == videoCameraButton) // launch camera intent (video mode)
-        {
-            // create Intent to take a video and return control to the calling application
-            Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-
-            // specify a file URI where the image will be saved
-            fileUri = getOutputMediaFileUri(mediaStorageDirectory, MEDIA_TYPE_VIDEO); // not needed
-
-            // use putExtra to give the file URI to the intent
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-            // specify video quality (1 = high)
-            intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
-
-            // start the Intent (when the intent finishes, onActivityResult will execute)
-            // Note: the 2nd argument is the Request Code (will be returned to onActivityResult)
-            startActivityForResult(intent, VIDEO_CAMERA_MODE);
-
-        } else if (v == imagePrevButton && imageFilenames.length != 0)
+        }  else if (v == imagePrevButton && imageFilenames.length != 0)
             previousImage();
 
         else if (v == imageNextButton && imageFilenames.length != 0)
             nextImage();
 
-        else if (v == videoPrevButton && videoFilenames.length != 0)
-        {
-            previousVideo();
-            videoView.start();
 
-        } else if (v == videoNextButton && videoFilenames.length != 0)
-        {
-            nextVideo();
-            videoView.start();
-        }
     }
 
     private void previousImage()
@@ -272,34 +223,11 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
             imageCountView.setText(String.format("%s", "(no pictures)"));
     }
 
-    private void previousVideo()
-    {
-        --videoIdx;
-        if (videoIdx < 0)
-            videoIdx = videoFilenames.length - 1;
-        displayVideo();
-    }
 
-    private void nextVideo()
-    {
-        ++videoIdx;
-        if (videoIdx >= videoFilenames.length)
-            videoIdx = 0;
-        displayVideo();
-    }
 
-    private void displayVideo()
-    {
-        if (videoFilenames != null && videoFilenames.length > 0)
-        {
-            String path = mediaStorageDirectory.toString() + File.separator + videoFilenames[videoIdx];
-            videoView.setVideoPath(path);
-            videoView.seekTo(1); // ...so first frame appears in view (?)
-            videoCountView.setText(String.format(Locale.CANADA, "%d of %d ", (videoIdx + 1), videoFilenames.length));
 
-        } else
-            videoCountView.setText(String.format(Locale.CANADA, "%s", "(no videos)"));
-    }
+
+
 
     /*
      * The onActivityResult method is called upon exiting from either the camera application, the
@@ -354,32 +282,7 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
                 // image capture failed, advise user
                 Toast.makeText(this, "Image capture failed", Toast.LENGTH_LONG).show();
             }
-        } else if (requestCode == VIDEO_CAMERA_MODE)
-        {
-            if (resultCode == RESULT_OK)
-            {
-                // see comment above for IMAGE_MODE
-                Toast.makeText(this, "Video saved to:\n" + fileUri.toString(), Toast.LENGTH_LONG).show();
-
-                // update file list and index (NOTE: current video is last file in list)
-                videoFilenames = mediaStorageDirectory.list(new MyFilenameFilter(".mp4"));
-                Arrays.sort(videoFilenames);
-
-                videoIdx = videoFilenames.length - 1;
-                displayVideo();
-
-            } else if (resultCode == RESULT_CANCELED)
-            {
-                // user cancelled the video capture
-                Toast.makeText(this, "Video capture cancelled", Toast.LENGTH_LONG).show();
-
-            } else
-            {
-                // video capture failed, advise user
-                Toast.makeText(this, "Video capture failed", Toast.LENGTH_LONG).show();
-            }
         }
-
 		// we're returning via the Back button in the Navigation Bar. Therefore, the return code is CANCEL
         else if (requestCode == IMAGE_VIEWER_MODE)
         {
@@ -388,14 +291,6 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
             else
                 Log.i(MYDEBUG, "UNKNOWN RESULT CODE (IMAGE)!");
 
-        } else if (requestCode == VIDEO_VIEWER_MODE)
-        {
-            if (resultCode == Activity.RESULT_OK)
-            {
-                videoIdx = data.getIntExtra(VIDEO_INDEX_KEY, -1);
-                displayVideo();
-            } else
-                Log.i(MYDEBUG, "UNKNOWN RESULT CODE (VIDEO)!");
         }
     }
 

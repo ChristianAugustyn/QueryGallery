@@ -20,12 +20,12 @@
         "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\drawable-xxhdpi\\ic_rightarrow.png"
     },
     {
-        "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_camera.png.flat",
-        "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\drawable-xhdpi\\ic_camera.png"
-    },
-    {
         "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_videocamera.png.flat",
         "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_videocamera.png"
+    },
+    {
+        "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_camera.png.flat",
+        "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\drawable-xhdpi\\ic_camera.png"
     },
     {
         "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_leftarrow.png.flat",
@@ -50,10 +50,6 @@
     {
         "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\layout_main.xml.flat",
         "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\layout\\main.xml"
-    },
-    {
-        "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\layout_videofullscreen.xml.flat",
-        "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\layout\\videofullscreen.xml"
     },
     {
         "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_camera.png.flat",
@@ -86,10 +82,6 @@
     {
         "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_videocamera.png.flat",
         "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\drawable-mdpi\\ic_videocamera.png"
-    },
-    {
-        "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\layout_listviewlayout.xml.flat",
-        "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\layout\\listviewlayout.xml"
     },
     {
         "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_rightarrow.png.flat",

@@ -22,10 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageListViewerActivity">
-        </activity>
-        <activity android:name="ca.yorku.eecs.mack.democamera71179.VideoViewerActivity">
-        </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity">
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity">
