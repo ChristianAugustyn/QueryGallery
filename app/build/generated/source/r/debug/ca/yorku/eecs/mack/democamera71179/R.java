@@ -16,26 +16,27 @@ public final class R {
     public static final int icon=0x7f010004;
   }
   public static final class id {
-    public static final int button1=0x7f020000;
-    public static final int button1a=0x7f020001;
-    public static final int button1b=0x7f020002;
-    public static final int button2=0x7f020003;
-    public static final int button2a=0x7f020004;
-    public static final int button2b=0x7f020005;
-    public static final int delete=0x7f020006;
-    public static final int file=0x7f020007;
-    public static final int gridview=0x7f020008;
-    public static final int imageCount=0x7f020009;
-    public static final int imageView=0x7f02000a;
-    public static final int imageView1=0x7f02000b;
-    public static final int imagecontainer=0x7f02000c;
-    public static final int indexandcount=0x7f02000d;
-    public static final int tableRow=0x7f02000e;
-    public static final int textView=0x7f02000f;
-    public static final int textview=0x7f020010;
-    public static final int videoCount=0x7f020011;
-    public static final int videoFullScreenView=0x7f020012;
-    public static final int videoView1=0x7f020013;
+    public static final int addTag=0x7f020000;
+    public static final int button1=0x7f020001;
+    public static final int button1a=0x7f020002;
+    public static final int button1b=0x7f020003;
+    public static final int button2=0x7f020004;
+    public static final int button2a=0x7f020005;
+    public static final int button2b=0x7f020006;
+    public static final int delete=0x7f020007;
+    public static final int file=0x7f020008;
+    public static final int gridview=0x7f020009;
+    public static final int imageCount=0x7f02000a;
+    public static final int imageView=0x7f02000b;
+    public static final int imageView1=0x7f02000c;
+    public static final int imagecontainer=0x7f02000d;
+    public static final int indexandcount=0x7f02000e;
+    public static final int tableRow=0x7f02000f;
+    public static final int textView=0x7f020010;
+    public static final int textview=0x7f020011;
+    public static final int videoCount=0x7f020012;
+    public static final int videoFullScreenView=0x7f020013;
+    public static final int videoView1=0x7f020014;
   }
   public static final class layout {
     public static final int imagegrid=0x7f030000;

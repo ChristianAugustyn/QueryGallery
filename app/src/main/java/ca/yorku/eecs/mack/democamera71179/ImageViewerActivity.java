@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.DisplayMetrics;
@@ -24,6 +25,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
+import java.util.List;
 import java.util.Locale;
 
 public class ImageViewerActivity extends Activity implements OnTouchListener
@@ -42,6 +44,8 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
     float positionY;
     float xRatio, yRatio;
     float scaleFactor, lastScaleFactor;
+
+    TagDB db;
 
     // The �active pointer� is the one currently moving the image.
     private static final int INVALID_POINTER_ID = -1;
@@ -96,6 +100,11 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                 startActivityForResult(i, RESULT_OK);
 
                 return true;
+            case R.id.addTag:
+                System.out.println(path);
+                Integer numOfBeans = new AsyncGetAll(db).doInBackground();
+                System.out.println(numOfBeans);
+
         }
         return true;
     }
@@ -110,6 +119,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         imageView = (ImageView)findViewById(R.id.imageView);
         textView = (TextView)findViewById(R.id.textView);
 
+        db = DemoCamera71179Activity.db;
         // attach a touch listener so the image will respond to touch events
         // NOTE: listener attached to the parent container, not the view
         container.setOnTouchListener(this);
@@ -536,6 +546,22 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         public boolean accept(File f, String name)
         {
             return name.endsWith(extension);
+        }
+    }
+
+    private static class AsyncGetAll extends AsyncTask<Void, Void, Integer> {
+        private TagDB db;
+        public AsyncGetAll(TagDB db) {
+            this.db = db;
+        }
+
+        @Override
+        protected Integer doInBackground(Void... voids) {
+            //get instance of dao
+            ImageDAO imageDao = db.imageDAO();
+            //run dao methods
+            List<ImageBean> beans = imageDao.getAll();
+            return beans.size();
         }
     }
 }

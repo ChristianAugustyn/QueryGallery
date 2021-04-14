@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "ca.yorku.eecs.mack.democamera"
-        minSdkVersion 13
-        targetSdkVersion 22
+        minSdkVersion 14
+        targetSdkVersion 26
     }
 
     buildTypes {

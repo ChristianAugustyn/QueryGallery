@@ -5,6 +5,8 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
 public class ImageListViewerActivity extends ListActivity
 {
@@ -16,7 +18,7 @@ public class ImageListViewerActivity extends ListActivity
 	
 	String[] imageFilenames;
 	String directory;
-	
+	List<String> tags;
     // Called when the activity is first created.
     @Override
     public void onCreate(Bundle savedInstanceState) 

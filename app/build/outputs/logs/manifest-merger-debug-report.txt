@@ -4,6 +4,11 @@ ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\Andro
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
+MERGED from [androidx.room:room-guava:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-guava-2.2.6.aar\8adbcf6540867fef6bc97e9e246840ba\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\sqlite-framework-2.0.1.aar\081bf2bf420532588c6e0473527ce8f0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\sqlite-2.0.1.aar\ace110c5175e075b1118498bbc6d6e49\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.1.aar\d541a669221faf21cb93be3669e50ccc\AndroidManifest.xml:17:1-22:12
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:2:1-35:12
@@ -35,6 +40,8 @@ ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\Andro
 		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:9:19-57
 application
 ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:11:5-33:19
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:24:5-29:19
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:24:5-29:19
 	android:label
 		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml:14:9-41
 	android:icon
@@ -83,6 +90,16 @@ uses-sdk
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
+MERGED from [androidx.room:room-guava:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-guava-2.2.6.aar\8adbcf6540867fef6bc97e9e246840ba\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-guava:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-guava-2.2.6.aar\8adbcf6540867fef6bc97e9e246840ba\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\sqlite-framework-2.0.1.aar\081bf2bf420532588c6e0473527ce8f0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\sqlite-framework-2.0.1.aar\081bf2bf420532588c6e0473527ce8f0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\sqlite-2.0.1.aar\ace110c5175e075b1118498bbc6d6e49\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\sqlite-2.0.1.aar\ace110c5175e075b1118498bbc6d6e49\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.1.aar\d541a669221faf21cb93be3669e50ccc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.1] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.1.aar\d541a669221faf21cb93be3669e50ccc\AndroidManifest.xml:20:5-44
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
@@ -93,3 +110,11 @@ INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\An
 		INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\chris\Desktop\EECS 4443\Demo_Camera_71179\app\src\main\AndroidManifest.xml
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:25:9-28:40
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:28:13-37
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:27:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\chris\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\3acfe1f29656288853481f1aa290adaf\AndroidManifest.xml:26:13-74
