@@ -1,4 +1,4 @@
-#Wed Mar 31 21:48:56 EDT 2021
-base.0=C\:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Wed Apr 14 13:32:41 EDT 2021
+base.0=C\:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
