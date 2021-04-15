@@ -13,6 +13,7 @@
     <string name="videoCountString">(video count)</string>
     <string name="empty">Loading images &#8230;</string>
     <string name="textViewString">(filename)</string>
+    <string name="tagViewString">TAGS</string>
     <string name="imageViewText">(Image goes here)</string>
     <string name="textString">(text here)</string>
 

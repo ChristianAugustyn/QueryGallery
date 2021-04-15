@@ -32,6 +32,10 @@
         "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
     },
     {
+        "merged": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\res\\merged\\debug\\layout_popup.xml.flat",
+        "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\layout\\popup.xml"
+    },
+    {
         "merged": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_camera.png.flat",
         "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_camera.png"
     },

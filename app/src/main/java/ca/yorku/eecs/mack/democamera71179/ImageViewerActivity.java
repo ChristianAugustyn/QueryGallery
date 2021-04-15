@@ -1,16 +1,21 @@
 package ca.yorku.eecs.mack.democamera71179;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,9 +23,14 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -33,6 +43,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
     RelativeLayout container; // parent view (holds the image view)
     ImageView imageView; // holds the JPG file
     TextView textView; // status info
+    TextView tagView;
     ImageDownloader imageDownloader; // worker class/thread to get the images
 
     String directory; // directory containing the images
@@ -46,6 +57,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
     float scaleFactor, lastScaleFactor;
 
     TagDB db;
+    private PopupWindow mPopupWindow;
 
     // The �active pointer� is the one currently moving the image.
     private static final int INVALID_POINTER_ID = -1;
@@ -114,10 +126,12 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                     entry.id = path;
                     entry.tags = "tag";
                     imageDao.insert(entry);
-                } else { //display the bean data
-                    ImageBean check = imageDao.getImageById(path);
-                    System.out.println("BEAN: " + check.id + " " + check.tags);
+                } else { //update the bean data
+
+                    System.out.println("BEAN: " + bean.id + " " + bean.tags);
+
                 }
+                return true;
         }
         return true;
     }
@@ -131,6 +145,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         container = (RelativeLayout)findViewById(R.id.imagecontainer);
         imageView = (ImageView)findViewById(R.id.imageView);
         textView = (TextView)findViewById(R.id.textView);
+        tagView = (TextView)findViewById(R.id.tagView);
 
         db = DemoCamera71179Activity.db;
         // attach a touch listener so the image will respond to touch events
@@ -163,6 +178,106 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         // instantiate the image downloader (this is where the real work is done; see displayImage
         // method)
         imageDownloader = new ImageDownloader();
+
+        final Button addTagButton = findViewById(R.id.addTagButton);
+        addTagButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("ADD TAG");
+                //init new layout inflator service
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ImageViewerActivity.this);
+                // Get the layout inflate
+                LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                final View popupView = inflater.inflate(R.layout.popup, null);
+                builder.setView(popupView)
+                        .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                EditText tagText = (EditText) popupView.findViewById(R.id.tag);
+                                String tag = tagText.getText().toString();
+                                System.out.println(tag);
+
+                                String path = directory + File.separator + filenames[index];
+                                System.out.println(path);
+                                //get dao instance
+                                ImageDAO imageDao = db.imageDAO();
+                                //run dao to check if bean already exists
+                                ImageBean bean = imageDao.getImageById(path);
+                                if (bean == null) {
+                                    //create new bean
+                                    System.out.println("ERROR: this bean is null");
+                                    System.out.println("creating new bean");
+                                    ImageBean entry = new ImageBean();
+                                    entry.id = path;
+                                    entry.tags = tag + "_";
+                                    imageDao.insert(entry);
+                                    Toast.makeText(ImageViewerActivity.this, "The tag \"" + tag + "\" has already been applied to this image", Toast.LENGTH_SHORT).show();
+                                } else { //update the bean data
+                                    boolean containsTag = false;
+                                    for (String t : bean.tags.split("_")) {
+                                        containsTag = containsTag || tag.equals(t);
+                                    }
+
+                                    if (!containsTag) {
+                                        bean.tags = bean.tags + tag + "_";
+                                        imageDao.updateImageTags(bean);
+                                        Toast.makeText(ImageViewerActivity.this, "Tag Added", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(ImageViewerActivity.this, "The tag \"" + tag + "\" has already been applied to this image", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
+
+            }
+        });
+
+        final Button removeTagButton = findViewById(R.id.removeTagButton);
+        removeTagButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                final String path = directory + File.separator + filenames[index];
+                //get the image bean associated with the images path
+                ImageBean bean = db.imageDAO().getImageById(path);
+                //get all teh tags and turn it into an array
+                final String[] beanTags = bean.tags.split("_");
+
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ImageViewerActivity.this);
+                // Get the layout inflate
+                LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                builder.setTitle("Pick a tag to remove")
+                        .setItems(beanTags, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // The 'which' argument contains the index position
+                                // of the selected item
+                                String removeTag = beanTags[which]; //get the tag that needs to be removed
+                                String updatedTags = ""; //nre updated tags string
+                                for (String t : beanTags) { //itterate through to get all the tags except the one you need to remove
+                                    if(!(t.equals(removeTag))) {
+                                        updatedTags += t + "_";
+                                    }
+                                }
+                                //create a new bean with updated tags
+                                ImageBean updatedBean = new ImageBean();
+                                updatedBean.id = path;
+                                updatedBean.tags = updatedTags;
+                                //call dao to update the bean
+                                db.imageDAO().updateImageTags(updatedBean);
+                                Toast.makeText(ImageViewerActivity.this, "Tag \"" + removeTag + "\" has been removed", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();;
+            }
+        });
     }
 
     // call displayImage here (not in the constructor) to ensure the first image appears
@@ -218,6 +333,9 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         String s = String.format(Locale.CANADA, "%s (%d of %d, %d KB, %d x %d)", filenames[idx], (idx + 1),
                 filenames.length, kiloBytes, o.outWidth, o.outHeight);
         textView.setText(s);
+        ImageBean stBean = db.imageDAO().getImageById(path);
+        String st = stBean == null ? "No Tags have been added" : stBean.tags;
+        tagView.setText(st);
 
         setDefaults();
         imageView.animate().alpha(1f); // fade in
