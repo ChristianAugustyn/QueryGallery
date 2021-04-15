@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,15,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,723,-1,-1,-1,-1",
-                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,46,-1,-1,-1,-1",
-                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,765,-1,-1,-1,-1"
+                        "startLines": "4,8,9,7,10,13,3,11,16,5,15,17,14,12,6",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "112,338,389,284,436,610,59,490,771,162,723,832,668,550,223",
+                        "endColumns": "48,49,45,52,52,56,51,58,59,59,46,50,53,58,59",
+                        "endOffsets": "156,383,430,332,484,662,106,544,826,217,765,878,717,604,278"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16",

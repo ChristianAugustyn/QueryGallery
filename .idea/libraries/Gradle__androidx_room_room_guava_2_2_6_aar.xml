@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/room-guava-2.2.6.aar/8adbcf6540867fef6bc97e9e246840ba/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/room-guava-2.2.6.aar/8adbcf6540867fef6bc97e9e246840ba/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/room-guava-2.2.6.aar/8adbcf6540867fef6bc97e9e246840ba/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/room-guava-2.2.6.aar/01b373ea39107f7d87ae7e2f7e706f7a/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/room-guava-2.2.6.aar/01b373ea39107f7d87ae7e2f7e706f7a/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/room-guava-2.2.6.aar/01b373ea39107f7d87ae7e2f7e706f7a/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
