@@ -28,4 +28,11 @@ dependencies {
 
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
+
+    //nav
+//    implementation "com.android.support:appcompat-v7:26.1.0"
+//    implementation "com.android.support:design:26.1.0"
+//    implementation 'com.google.android.material:material:1.1.0'
+
+
 }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Demo_Camera_71179</string>
-    <string name="app_name">Demo_Camera</string>
+    <string name="app_name">Query Gallery</string>
     <string name="imageviewtext">(image goes here)</string>
     <string name="videoviewtext">(video goes here)</string>
     <string name="button1text">Take Picture</string>
