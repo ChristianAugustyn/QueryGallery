@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ff123456"
+    android:background="#ffffffff"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
@@ -10,13 +10,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="#ff234567"
+        android:background="#ffe92121"
         android:gravity="center_horizontal"
         android:paddingBottom="15dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="15dp"
         android:text="@string/app_name"
+        android:textColor="#ffffffff"
+        android:textSize="32dp"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <LinearLayout
