@@ -24,12 +24,12 @@
         "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\drawable-mdpi\\ic_leftarrow.png"
     },
     {
-        "merged": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat",
-        "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
-    },
-    {
         "merged": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_camera.png.flat",
         "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\drawable-mdpi\\ic_camera.png"
+    },
+    {
+        "merged": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat",
+        "source": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
     },
     {
         "merged": "C:\\Users\\chris\\Desktop\\EECS 4443\\Demo_Camera_71179\\app\\build\\intermediates\\res\\merged\\debug\\layout_popup.xml.flat",

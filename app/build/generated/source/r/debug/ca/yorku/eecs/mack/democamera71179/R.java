@@ -29,9 +29,11 @@ public final class R {
     public static final int imageView1=0x7f02000a;
     public static final int imagecontainer=0x7f02000b;
     public static final int popupTitle=0x7f02000c;
-    public static final int tag=0x7f02000d;
-    public static final int textView=0x7f02000e;
-    public static final int textview=0x7f02000f;
+    public static final int removeTagButton=0x7f02000d;
+    public static final int tag=0x7f02000e;
+    public static final int tagView=0x7f02000f;
+    public static final int textView=0x7f020010;
+    public static final int textview=0x7f020011;
   }
   public static final class layout {
     public static final int imagegrid=0x7f030000;
@@ -53,9 +55,10 @@ public final class R {
     public static final int imageCountString=0x7f050007;
     public static final int imageViewText=0x7f050008;
     public static final int imageviewtext=0x7f050009;
-    public static final int textString=0x7f05000a;
-    public static final int textViewString=0x7f05000b;
-    public static final int videoCountString=0x7f05000c;
-    public static final int videoviewtext=0x7f05000d;
+    public static final int tagViewString=0x7f05000a;
+    public static final int textString=0x7f05000b;
+    public static final int textViewString=0x7f05000c;
+    public static final int videoCountString=0x7f05000d;
+    public static final int videoviewtext=0x7f05000e;
   }
 }
