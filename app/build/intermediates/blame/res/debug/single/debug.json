@@ -16,6 +16,10 @@
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\menu\\menu.xml"
     },
     {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-hdpi\\ic_settings.png"
+    },
+    {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_rightarrow.png.flat",
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-mdpi\\ic_rightarrow.png"
     },
@@ -24,12 +28,20 @@
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_videocamera.png"
     },
     {
-        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\layout_popup.xml.flat",
-        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\layout\\popup.xml"
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_camwhite.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xhdpi\\ic_camwhite.png"
     },
     {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon.png.flat",
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_camwhite.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-mdpi\\ic_camwhite.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\layout_popup.xml.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\layout\\popup.xml"
     },
     {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_leftarrow.png.flat",
@@ -44,16 +56,24 @@
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxhdpi\\ic_rightarrow.png"
     },
     {
-        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat",
-        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
-    },
-    {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_camera.png.flat",
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxhdpi\\ic_camera.png"
     },
     {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
+    },
+    {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_videocamera.png.flat",
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-hdpi\\ic_videocamera.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xhdpi\\ic_gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-mdpi\\ic_gallery.png"
     },
     {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_videocamera.png.flat",
@@ -68,8 +88,20 @@
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_leftarrow.png"
     },
     {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-hdpi\\ic_gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxhdpi\\ic_gallery.png"
+    },
+    {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_camera.png.flat",
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_camera.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_settings.xml.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-anydpi-v24\\ic_settings.xml"
     },
     {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_camera.png.flat",
@@ -84,6 +116,10 @@
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-mdpi\\icon.png"
     },
     {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xhdpi\\ic_settings.png"
+    },
+    {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_rightarrow.png.flat",
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xhdpi\\ic_rightarrow.png"
     },
@@ -96,8 +132,16 @@
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\layout\\imageviewer.xml"
     },
     {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-mdpi\\ic_settings.png"
+    },
+    {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_camera.png.flat",
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-hdpi\\ic_camera.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_camwhite.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-hdpi\\ic_camwhite.png"
     },
     {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\layout_main.xml.flat",
@@ -108,7 +152,23 @@
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxhdpi\\ic_leftarrow.png"
     },
     {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_gallery.xml.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-anydpi-v24\\ic_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxhdpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_camwhite.png.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xxhdpi\\ic_camwhite.png"
+    },
+    {
         "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_videocamera.png.flat",
         "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-xhdpi\\ic_videocamera.png"
+    },
+    {
+        "merged": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_camwhite.xml.flat",
+        "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\drawable-anydpi-v24\\ic_camwhite.xml"
     }
 ]
