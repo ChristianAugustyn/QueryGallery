@@ -252,40 +252,46 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                 ImageBean bean = db.imageDAO().getImageById(path);
                 //get all teh tags and turn it into an array
 
-                if (bean.tags.length() > 2) {
-                    final String[] beanTags = bean.tags.split("_");
+                if (bean != null) {
+                    if(bean.tags.isEmpty() == false) {
+                        System.out.println("WHAT IS LEFT IN BEAN.TAGS:" + bean.tags + "*******");
+                        final String[] beanTags = bean.tags.split("_");
 
 
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(ImageViewerActivity.this);
-                    // Get the layout inflate
-                    LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                    builder.setTitle("Pick a tag to remove")
-                            .setItems(beanTags, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // The 'which' argument contains the index position
-                                    // of the selected item
-                                    String removeTag = beanTags[which]; //get the tag that needs to be removed
-                                    String updatedTags = ""; //nre updated tags string
-                                    for (String t : beanTags) { //itterate through to get all the tags except the one you need to remove
-                                        if (!(t.equals(removeTag))) {
-                                            updatedTags += t + "_";
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ImageViewerActivity.this);
+                        // Get the layout inflate
+                        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                        builder.setTitle("Pick a tag to remove")
+                                .setItems(beanTags, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // The 'which' argument contains the index position
+                                        // of the selected item
+                                        String removeTag = beanTags[which]; //get the tag that needs to be removed
+                                        String updatedTags = ""; //nre updated tags string
+                                        for (String t : beanTags) { //itterate through to get all the tags except the one you need to remove
+                                            if (!(t.equals(removeTag))) {
+                                                updatedTags += t + "_";
+                                            }
                                         }
+                                        //create a new bean with updated tags
+                                        ImageBean updatedBean = new ImageBean();
+                                        updatedBean.id = path;
+                                        updatedBean.tags = updatedTags;
+                                        //call dao to update the bean
+                                        db.imageDAO().updateImageTags(updatedBean);
+                                        Toast.makeText(ImageViewerActivity.this, "Tag \"" + removeTag + "\" has been removed", Toast.LENGTH_SHORT).show();
                                     }
-                                    //create a new bean with updated tags
-                                    ImageBean updatedBean = new ImageBean();
-                                    updatedBean.id = path;
-                                    updatedBean.tags = updatedTags;
-                                    //call dao to update the bean
-                                    db.imageDAO().updateImageTags(updatedBean);
-                                    Toast.makeText(ImageViewerActivity.this, "Tag \"" + removeTag + "\" has been removed", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            }).show();
-                    ;
+                                })
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                }).show();
+                        ;
+                    }else{
+                        Toast.makeText(ImageViewerActivity.this, "No Tags To Remove", Toast.LENGTH_SHORT).show();
+                    }
+
                 }else{
                     Toast.makeText(ImageViewerActivity.this, "No Tags To Remove", Toast.LENGTH_SHORT).show();
 

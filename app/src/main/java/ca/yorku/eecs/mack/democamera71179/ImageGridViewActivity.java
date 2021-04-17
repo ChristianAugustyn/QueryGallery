@@ -2,19 +2,26 @@ package ca.yorku.eecs.mack.democamera71179;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 /* This activity receives a bundle containing the name of a directory.  All the images
  * in the directory are retrieved and displayed in a grid view.
@@ -30,6 +37,9 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
     File directory;
     File[] files;
     String[] filenames;
+    TagDB db;
+    String directoryString;
+    int columnWidth;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -39,7 +49,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
 
         // data passed from the setup activity in startActivity
         Bundle b = getIntent().getExtras();
-        String directoryString = b.getString("directory");
+        directoryString = b.getString("directory");
 
         // get the directory containing some images
         directory = new File(directoryString);
@@ -60,14 +70,20 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
             }
         });
 
+        for(int j = 0; j<files.length; j++){
+            System.out.println("This is what files looks like: " + files[j]);
+        }
+
+        getInitalFileNames();
         // make a String array of the filenames
-        filenames = new String[files.length];
-        for (int i = 0; i < files.length; ++i)
-            filenames[i] = files[i].getName();
+
 
         // get references to the GridView and TextView
         gridView = (GridView)findViewById(R.id.gridview);
         textView = (TextView)findViewById(R.id.textview);
+        for(int k = 0; k < filenames.length; k++){
+            System.out.println("This is what filesnames looks like: " + filenames[k]);
+        }
 
         // display the name of the directory in the text view (minus the full path)
         String[] s = directory.toString().split(File.separator);
@@ -85,7 +101,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
          */
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int columnWidth = dm.widthPixels < dm.heightPixels ? dm.widthPixels / 3 - 12
+        columnWidth = dm.widthPixels < dm.heightPixels ? dm.widthPixels / 3 - 12
                 : dm.heightPixels / 3 - 12;
         imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
         gridView.setColumnWidth(columnWidth);
@@ -95,8 +111,107 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
 
         // attach a click listener to the GridView (to respond to finger taps)
         gridView.setOnItemClickListener(this);
+        //handleIntent(getIntent());
+
+        db = DemoCamera71179Activity.db;
+    }
+/*
+    @Override
+    protected void onNewIntent(Intent intent) {
+
+        handleIntent(intent);
     }
 
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            Log.d("QUERY RESULT", query);
+            System.out.println(query);
+            System.out.println("This works");
+
+        }
+    }
+*/
+
+    //Search Bar Functionality
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+
+        // Associate searchable configuration with the SearchView
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+
+        //Listener for when the user changes the text in the text bar or submits their query
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String tag) {
+                Toast.makeText(ImageGridViewActivity.this, "onQueryTextSubmit: " + tag, Toast.LENGTH_SHORT);
+                search(tag);
+                return false;
+            }
+
+            //When there is no text in the search bar, the gridview is reverts back to showing all images
+            @Override
+            public boolean onQueryTextChange(String s) {
+                Toast.makeText(ImageGridViewActivity.this, "onQueryTextChange: " + s, Toast.LENGTH_SHORT);
+                if(s.length() == 0){
+                    getInitalFileNames();
+                    imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
+                    gridView.setAdapter(null);
+                    gridView.setAdapter(imageAdapter);
+                }
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    //takes the image tag and gets all ImageBeans that match the tag
+    //the ImageBean's id variable is a path to a particular image file
+    //so the string needs to be parsed so there is just the image file name
+    //filenames is now global so we add in only the files that the imageDAO brings back
+    //a new instance of imageAdapter is made and is reassigned to the gridview.
+    public void search(String tag) {
+
+        tag = tag + '_';
+
+        ImageDAO imageDAO = db.imageDAO();
+        List<ImageBean> imageBeans = imageDAO.getImagesByTag(tag);
+
+        //if there are  imageBeans then the gridview is changed
+        if (imageBeans.size() > 0) {
+            filenames = new String[imageBeans.size()];
+
+            for (int i = 0; i < imageBeans.size(); i++) {
+                String tempImagePath = imageBeans.get(i).id;
+                String[] tagArray = tempImagePath.split("/");
+                String filename = tagArray[tagArray.length - 1];
+                filenames[i] = filename;
+            }
+
+            imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
+            gridView.setAdapter(null);
+            gridView.setAdapter(imageAdapter);
+
+        }else{
+            Toast.makeText(ImageGridViewActivity.this, "No Images Matching That Tag", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //this is used so that all the file names can be passed to the imageAdapter
+    public void getInitalFileNames(){
+        filenames = new String[files.length];
+        for (int i = 0; i < files.length; ++i)
+            filenames[i] = files[i].getName();
+    }
     /*
      * If the user taps on an image in the GridView, create an Intent to launch a new activity to
      * view the image in an ImageView. The image will respond to touch events (e.g., flings), so

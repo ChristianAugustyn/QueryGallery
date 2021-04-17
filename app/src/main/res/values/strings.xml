@@ -16,5 +16,8 @@
     <string name="tagViewString">TAGS</string>
     <string name="imageViewText">(Image goes here)</string>
     <string name="textString">(text here)</string>
+    <string name="search_hint">(search here)</string>
+    <string name="search_title">(search here)</string>
+
 
 </resources>

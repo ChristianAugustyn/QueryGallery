@@ -123,7 +123,7 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
             this.finish(); // terminate
         }
         Log.i(MYDEBUG, "Media directory: " + mediaStorageDirectory.toString());
-
+        System.out.println("What is this string: " + mediaStorageDirectory.toString());
         // fill arrays for image/video filenames currently in the working directory
         imageFilenames = mediaStorageDirectory.list(new MyFilenameFilter(".jpg"));
 
@@ -132,6 +132,7 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
          * Sort the arrays into chronological order. Note: This only works because the date and time
 		 * of creation are embedded in the filenames.
 		 */
+
         Arrays.sort(imageFilenames);
 
 

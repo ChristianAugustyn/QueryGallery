@@ -3,7 +3,8 @@
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:versionCode="1"
           android:versionName="1.0">
-
+    <meta-data android:name="android.app.searchable"
+        android:resource="@xml/searchable" />
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-feature android:name="android.hardware.camera"/>
@@ -23,9 +24,17 @@
             </intent-filter>
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity">
         </activity>
+        <!-- <activity android:name=".SearchResultsActivity"  >
+        <intent-filter>
+            <action android:name="android.intent.action.SEARCH" />
+        </intent-filter>
+    </activity>-->
     </application>
 
 </manifest>
