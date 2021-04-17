@@ -47,7 +47,7 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
     private static final int VIDEO_VIEWER_MODE = 400;
     Uri fileUri;
     static TagDB db;
-    ImageButton imageCameraButton, videoCameraButton;
+    ImageButton imageCameraButton, videoCameraButton, imageCameraButton2, imageGelleryButton;
     ImageButton imagePrevButton, imageNextButton, videoPrevButton, videoNextButton;
     ImageView imageView;
 
@@ -97,7 +97,9 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
                 TagDB.class, "tagDB").allowMainThreadQueries().build();
 
         // get references to UI widgets
-        imageCameraButton = (ImageButton) findViewById(R.id.button1);
+//        imageCameraButton = (ImageButton) findViewById(R.id.button1);
+        imageCameraButton2 = (ImageButton) findViewById(R.id.cam);
+        imageGelleryButton=(ImageButton)findViewById(R.id.gallery);
 
         imageView = (ImageView)findViewById(R.id.imageView1);
 
@@ -109,7 +111,9 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
 
         // attach listeners to UI widgets
         imageView.setOnTouchListener(this);
-        imageCameraButton.setOnClickListener(this);
+//        imageCameraButton.setOnClickListener(this);
+        imageCameraButton2.setOnClickListener(this);
+        imageGelleryButton.setOnClickListener(this);
 
         imagePrevButton.setOnClickListener(this);
         imageNextButton.setOnClickListener(this);
@@ -168,6 +172,7 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
             startActivityForResult(i, IMAGE_VIEWER_MODE);
 
         }
+        System.out.println("method: on touch");
         return true;
     }
 
@@ -175,7 +180,7 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
     @Override
     public void onClick(View v)
     {
-        if (v == imageCameraButton) // launch camera intent (image mode)
+        if (v == imageCameraButton2) // launch camera intent (image mode)
         {
             // create Intent to take a picture and return control to the calling application
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -190,12 +195,32 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
             // Note: the 2nd argument is the Request Code (will be returned to onActivityResult)
             startActivityForResult(intent, IMAGE_CAMERA_MODE);
 
-        }  else if (v == imagePrevButton && imageFilenames.length != 0)
+        }
+        else if (v == imagePrevButton && imageFilenames.length != 0)
             previousImage();
 
         else if (v == imageNextButton && imageFilenames.length != 0)
             nextImage();
+        else if (v == imageGelleryButton){
+//            displayImage();
+            System.out.println("method: start of gallery button");
+            if ( imageFilenames.length > 0)
+            {
+                final Bundle b = new Bundle();
+                b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
+                b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
 
+                // start image viewer activity
+                Intent i = new Intent(getApplicationContext(), ImageGridViewActivity.class);
+                i.putExtras(b);
+                startActivityForResult(i, IMAGE_VIEWER_MODE);
+                System.out.println("method: end if in gallery button");
+            }
+            System.out.println("method: end of gallery button");
+        }
+
+
+        System.out.println("method: on click");
 
     }
 
@@ -226,6 +251,8 @@ public class DemoCamera71179Activity extends Activity implements OnClickListener
 
         } else
             imageCountView.setText(String.format("%s", "(no pictures)"));
+
+        System.out.println("method: on display image");
     }
 
 
