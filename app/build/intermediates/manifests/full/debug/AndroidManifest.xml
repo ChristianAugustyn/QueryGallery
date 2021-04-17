@@ -8,6 +8,10 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="26" />
 
+    <meta-data
+        android:name="android.app.searchable"
+        android:resource="@xml/searchable" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -31,10 +35,19 @@
             </intent-filter>
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity" >
         </activity>
-
+        <!--
+    <activity android:name=".SearchResultsActivity"  >
+        <intent-filter>
+            <action android:name="android.intent.action.SEARCH" />
+        </intent-filter>
+    </activity>
+        -->
         <service
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"
