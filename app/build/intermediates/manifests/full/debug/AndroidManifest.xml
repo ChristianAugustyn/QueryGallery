@@ -24,7 +24,7 @@
         android:label="@string/app_name"
         android:testOnly="true" >
         <activity
-            android:name="ca.yorku.eecs.mack.democamera71179.QueryGallery"
+            android:name="ca.yorku.eecs.mack.querygallery.QueryGallery"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name" >
             <intent-filter>
@@ -34,13 +34,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity" >
+        <activity android:name="ca.yorku.eecs.mack.querygallery.ImageGridViewActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity" >
+        <activity android:name="ca.yorku.eecs.mack.querygallery.ImageViewerActivity" >
         </activity>
+        <activity android:name="ca.yorku.eecs.mack.querygallery.FindThisImage" />
         <!--
     <activity android:name=".SearchResultsActivity"  >
         <intent-filter>

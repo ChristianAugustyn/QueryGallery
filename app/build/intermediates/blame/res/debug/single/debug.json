@@ -8,6 +8,10 @@
         "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\drawable-mdpi\\ic_gallery.png"
     },
     {
+        "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\layout_findthisimage.xml.flat",
+        "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\layout\\findthisimage.xml"
+    },
+    {
         "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon.png.flat",
         "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
     },
