@@ -28,10 +28,12 @@ int id search 0x7f020011
 int id settings 0x7f020012
 int id tag 0x7f020013
 int id tagView 0x7f020014
-int id test 0x7f020015
-int id textView 0x7f020016
-int id textView2 0x7f020017
-int id textview 0x7f020018
+int id tagViewLabel 0x7f020015
+int id test 0x7f020016
+int id textView 0x7f020017
+int id textView2 0x7f020018
+int id textViewLabel 0x7f020019
+int id textview 0x7f02001a
 int layout findthisimage 0x7f030000
 int layout imagegrid 0x7f030001
 int layout imageviewer 0x7f030002
@@ -55,4 +57,6 @@ int string textString 0x7f05000c
 int string textViewString 0x7f05000d
 int string videoCountString 0x7f05000e
 int string videoviewtext 0x7f05000f
-int xml searchable 0x7f060000
+int style MyActionBarTheme 0x7f060000
+int style MyCustomTheme 0x7f060001
+int xml searchable 0x7f070000

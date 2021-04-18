@@ -1,10 +1,13 @@
 package ca.yorku.eecs.mack.democamera71179;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -153,7 +156,8 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
                 return false;
             }
         });
-
+        ActionBar actionBar = getActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.RED));
         return true;
     }
 
