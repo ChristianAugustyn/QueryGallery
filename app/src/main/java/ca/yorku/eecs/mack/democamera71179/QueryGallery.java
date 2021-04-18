@@ -231,7 +231,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
                 b.putBoolean(TESTMODE_KEY, testMode);
                 b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
                 // start image viewer activity
-                Intent i = new Intent(getApplicationContext(), FindThisImage.class);
+                Intent i = new Intent(getApplicationContext(), TestInstructions.class);
                 i.putExtras(b);
                 startActivity(i);
             }else{

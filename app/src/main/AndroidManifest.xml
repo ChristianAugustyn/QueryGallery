@@ -31,6 +31,7 @@
         <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity">
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.FindThisImage"></activity>
+        <activity android:name="ca.yorku.eecs.mack.democamera71179.TestInstructions"></activity>
         <!-- <activity android:name=".SearchResultsActivity"  >
         <intent-filter>
             <action android:name="android.intent.action.SEARCH" />
