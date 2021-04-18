@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery3\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "3,7,8,6,9,12,10,15,4,17,18,14,16,13,11,5",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
