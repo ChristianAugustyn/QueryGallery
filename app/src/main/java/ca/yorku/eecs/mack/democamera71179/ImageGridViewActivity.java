@@ -39,9 +39,12 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
     File[] files;
     String[] filenames;
     TagDB db;
-    String directoryString;
+    String directoryString, testingFilePath;
     int columnWidth;
-
+    final static String TESTMODE_KEY = "testmode";
+    final static String ALLOW_SEARCH_KEY = "allowsearch";
+    final static String FILE_KEY ="file";
+    boolean testMode, allowSearch;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -51,6 +54,9 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
         // data passed from the setup activity in startActivity
         Bundle b = getIntent().getExtras();
         directoryString = b.getString("directory");
+        testMode = b.getBoolean(TESTMODE_KEY);
+        allowSearch = b.getBoolean(ALLOW_SEARCH_KEY);
+        testingFilePath = b.getString(FILE_KEY);
 
         // get the directory containing some images
         directory = new File(directoryString);
@@ -71,9 +77,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
             }
         });
 
-        for(int j = 0; j<files.length; j++){
-            System.out.println("This is what files looks like: " + files[j]);
-        }
+
 
         getInitalFileNames();
         // make a String array of the filenames
@@ -82,9 +86,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
         // get references to the GridView and TextView
         gridView = (GridView)findViewById(R.id.gridview);
         textView = (TextView)findViewById(R.id.textview);
-        for(int k = 0; k < filenames.length; k++){
-            System.out.println("This is what filesnames looks like: " + filenames[k]);
-        }
+
 
         // display the name of the directory in the text view (minus the full path)
         String[] s = directory.toString().split(File.separator);
@@ -161,7 +163,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
     //filenames is now global so we add in only the files that the imageDAO brings back
     //a new instance of imageAdapter is made and is reassigned to the gridview.
     public void search(String tag) {
-        System.out.println(tag);
+
         Boolean tagsMatched = false;
         String[] tagArray = tag.split("\\s+");
         ImageDAO imageDAO = db.imageDAO();
@@ -202,6 +204,8 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
             imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
             gridView.setAdapter(null);
             gridView.setAdapter(imageAdapter);
+        }else{
+            gridView.setAdapter(null);
         }
     }
 
@@ -243,15 +247,31 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id)
     {
-        final Bundle b = new Bundle();
-        b.putStringArray("imageFilenames", filenames);
-        b.putString("directory", directory.toString());
-        b.putInt("position", position);
+        if(!testMode) {
+            final Bundle b = new Bundle();
+            b.putStringArray("imageFilenames", filenames);
+            b.putString("directory", directory.toString());
+            b.putInt("position", position);
 
-        // start image viewer activity
-        Intent i = new Intent(getApplicationContext(), ImageViewerActivity.class);
-        i.putExtras(b);
-        startActivityForResult(i, RESULT_OK);
+            // start image viewer activity
+            Intent i = new Intent(getApplicationContext(), ImageViewerActivity.class);
+            i.putExtras(b);
+            startActivityForResult(i, RESULT_OK);
+        }else {
+            String path = directory + File.separator + filenames[position];
+
+            if(testingFilePath.equalsIgnoreCase(path)){
+                Toast.makeText(this, "They Match ", Toast.LENGTH_SHORT).show();
+                System.out.println("path: " + path);
+                System.out.println("testing file path: " + testingFilePath);
+
+
+            }else{
+                Toast.makeText(this, "They Dont Match ", Toast.LENGTH_SHORT).show();
+                System.out.println("path: " + path);
+                System.out.println("testing file path: " + testingFilePath);
+            }
+        }
     }
 
     // A filter used with the list method (see above) to return only files with a specified

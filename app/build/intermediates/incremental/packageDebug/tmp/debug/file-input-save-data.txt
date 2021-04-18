@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Sun Apr 18 14:28:47 EDT 2021
-0.baseType=DIRECTORY
-0.base=C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-0.path=classes.dex
-0.set=DEX
-count=1

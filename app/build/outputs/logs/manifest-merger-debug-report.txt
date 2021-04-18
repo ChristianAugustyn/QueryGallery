@@ -91,9 +91,9 @@ ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\Andro
 	android:name
 		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:31:19-88
 activity#ca.yorku.eecs.mack.democamera71179.FindThisImage
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:34:9-61
+ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:33:9-94
 	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:34:19-48
+		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:33:19-82
 uses-sdk
 INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml
