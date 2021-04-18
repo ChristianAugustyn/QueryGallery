@@ -1,158 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#ffffffff"
-    android:gravity="center_horizontal"
-    android:orientation="vertical" >
-
-    <TextView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="#ffe92121"
+        android:layout_height="fill_parent"
+        android:background="#ffffffff"
         android:gravity="center_horizontal"
-        android:paddingBottom="15dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="15dp"
-        android:text="@string/app_name"
-        android:textColor="#ffffffff"
-        android:textSize="32dp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:orientation="horizontal" >
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical" >
-
-<!--            <ImageButton-->
-<!--                android:id="@+id/button1"-->
-<!--                android:layout_width="fill_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:layout_marginTop="2dp"-->
-<!--                android:src="@drawable/ic_camera" />-->
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="fill_parent"
-                android:layout_height="340dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginTop="2dp"
-
-                android:contentDescription="@string/imageviewtext" />
-
-            <TextView
-                android:id="@+id/imageCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="0dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginTop="0dp"
-
-                android:gravity="center_horizontal"
-                android:hint="@string/imageCountString"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center|bottom"
-                android:orientation="horizontal" >
-
-                <ImageButton
-                    android:id="@+id/button1a"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_leftarrow"/>
-
-                <ImageButton
-                    android:id="@+id/button1b"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_rightarrow" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center|bottom"
         android:orientation="vertical" >
 
-        <ImageButton
-            android:id="@+id/cam"
-            style="?android:attr/buttonStyleSmall"
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_camwhite"
-            android:background="@android:color/background_dark"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            />
+            android:background="#ffe92121"
+            android:gravity="center_horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp"
+            android:text="@string/app_name"
+            android:textColor="#ffffffff"
+            android:textSize="32dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-
-        <ImageButton
-            android:id="@+id/gallery"
-            style="?android:attr/buttonStyleSmall"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center"
-            android:background="@android:color/background_dark"
-            android:src="@drawable/ic_gallery"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            />
-        <ImageButton
-            android:id="@+id/settings"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center"
-            android:background="@android:color/background_dark"
-            android:src="@drawable/ic_settings"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
 
-            />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/test"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center"
-            android:background="@android:color/background_dark"
+    <!--            <ImageButton-->
+    <!--                android:id="@+id/button1"-->
+    <!--                android:layout_width="fill_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center_horizontal"-->
+    <!--                android:layout_marginTop="2dp"-->
+    <!--                android:src="@drawable/ic_camera" />-->
 
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:text="Test"
-            android:textColor="#FFFFFF"
-            />
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="340dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="2dp"
+
+                    android:contentDescription="@string/imageviewtext" />
+
+                <TextView
+                    android:id="@+id/imageCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="0dp"
+
+                    android:gravity="center_horizontal"
+                    android:hint="@string/imageCountString"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|bottom"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/button1a"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_leftarrow"/>
+
+                    <ImageButton
+                        android:id="@+id/button1b"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_rightarrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/cam"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_camwhite"
+                android:background="@android:color/background_dark"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                />
+
+
+            <ImageButton
+                android:id="@+id/gallery"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center"
+                android:background="@android:color/background_dark"
+                android:src="@drawable/ic_gallery"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                />
+            <ImageButton
+                android:id="@+id/settings"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center"
+                android:background="@android:color/background_dark"
+                android:src="@drawable/ic_settings"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+
+                />
+
+            <Button
+                android:id="@+id/test"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center"
+                android:background="@android:color/background_dark"
+
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Test"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
     </LinearLayout>
-
-
-</LinearLayout>
+</ScrollView>

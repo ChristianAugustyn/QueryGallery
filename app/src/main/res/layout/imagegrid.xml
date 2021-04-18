@@ -17,7 +17,7 @@
         android:id="@+id/gridview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#ff222222"
+        android:background="#ffffffff"
         android:gravity="center"
         android:horizontalSpacing="3dp"
         android:numColumns="auto_fit"

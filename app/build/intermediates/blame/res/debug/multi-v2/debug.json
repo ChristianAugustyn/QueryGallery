@@ -1,16 +1,33 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "3,7,8,6,9,12,10,15,4,17,18,14,16,13,11,5",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "59,287,338,233,385,559,439,720,111,833,888,672,781,617,499,172",
-                        "endColumns": "50,49,45,52,52,56,58,59,59,53,54,46,50,53,58,59",
-                        "endOffsets": "105,332,379,281,433,611,493,775,166,882,938,714,827,666,553,227"
+                        "startLines": "5,2",
+                        "startColumns": "4,4",
+                        "startOffsets": "222,57",
+                        "endLines": "7,4",
+                        "endColumns": "12,12",
+                        "endOffsets": "375,216"
+                    },
+                    "to": {
+                        "startLines": "18,21",
+                        "startColumns": "4,4",
+                        "startOffsets": "918,1074",
+                        "endLines": "20,23",
+                        "endColumns": "12,12",
+                        "endOffsets": "1069,1231"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\usama\\Documents\\Yorku Courses\\Mobile UI\\final proj\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",

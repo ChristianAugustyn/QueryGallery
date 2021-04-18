@@ -1,53 +1,127 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity" >
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/textViewString" />
-    <TextView
-        android:id="@+id/tagView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/tagViewString" />
-
-    <RelativeLayout
-        android:id="@+id/imagecontainer"
+    android:background="#ffffffff">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ff222222" >
+        android:orientation="vertical"
+        android:background="#ffffffff"
+        tools:context=".MainActivity" >
 
-        <ImageView
-            android:id="@+id/imageView"
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="7dp"
+            >
+
+            <TextView
+                android:id="@+id/textViewLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="#000000"
+                android:layout_marginRight="80dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="Image Name:" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@android:color/black"
+                android:textSize="15dp"
+                android:text="@string/textViewString" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="7dp"
+            >
+            <TextView
+                android:id="@+id/tagViewLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="#000000"
+                android:layout_marginRight="124dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="Tag(s):" />
+            <TextView
+                android:id="@+id/tagView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@android:color/black"
+                android:text="@string/tagViewString" />
+        </TableRow>
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tagView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="center_horizontal"-->
+    <!--        android:text="@string/tagViewString" />-->
+
+        <RelativeLayout
+            android:id="@+id/imagecontainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ff222222"
-            android:contentDescription="@string/imageViewText" />
+            android:background="#ffffffff" >
 
-        <Button
-            android:id="@+id/addTagButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#2196F3"
-            android:text="Add Tag" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ff000000"
+                android:contentDescription="@string/imageViewText" />
 
-        <Button
-            android:id="@+id/removeTagButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginLeft="14dp"
-            android:layout_toEndOf="@+id/addTagButton"
-            android:layout_toRightOf="@+id/addTagButton"
-            android:background="#DD1212"
-            android:text="REMOVE TAG" />
-    </RelativeLayout>
+            <Button
+                android:id="@+id/addTagButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#2196F3"
+                android:layout_below="@id/imageView"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Add Tag" />
 
-</LinearLayout>
+            <Button
+                android:id="@+id/removeTagButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addTagButton"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:background="#DD1212"
+                android:text="REMOVE TAG" />
+
+<!--            <Button-->
+<!--                android:id="@+id/addTagButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#2196F3"-->
+<!--                android:layout_below="@id/imageView"-->
+<!--                android:layout_gravity="center_vertical|center_horizontal"-->
+<!--                android:text="Add Tag" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/removeTagButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="14dp"-->
+<!--                android:layout_marginLeft="14dp"-->
+<!--                android:layout_toEndOf="@+id/addTagButton"-->
+<!--                android:layout_toRightOf="@+id/addTagButton"-->
+<!--                android:layout_below="@id/imageView"-->
+<!--                android:layout_gravity="center_vertical|center_horizontal"-->
+<!--                android:background="#DD1212"-->
+<!--                android:text="REMOVE TAG" />-->
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

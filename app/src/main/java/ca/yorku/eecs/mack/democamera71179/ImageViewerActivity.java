@@ -1,11 +1,14 @@
 package ca.yorku.eecs.mack.democamera71179;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -69,6 +72,8 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        ActionBar actionBar = getActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.RED));
         return true;
     }
 
@@ -368,7 +373,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         // output the image file position, count, size, and dimensions
         String s = String.format(Locale.CANADA, "%s (%d of %d, %d KB, %d x %d)", filenames[idx], (idx + 1),
                 filenames.length, kiloBytes, o.outWidth, o.outHeight);
-        textView.setText(s);
+        textView.setText(s);//Set Image name
         ImageBean stBean = db.imageDAO().getImageById(path);
         String st = stBean == null ? "No Tags have been added" : stBean.tags;
         tagView.setText(st);
