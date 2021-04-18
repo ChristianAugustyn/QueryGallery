@@ -113,7 +113,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
         // attach a click listener to the GridView (to respond to finger taps)
         gridView.setOnItemClickListener(this);
 
-        db = DemoCamera71179Activity.db;
+        db = QueryGallery.db;
     }
 
 

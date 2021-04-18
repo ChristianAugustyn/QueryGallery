@@ -7,14 +7,11 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,7 +32,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
-import java.util.List;
 import java.util.Locale;
 
 public class ImageViewerActivity extends Activity implements OnTouchListener
@@ -148,7 +144,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         textView = (TextView)findViewById(R.id.textView);
         tagView = (TextView)findViewById(R.id.tagView);
 
-        db = DemoCamera71179Activity.db;
+        db = QueryGallery.db;
         // attach a touch listener so the image will respond to touch events
         // NOTE: listener attached to the parent container, not the view
         container.setOnTouchListener(this);
