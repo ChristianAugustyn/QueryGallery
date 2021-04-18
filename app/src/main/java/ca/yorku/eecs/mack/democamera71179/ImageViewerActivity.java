@@ -114,6 +114,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                 return true;
             case R.id.addTag:
                 System.out.println(path);
+                tagView.setHint("Start your tags with a hashtag");
                 //get dao instance
                 ImageDAO imageDao = db.imageDAO();
                 //run dao to check if bean already exists
@@ -254,7 +255,6 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
 
                 if (bean != null) {
                     if(bean.tags.isEmpty() == false) {
-                        System.out.println("WHAT IS LEFT IN BEAN.TAGS:" + bean.tags + "*******");
                         final String[] beanTags = bean.tags.split("_");
 
 
@@ -300,6 +300,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         });
     }
 
+    //validates the tag to ensure that the user has not put an "_" anywhere in their string.
     public boolean validateTags(String tagInput){
         boolean allTagsFormattedProperly = true;
 

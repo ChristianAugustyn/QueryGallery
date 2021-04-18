@@ -7,7 +7,7 @@
         android:id="@+id/popupTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter a new tag to apply to the image" />
+        android:text="Enter a new tag starting with a hashtag (#) " />
 
     <EditText
         android:id="@+id/tag"

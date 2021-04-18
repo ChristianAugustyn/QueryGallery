@@ -121,7 +121,7 @@ public final class ImageDAO_Impl implements ImageDAO {
 
   @Override
   public List<ImageBean> getImagesByTag(final String tag) {
-    final String _sql = "select * from imagebean where tags like ?";
+    final String _sql = "select * from imagebean where tags like '%' || ? || '%' ";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
     if (tag == null) {

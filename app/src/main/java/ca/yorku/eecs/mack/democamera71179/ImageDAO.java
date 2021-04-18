@@ -12,7 +12,7 @@ public interface ImageDAO {
     @Query("select * from imagebean")
     List<ImageBean> getAll();
 
-    @Query("select * from imagebean where tags like :tag")
+    @Query("select * from imagebean where tags like '%' || :tag || '%' ")
     List<ImageBean> getImagesByTag(String tag);
 
     @Query("select * from imagebean where id = :id")

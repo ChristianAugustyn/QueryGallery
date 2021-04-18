@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -111,28 +112,10 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
 
         // attach a click listener to the GridView (to respond to finger taps)
         gridView.setOnItemClickListener(this);
-        //handleIntent(getIntent());
 
         db = DemoCamera71179Activity.db;
     }
-/*
-    @Override
-    protected void onNewIntent(Intent intent) {
 
-        handleIntent(intent);
-    }
-
-    private void handleIntent(Intent intent) {
-
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            Log.d("QUERY RESULT", query);
-            System.out.println(query);
-            System.out.println("This works");
-
-        }
-    }
-*/
 
     //Search Bar Functionality
     @Override
@@ -151,16 +134,14 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
         //Listener for when the user changes the text in the text bar or submits their query
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String tag) {
-                Toast.makeText(ImageGridViewActivity.this, "onQueryTextSubmit: " + tag, Toast.LENGTH_SHORT);
-                search(tag);
+            public boolean onQueryTextSubmit(String tags) {
+                search(tags);
                 return false;
             }
 
             //When there is no text in the search bar, the gridview is reverts back to showing all images
             @Override
             public boolean onQueryTextChange(String s) {
-                Toast.makeText(ImageGridViewActivity.this, "onQueryTextChange: " + s, Toast.LENGTH_SHORT);
                 if(s.length() == 0){
                     getInitalFileNames();
                     imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
@@ -180,38 +161,79 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
     //filenames is now global so we add in only the files that the imageDAO brings back
     //a new instance of imageAdapter is made and is reassigned to the gridview.
     public void search(String tag) {
-
-        tag = tag + '_';
-
+        System.out.println(tag);
+        Boolean tagsMatched = false;
+        String[] tagArray = tag.split("\\s+");
         ImageDAO imageDAO = db.imageDAO();
-        List<ImageBean> imageBeans = imageDAO.getImagesByTag(tag);
+        ArrayList<String> resizeableFilenamesArray = new ArrayList<String>();
 
-        //if there are  imageBeans then the gridview is changed
-        if (imageBeans.size() > 0) {
-            filenames = new String[imageBeans.size()];
+        //iterate through each tag,
+        for(int j = 0; j < tagArray.length; j++) {
+            String currentTag = tagArray[j] + '_';
+            List<ImageBean> imageBeans = imageDAO.getImagesByTag(currentTag);
 
-            for (int i = 0; i < imageBeans.size(); i++) {
-                String tempImagePath = imageBeans.get(i).id;
-                String[] tagArray = tempImagePath.split("/");
-                String filename = tagArray[tagArray.length - 1];
-                filenames[i] = filename;
+        //if there are imageBeans then the tag matched an image and the gridview is changed
+            if (imageBeans.size() > 0) {
+                tagsMatched = true;
+                //iterate through the image beans, get the path(id),split it, get the tags, check if tags match, extract the filename
+                for (int i = 0; i < imageBeans.size(); i++) {
+                    String tempImagePath = imageBeans.get(i).id;
+
+
+                    String[] imagePathArray = tempImagePath.split("/");
+
+                    String filename = imagePathArray[imagePathArray.length - 1];
+
+                    //if the file already hasn't been added to the resizeableFilenamesArray add it and now we
+
+                        if (!inFilenames(resizeableFilenamesArray, filename)) {
+                            resizeableFilenamesArray.add(filename);
+                        }
+
+                }
+            } else { // let the user know that a tag didnt match
+                Toast.makeText(ImageGridViewActivity.this, "No Images Matching: " + tagArray[j], Toast.LENGTH_SHORT).show();
             }
+        }
 
+        //tags matched, time to change the gridview
+        if(tagsMatched){
+            filenames = toArray(resizeableFilenamesArray);
             imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
             gridView.setAdapter(null);
             gridView.setAdapter(imageAdapter);
-
-        }else{
-            Toast.makeText(ImageGridViewActivity.this, "No Images Matching That Tag", Toast.LENGTH_SHORT).show();
         }
     }
 
-    //this is used so that all the file names can be passed to the imageAdapter
+    //this is used so that all the images in the directory can be passed to the imageAdapter
     public void getInitalFileNames(){
         filenames = new String[files.length];
         for (int i = 0; i < files.length; ++i)
             filenames[i] = files[i].getName();
     }
+
+    //checks to see if the filename is already in the filenames array
+    public boolean inFilenames(ArrayList<String> filenames, String filename){
+        boolean inFilesnames = false;
+        for(int i = 0; i < filenames.size(); i++){
+            if(filenames.get(i) == filename){
+                inFilesnames = true;
+            }
+        }
+        return inFilesnames;
+    }
+
+    public String[] toArray(ArrayList<String> list){
+        String[] theArray = new String[list.size()];
+        for(int i = 0; i < theArray.length; i++){
+            theArray[i] = list.get(i);
+        }
+
+        return theArray;
+
+    }
+
+
     /*
      * If the user taps on an image in the GridView, create an Intent to launch a new activity to
      * view the image in an ImageView. The image will respond to touch events (e.g., flings), so
