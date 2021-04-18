@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -28,6 +29,7 @@ public class FindThisImage extends Activity implements View.OnClickListener {
     Button next;
     boolean testMode, allowSearch;
     String[] imageFilenames;
+    TextView header;
     private static final int IMAGE_VIEWER_MODE = 300;
     final static String IMAGE_FILENAMES_KEY = "image_filenames";
     final static String TESTMODE_KEY = "testmode";
@@ -65,22 +67,25 @@ public class FindThisImage extends Activity implements View.OnClickListener {
 
         imageToFind = (ImageView)findViewById(R.id.imageToFind);
         next = (Button)findViewById(R.id.next);
+        header = (TextView)findViewById(R.id.header);
+
+
         next.setOnClickListener(this);
 
-
-        /*
-         * Sort the arrays into chronological order. Note: This only works because the date and time
-         * of creation are embedded in the filenames.
-         */
-
-        //Arrays.sort(imageFilenames);
-
+        //getting a random image from the files
         Random random = new Random();
         int randomNum = random.nextInt(((files.length-1)-0)+1) + 0;
         file = files[randomNum];
         fileString = file.toString();
         Uri uri = Uri.parse(file.toString());
         imageToFind.setImageURI(uri);
+
+
+        if(allowSearch){
+            header.setText("Search For This Image Using The Search Bar");
+        }else{
+            header.setText("Search For This Image Without Using The Search Bar");
+        }
 
         System.out.println("is File null here?" + file.toString());
     }

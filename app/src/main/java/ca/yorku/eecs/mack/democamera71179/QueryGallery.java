@@ -223,16 +223,20 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
             }
             System.out.println("method: end of gallery button");
         }else if (v == test){
-            testMode = true;
-            final Bundle b = new Bundle();
-            b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
-            b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
-            b.putBoolean(TESTMODE_KEY, testMode);
-            b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
-            // start image viewer activity
-            Intent i = new Intent(getApplicationContext(), FindThisImage.class);
-            i.putExtras(b);
-            startActivity(i);
+            if(imageFilenames.length > 0) {
+                testMode = true;
+                final Bundle b = new Bundle();
+                b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
+                b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
+                b.putBoolean(TESTMODE_KEY, testMode);
+                b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
+                // start image viewer activity
+                Intent i = new Intent(getApplicationContext(), FindThisImage.class);
+                i.putExtras(b);
+                startActivity(i);
+            }else{
+                Toast.makeText(this,"You have no pictures to do the test", Toast.LENGTH_SHORT).show();
+            }
         }
 
 
