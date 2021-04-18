@@ -1,17 +1,17 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-40:12
+ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-41:12
 MERGED from [androidx.room:room-guava:2.2.6] C:\Users\edshi\.gradle\caches\transforms-1\files-1.1\room-guava-2.2.6.aar\01b373ea39107f7d87ae7e2f7e706f7a\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\efef35cd1da410aa25a4fbe729053799\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\edshi\.gradle\caches\transforms-1\files-1.1\sqlite-framework-2.0.1.aar\c0f785c8a2cbda42397d80ee87a63950\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\edshi\.gradle\caches\transforms-1\files-1.1\sqlite-2.0.1.aar\b7b7b678a43005e5f171df4746566db2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.1] C:\Users\edshi\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.1.aar\5ddb822afdfbda138327d6f90d53bd2a\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:1-41:12
 	package
 		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:2:11-55
 		INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml
@@ -45,7 +45,7 @@ ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\Andro
 	android:name
 		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:10:19-57
 application
-ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:12:5-38:19
+ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:12:5-39:19
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\efef35cd1da410aa25a4fbe729053799\AndroidManifest.xml:24:5-29:19
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-1\files-1.1\room-runtime-2.2.6.aar\efef35cd1da410aa25a4fbe729053799\AndroidManifest.xml:24:5-29:19
 	android:label
@@ -90,6 +90,10 @@ activity#ca.yorku.eecs.mack.democamera71179.ImageViewerActivity
 ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:31:9-32:20
 	android:name
 		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:31:19-88
+activity#ca.yorku.eecs.mack.democamera71179.FindThisImage
+ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:34:9-61
+	android:name
+		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml:34:19-48
 uses-sdk
 INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\edshi\AndroidStudioProjects\QueryGallery4\app\src\main\AndroidManifest.xml
