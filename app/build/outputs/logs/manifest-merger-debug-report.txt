@@ -54,14 +54,14 @@ MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\tra
 		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:14:9-38
 	android:allowBackup
 		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:13:9-36
-activity#ca.yorku.eecs.mack.democamera71179.DemoCamera71179Activity
+activity#ca.yorku.eecs.mack.democamera71179.QueryGallery
 ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:16:9-25:20
 	android:label
 		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:19:13-45
 	android:configChanges
 		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:18:13-59
 	android:name
-		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:17:13-86
+		ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:17:13-75
 intent-filter#action:name:android.intent.action.MAIN+action:name:android.intent.action.VIEW+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\edshi\AndroidStudioProjects\QueryGallery3\app\src\main\AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN

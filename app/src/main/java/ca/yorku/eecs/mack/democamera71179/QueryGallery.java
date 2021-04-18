@@ -30,7 +30,7 @@ import java.util.Locale;
 
 
 
-public class DemoCamera71179Activity extends Activity implements OnClickListener, OnTouchListener
+public class QueryGallery extends Activity implements OnClickListener, OnTouchListener
 {
     public static final int MEDIA_TYPE_IMAGE = 1;
 
