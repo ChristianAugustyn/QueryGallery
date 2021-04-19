@@ -18,7 +18,8 @@ public interface ImageDAO {
     @Query("select * from imagebean where id = :id")
     ImageBean getImageById(String id);
 
-    @Insert //for brand new images in tth DB
+    @Insert
+        //for brand new images in tth DB
     void insert(ImageBean imageBean);
 
     @Update

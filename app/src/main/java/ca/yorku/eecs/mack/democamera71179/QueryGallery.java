@@ -30,9 +30,7 @@ import java.util.Arrays;
 import java.util.Locale;
 
 
-
-public class QueryGallery extends Activity implements OnClickListener, OnTouchListener
-{
+public class QueryGallery extends Activity implements OnClickListener, OnTouchListener {
     public static final int MEDIA_TYPE_IMAGE = 1;
 
     public static final String WORKING_DIRECTORY = "CameraStuff";
@@ -63,37 +61,31 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
     ArrayList<String> usedFiles;
 
     // create a file Uri for saving an image or video
-    private static Uri getOutputMediaFileUri(File directory, int type)
-    {
+    private static Uri getOutputMediaFileUri(File directory, int type) {
         return Uri.fromFile(getOutputMediaFile(directory, type));
     }
 
     // create a File for saving an image or video
-    private static File getOutputMediaFile(File directory, int type)
-    {
+    private static File getOutputMediaFile(File directory, int type) {
         // create a media file name, encoded with the current date and time
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.CANADA).format(System.currentTimeMillis());
         File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE)
-        {
+        if (type == MEDIA_TYPE_IMAGE) {
             mediaFile = new File(directory.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
-        } else
-        {
+        } else {
             return null;
         }
         return mediaFile;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         initialize();
     }
 
-    private void initialize()
-    {
+    private void initialize() {
         // hide the action bar (gives more display space on small screens)
         if (getActionBar() != null)
             getActionBar().hide();
@@ -104,13 +96,13 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
         // get references to UI widgets
 //        imageCameraButton = (ImageButton) findViewById(R.id.button1);
         imageCameraButton2 = (ImageButton) findViewById(R.id.cam);
-        imageGelleryButton=(ImageButton)findViewById(R.id.gallery);
-        imageView = (ImageView)findViewById(R.id.imageView1);
+        imageGelleryButton = (ImageButton) findViewById(R.id.gallery);
+        imageView = (ImageView) findViewById(R.id.imageView1);
 
-        imagePrevButton = (ImageButton)findViewById(R.id.button1a);
-        imageNextButton = (ImageButton)findViewById(R.id.button1b);
-        imageCountView = (TextView)findViewById(R.id.imageCount);
-        test = (Button)findViewById(R.id.test);
+        imagePrevButton = (ImageButton) findViewById(R.id.button1a);
+        imageNextButton = (ImageButton) findViewById(R.id.button1b);
+        imageCountView = (TextView) findViewById(R.id.imageCount);
+        test = (Button) findViewById(R.id.test);
 
         testMode = false;
         allowSearch = true;
@@ -128,8 +120,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
         // make a working directory (if necessary) to store the images and videos
         mediaStorageDirectory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
                 WORKING_DIRECTORY);
-        if (!mediaStorageDirectory.exists() && !mediaStorageDirectory.mkdirs())
-        {
+        if (!mediaStorageDirectory.exists() && !mediaStorageDirectory.mkdirs()) {
             Log.i(MYDEBUG, "Failed to create directory: " + WORKING_DIRECTORY);
             this.finish(); // terminate
         }
@@ -138,10 +129,10 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
         imageFilenames = mediaStorageDirectory.list(new MyFilenameFilter(".jpg"));
 
 
-		/*
+        /*
          * Sort the arrays into chronological order. Note: This only works because the date and time
-		 * of creation are embedded in the filenames.
-		 */
+         * of creation are embedded in the filenames.
+         */
 
         Arrays.sort(imageFilenames);
 
@@ -153,7 +144,6 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
         imageIdx = imageFilenames == null ? -1 : imageFilenames.length - 1;
 
 
-
         if (imageIdx >= 0) // there is at least one image in the directory (show it!)
             displayImage();
 
@@ -163,14 +153,12 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
 
     // touch callback for picture and video views
     @Override
-    public boolean onTouch(View v, MotionEvent me)
-    {
+    public boolean onTouch(View v, MotionEvent me) {
         // we're only interested in ACTION_UP events
         if (me.getAction() != MotionEvent.ACTION_UP)
             return true;
 
-        if (v == imageView && imageFilenames.length > 0)
-        {
+        if (v == imageView && imageFilenames.length > 0) {
             final Bundle b = new Bundle();
             b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
             b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
@@ -187,8 +175,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
 
     // callback for the UI buttons used to cycle through images/videos or to launch the camera intent
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         if (v == imageCameraButton2) // launch camera intent (image mode)
         {
             // create Intent to take a picture and return control to the calling application
@@ -204,17 +191,15 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
             // Note: the 2nd argument is the Request Code (will be returned to onActivityResult)
             startActivityForResult(intent, IMAGE_CAMERA_MODE);
 
-        }
-        else if (v == imagePrevButton && imageFilenames.length != 0) {
+        } else if (v == imagePrevButton && imageFilenames.length != 0) {
             previousImage();
 
-        }else if (v == imageNextButton && imageFilenames.length != 0) {
+        } else if (v == imageNextButton && imageFilenames.length != 0) {
             nextImage();
-        }else if (v == imageGelleryButton){
+        } else if (v == imageGelleryButton) {
 //            displayImage();
 
-            if ( imageFilenames.length > 0)
-            {
+            if (imageFilenames.length > 0) {
                 final Bundle b = new Bundle();
                 b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
                 b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
@@ -226,8 +211,8 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
 
             }
 
-        }else if (v == test){
-            if(imageFilenames.length > 1) {
+        } else if (v == test) {
+            if (imageFilenames.length > 1) {
                 testMode = true;
                 final Bundle b = new Bundle();
                 ArrayList<String> testScores = new ArrayList<String>();
@@ -243,36 +228,30 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
                 Intent i = new Intent(getApplicationContext(), TestInstructions.class);
                 i.putExtras(b);
                 startActivity(i);
-            }else{
-                Toast.makeText(this,"You must have more than 3 pictures to do the test", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "You must have more than 3 pictures to do the test", Toast.LENGTH_SHORT).show();
             }
         }
 
 
-
-
     }
 
-    private void previousImage()
-    {
+    private void previousImage() {
         --imageIdx;
         if (imageIdx < 0)
             imageIdx = imageFilenames.length - 1;
         displayImage();
     }
 
-    private void nextImage()
-    {
+    private void nextImage() {
         ++imageIdx;
         if (imageIdx >= imageFilenames.length)
             imageIdx = 0;
         displayImage();
     }
 
-    private void displayImage()
-    {
-        if (imageFilenames != null && imageFilenames.length > 0)
-        {
+    private void displayImage() {
+        if (imageFilenames != null && imageFilenames.length > 0) {
             String path = mediaStorageDirectory.toString() + File.separator + imageFilenames[imageIdx];
             Bitmap bmp = BitmapFactory.decodeFile(path);
             imageView.setImageBitmap(bmp);
@@ -294,26 +273,23 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
      * onActivityResult.
      */
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == IMAGE_CAMERA_MODE)
-        {
-            if (resultCode == Activity.RESULT_OK)
-            {
+        if (requestCode == IMAGE_CAMERA_MODE) {
+            if (resultCode == Activity.RESULT_OK) {
                 /*
                  * The following line of commented-out code is from the Android API Guide for
-				 * "Camera". However, this line of code causes the app to crash with a null pointer
-				 * exception. The problem is that the Intent passed to onActivityResult is null.
-				 * After some digging, I came across the following explanation in StackOverflow:
-				 *
-				 * "The default Android camera application returns a non-null intent only when
-				 * passing back a thumbnail in the returned Intent. If you pass EXTRA_OUTPUT with a
-				 * URL to write to, it will return a null intent and the picture is in the URL that
-				 * you passed in."  (Note: The author meant "URI", not "URL".) See...
-				 *
-				 * http://stackoverflow.com/questions/9890757/android-camera-data-intent-returns-null
-				 */
+                 * "Camera". However, this line of code causes the app to crash with a null pointer
+                 * exception. The problem is that the Intent passed to onActivityResult is null.
+                 * After some digging, I came across the following explanation in StackOverflow:
+                 *
+                 * "The default Android camera application returns a non-null intent only when
+                 * passing back a thumbnail in the returned Intent. If you pass EXTRA_OUTPUT with a
+                 * URL to write to, it will return a null intent and the picture is in the URL that
+                 * you passed in."  (Note: The author meant "URI", not "URL".) See...
+                 *
+                 * http://stackoverflow.com/questions/9890757/android-camera-data-intent-returns-null
+                 */
                 // Toast.makeText(this, "Image saved to:\n" + data.getData(),
                 // Toast.LENGTH_LONG).show();
 
@@ -327,20 +303,17 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
                 imageIdx = imageFilenames.length - 1;
                 displayImage();
 
-            } else if (resultCode == Activity.RESULT_CANCELED)
-            {
+            } else if (resultCode == Activity.RESULT_CANCELED) {
                 // user cancelled the image capture
                 Toast.makeText(this, "Image capture cancelled", Toast.LENGTH_LONG).show();
 
-            } else
-            {
+            } else {
                 // image capture failed, advise user
                 Toast.makeText(this, "Image capture failed", Toast.LENGTH_LONG).show();
             }
         }
-		// we're returning via the Back button in the Navigation Bar. Therefore, the return code is CANCEL
-        else if (requestCode == IMAGE_VIEWER_MODE)
-        {
+        // we're returning via the Back button in the Navigation Bar. Therefore, the return code is CANCEL
+        else if (requestCode == IMAGE_VIEWER_MODE) {
             if (resultCode == Activity.RESULT_OK)
                 displayImage();
             else
@@ -376,25 +349,21 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
      * onConfigurationChanged, see Demo_WebView.
      */
     @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
+    public void onConfigurationChanged(Configuration newConfig) {
         Log.i(MYDEBUG, "onConfigurationChanged! newConfig=" + newConfig);
         super.onConfigurationChanged(newConfig);
     }
 
     // A filter used with listFiles (see above) to return only files with a specified extension
     // (e.g., ".jpg" or ".mp4")
-    class MyFilenameFilter implements FilenameFilter
-    {
+    class MyFilenameFilter implements FilenameFilter {
         String extension;
 
-        MyFilenameFilter(String extensionArg)
-        {
+        MyFilenameFilter(String extensionArg) {
             this.extension = extensionArg;
         }
 
-        public boolean accept(File f, String name)
-        {
+        public boolean accept(File f, String name) {
             return name.endsWith(extension);
         }
     }

@@ -19,7 +19,6 @@ import java.util.Comparator;
 import java.util.Random;
 
 
-
 public class FindThisImage extends Activity implements View.OnClickListener {
 
     ImageView imageToFind;
@@ -38,9 +37,10 @@ public class FindThisImage extends Activity implements View.OnClickListener {
     final static String IMAGE_FILENAMES_KEY = "image_filenames";
     final static String TESTMODE_KEY = "testmode";
     final static String ALLOW_SEARCH_KEY = "allowsearch";
-    final static String FILE_KEY ="file";
+    final static String FILE_KEY = "file";
     final static String DIRECTORY_KEY = "directory";
     final static String IMAGE_INDEX_KEY = "image_index";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,46 +59,41 @@ public class FindThisImage extends Activity implements View.OnClickListener {
         System.out.println("DIRECTROY STRING " + directoryString);
         directory = new File(directoryString);
 
-        if (!directory.exists())
-        {
+        if (!directory.exists()) {
             super.onDestroy(); // cleanup
             this.finish(); // terminate
         }
 
         // Get a list of files in the directory, sorted by filename. See...
         files = directory.listFiles(new FindThisImage.MyFilenameFilter(".jpg"));
-        Arrays.sort(files, new Comparator<File>()
-        {
-            public int compare(File f1, File f2)
-            {
+        Arrays.sort(files, new Comparator<File>() {
+            public int compare(File f1, File f2) {
                 return f1.getName().compareTo(f2.getName());
             }
         });
 
-        imageToFind = (ImageView)findViewById(R.id.imageToFind);
-        next = (Button)findViewById(R.id.next);
-        header = (TextView)findViewById(R.id.header);
+        imageToFind = (ImageView) findViewById(R.id.imageToFind);
+        next = (Button) findViewById(R.id.next);
+        header = (TextView) findViewById(R.id.header);
 
         totalImages = files.length;
         next.setOnClickListener(this);
 
 
-
-
         //checks to see if the second test has been done or not
-        if(imageCount % 2 == 0){
+        if (imageCount % 2 == 0) {
             //second test, use the same image
             allowSearch = false;
             file = new File(b.getString("file"));
-        }else{
+        } else {
             //first test, getting a random image from the files that hasnt been used before
             boolean fileHasBeenUsed = true;
-            while(fileHasBeenUsed){
+            while (fileHasBeenUsed) {
                 Random random = new Random();
-                int randomNum = random.nextInt(((files.length-1)-0)+1) + 0;
+                int randomNum = random.nextInt(((files.length - 1) - 0) + 1) + 0;
                 file = files[randomNum];
 
-                if(!fileUsedBefore(file)){
+                if (!fileUsedBefore(file)) {
                     fileHasBeenUsed = false;
                     usedFiles.add(file.toString());
                 }
@@ -111,9 +106,9 @@ public class FindThisImage extends Activity implements View.OnClickListener {
         imageToFind.setImageURI(uri);
 
         System.out.println("FindThisImage COUNT: " + imageCount);
-        if(allowSearch){
+        if (allowSearch) {
             header.setText("Search For This Image Using The Search Bar");
-        }else{
+        } else {
             header.setText("Search For This Image Without Using The Search Bar");
         }
 
@@ -122,19 +117,19 @@ public class FindThisImage extends Activity implements View.OnClickListener {
 
     //does not allow user to press back
     @Override
-    public void onBackPressed () {
+    public void onBackPressed() {
 
     }
 
     @Override
-    public void onClick(View v){
+    public void onClick(View v) {
 
-        if(v == next){
+        if (v == next) {
             b.putInt("fileAmount", totalImages);
             b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
             b.putString(DIRECTORY_KEY, directoryString);
             b.putString(FILE_KEY, fileString);
-            b.putBoolean(TESTMODE_KEY,testMode);
+            b.putBoolean(TESTMODE_KEY, testMode);
             b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
             b.putInt(IMAGE_INDEX_KEY, imageCount);
             b.putStringArrayList("usedfiles", usedFiles);
@@ -147,12 +142,12 @@ public class FindThisImage extends Activity implements View.OnClickListener {
         }
     }
 
-    public boolean fileUsedBefore(File f){
+    public boolean fileUsedBefore(File f) {
         boolean fileUsedAlready = false;
         String file = f.toString();
 
-        for(int i = 0; i < usedFiles.size(); i++){
-            if(usedFiles.get(i).compareTo(file) == 0){
+        for (int i = 0; i < usedFiles.size(); i++) {
+            if (usedFiles.get(i).compareTo(file) == 0) {
                 fileUsedAlready = true;
             }
         }
@@ -161,18 +156,15 @@ public class FindThisImage extends Activity implements View.OnClickListener {
     }
 
 
-    class MyFilenameFilter implements FilenameFilter
-    {
+    class MyFilenameFilter implements FilenameFilter {
         String extension;
 
-        MyFilenameFilter(String extensionArg)
-        {
+        MyFilenameFilter(String extensionArg) {
             this.extension = extensionArg;
         }
 
         @SuppressLint("DefaultLocale")
-        public boolean accept(File f, String name)
-        {
+        public boolean accept(File f, String name) {
             // add toLowerCase to accept ".jpg" or ".JPG"
             return name.toLowerCase().endsWith(extension);
         }

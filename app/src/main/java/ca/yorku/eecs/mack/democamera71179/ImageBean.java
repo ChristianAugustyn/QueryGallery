@@ -7,7 +7,8 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class ImageBean {
-    @PrimaryKey @NonNull
+    @PrimaryKey
+    @NonNull
     public String id;
 
     @ColumnInfo(name = "tags")

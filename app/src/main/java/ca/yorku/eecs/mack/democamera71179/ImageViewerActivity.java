@@ -34,8 +34,7 @@ import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.util.Locale;
 
-public class ImageViewerActivity extends Activity implements OnTouchListener
-{
+public class ImageViewerActivity extends Activity implements OnTouchListener {
     RelativeLayout container; // parent view (holds the image view)
     ImageView imageView; // holds the JPG file
     TextView textView; // status info
@@ -83,10 +82,10 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
 
                 System.out.println(uri);
                 System.out.println(path);
-                sendIntent.putExtra(Intent.EXTRA_STREAM, uri );
+                sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
                 sendIntent.setType("image/*");
                 sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                Intent.createChooser(sendIntent,"Send email using...");
+                Intent.createChooser(sendIntent, "Send email using...");
                 startActivity(sendIntent);
                 return true;
             case R.id.delete:
@@ -135,14 +134,13 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.imageviewer);
-        container = (RelativeLayout)findViewById(R.id.imagecontainer);
-        imageView = (ImageView)findViewById(R.id.imageView);
-        textView = (TextView)findViewById(R.id.textView);
-        tagView = (TextView)findViewById(R.id.tagView);
+        container = (RelativeLayout) findViewById(R.id.imagecontainer);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        textView = (TextView) findViewById(R.id.textView);
+        tagView = (TextView) findViewById(R.id.tagView);
 
         db = QueryGallery.db;
         // attach a touch listener so the image will respond to touch events
@@ -209,26 +207,26 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                                     entry.tags = tag + "_";
                                     imageDao.insert(entry);
                                     Toast.makeText(ImageViewerActivity.this, "The tag \"" + tag + "\" has already been applied to this image", Toast.LENGTH_SHORT).show();
-                                } else if(validTag) { //update the bean data
+                                } else if (validTag) { //update the bean data
 
-                                        boolean containsTag = false;
-                                        for (String t : bean.tags.split("_")) {
-                                            containsTag = containsTag || tag.equals(t);
-                                        }
+                                    boolean containsTag = false;
+                                    for (String t : bean.tags.split("_")) {
+                                        containsTag = containsTag || tag.equals(t);
+                                    }
 
-                                        if (!containsTag) {
-                                            bean.tags = bean.tags + tag + "_";
-                                            imageDao.updateImageTags(bean);
-                                            Toast.makeText(ImageViewerActivity.this, "Tag Added", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            Toast.makeText(ImageViewerActivity.this, "The tag \"" + tag + "\" has already been applied to this image", Toast.LENGTH_SHORT).show();
-                                        }
+                                    if (!containsTag) {
+                                        bean.tags = bean.tags + tag + "_";
+                                        imageDao.updateImageTags(bean);
+                                        Toast.makeText(ImageViewerActivity.this, "Tag Added", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(ImageViewerActivity.this, "The tag \"" + tag + "\" has already been applied to this image", Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
 
                                     Toast.makeText(ImageViewerActivity.this, "Tag Format Is Invalid", Toast.LENGTH_SHORT).show();
 
-                                    }
                                 }
+                            }
 
 
                         })
@@ -250,7 +248,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                 //get all teh tags and turn it into an array
 
                 if (bean != null) {
-                    if(bean.tags.isEmpty() == false) {
+                    if (bean.tags.isEmpty() == false) {
                         final String[] beanTags = bean.tags.split("_");
 
 
@@ -284,11 +282,11 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
                                     }
                                 }).show();
                         ;
-                    }else{
+                    } else {
                         Toast.makeText(ImageViewerActivity.this, "No Tags To Remove", Toast.LENGTH_SHORT).show();
                     }
 
-                }else{
+                } else {
                     Toast.makeText(ImageViewerActivity.this, "No Tags To Remove", Toast.LENGTH_SHORT).show();
 
                 }
@@ -297,16 +295,16 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
     }
 
     //validates the tag to ensure that the user has not put an "_" anywhere in their string.
-    public boolean validateTags(String tagInput){
+    public boolean validateTags(String tagInput) {
         boolean allTagsFormattedProperly = true;
 
         String[] tagArray = tagInput.split("\\s+");
 
-        for(int i = 0; i < tagArray.length; i++) {
+        for (int i = 0; i < tagArray.length; i++) {
             String tag = tagArray[i];
 
-            for(int j = 0; j < tag.length(); j++){
-                if(tag.charAt(j) == '_'){
+            for (int j = 0; j < tag.length(); j++) {
+                if (tag.charAt(j) == '_') {
                     allTagsFormattedProperly = false;
                 }
             }
@@ -318,14 +316,12 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
 
     // call displayImage here (not in the constructor) to ensure the first image appears
     @Override
-    public void onWindowFocusChanged(boolean hasFocus)
-    {
+    public void onWindowFocusChanged(boolean hasFocus) {
         displayImage(index);
     }
 
     // advance to the previous image
-    private void previousImage()
-    {
+    private void previousImage() {
         --index;
         if (index < 0)
             index = filenames.length - 1;
@@ -333,8 +329,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
     }
 
     // advance to the next image
-    private void nextImage()
-    {
+    private void nextImage() {
         ++index;
         if (index >= filenames.length)
             index = 0;
@@ -342,8 +337,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
     }
 
     // display the image at the indicated position in the filenames array
-    private void displayImage(int idx)
-    {
+    private void displayImage(int idx) {
         // form the path to the image in this Android device's storage
         String path = directory + File.separator + filenames[idx];
 
@@ -357,11 +351,9 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         // get the image dimensions (without allocating memory; see API)
         BitmapFactory.Options o = new BitmapFactory.Options();
         o.inJustDecodeBounds = true;
-        try
-        {
+        try {
             BitmapFactory.decodeStream(new FileInputStream(f), null, o);
-        } catch (FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             Log.i("MYDEBUG", "FileNotFoundException e=" + e.toString());
         }
 
@@ -379,8 +371,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
     }
 
     // set and apply a variety of defaults to get things started off on the right foot
-    private void setDefaults()
-    {
+    private void setDefaults() {
         zoomMode = false;
         scaleFactor = 1f;
         lastScaleFactor = 1f;
@@ -398,23 +389,20 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
 
     // The next two methods ensure the same image is displayed when the device orientation changes.
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState)
-    {
+    public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt("position", index);
         super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState)
-    {
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         index = savedInstanceState.getInt("position");
         displayImage(index);
     }
 
     @Override
-    public boolean onTouch(View v, MotionEvent me)
-    {
+    public boolean onTouch(View v, MotionEvent me) {
         // Let the ScaleGestureDetector inspect all events for pinch/unpinch gestures
         scaleGestureDetector.onTouchEvent(me);
 
@@ -422,11 +410,9 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         gestureDetector.onTouchEvent(me);
 
         final int action = me.getAction();
-        switch (action & MotionEvent.ACTION_MASK)
-        {
+        switch (action & MotionEvent.ACTION_MASK) {
             // --------------------------
-            case MotionEvent.ACTION_DOWN:
-            {
+            case MotionEvent.ACTION_DOWN: {
                 // get the touch coordinate
                 final float x = me.getX();
                 final float y = me.getY();
@@ -441,18 +427,15 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
             }
 
             // --------------------------
-            case MotionEvent.ACTION_MOVE:
-            {
-                if (activePointerId != INVALID_POINTER_ID)
-                {
+            case MotionEvent.ACTION_MOVE: {
+                if (activePointerId != INVALID_POINTER_ID) {
                     // Find the index of the active pointer and fetch its position
                     final int pointerIndex = me.findPointerIndex(activePointerId);
                     final float x = me.getX(pointerIndex);
                     final float y = me.getY(pointerIndex);
 
                     // Only move if the ScaleGestureDetector isn't processing a gesture.
-                    if (!scaleGestureDetector.isInProgress())
-                    {
+                    if (!scaleGestureDetector.isInProgress()) {
                         // compute image position delta
                         final float dx = x - lastTouchX;
                         final float dy = y - lastTouchY;
@@ -479,12 +462,10 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
             }
 
             // -------------------------
-            case MotionEvent.ACTION_UP:
-            {
+            case MotionEvent.ACTION_UP: {
                 // invalidate the pointer ID
                 activePointerId = INVALID_POINTER_ID;
-                if (!zoomMode)
-                {
+                if (!zoomMode) {
                     positionX = 0f;
                     positionY = 0f;
                     scaleFactor = 1f;
@@ -496,21 +477,18 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
             }
 
             // -----------------------------
-            case MotionEvent.ACTION_CANCEL:
-            {
+            case MotionEvent.ACTION_CANCEL: {
                 // invalidate the pointer ID
                 activePointerId = INVALID_POINTER_ID;
                 break;
             }
 
             // ---------------------------------
-            case MotionEvent.ACTION_POINTER_UP:
-            {
+            case MotionEvent.ACTION_POINTER_UP: {
                 // Extract the index of the pointer that left the touch sensor
                 final int pointerIndex = (action & MotionEvent.ACTION_POINTER_INDEX_MASK) >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
                 final int pointerId = me.getPointerId(pointerIndex);
-                if (pointerId == activePointerId)
-                {
+                if (pointerId == activePointerId) {
                     // This is the active pointer going up. Choose a new active pointer and adjust
                     // accordingly.
                     final int newPointerIndex = pointerIndex == 0 ? 1 : 0;
@@ -522,8 +500,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
             }
 
             // ----------------------------------
-            case MotionEvent.ACTION_POINTER_DOWN:
-            {
+            case MotionEvent.ACTION_POINTER_DOWN: {
                 break;
             }
         }
@@ -537,8 +514,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
      * those of the parent view. The calculations accommodate the view's position (left, top, right,
      * bottom), scale, translation, and pivot.
      */
-    public Rect getViewRectangle(ImageView view)
-    {
+    public Rect getViewRectangle(ImageView view) {
         Rect r = new Rect();
         final float pivotX = view.getPivotX();
         final float pivotY = view.getPivotY();
@@ -550,10 +526,10 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         final float bottom = view.getBottom();
         final float translationX = view.getTranslationX();
         final float translationY = view.getTranslationY();
-        r.left = (int)(pivotX - (pivotX - left) * scaleX + translationX + 0.5f);
-        r.top = (int)(pivotY - (pivotY - top) * scaleY + translationY + 0.5f);
-        r.right = (int)(pivotX + (right - pivotX) * scaleX + translationX + 0.5f);
-        r.bottom = (int)(pivotY + (bottom - pivotY) * scaleY + translationY + 0.5f);
+        r.left = (int) (pivotX - (pivotX - left) * scaleX + translationX + 0.5f);
+        r.top = (int) (pivotY - (pivotY - top) * scaleY + translationY + 0.5f);
+        r.right = (int) (pivotX + (right - pivotX) * scaleX + translationX + 0.5f);
+        r.bottom = (int) (pivotY + (bottom - pivotY) * scaleY + translationY + 0.5f);
         return r;
     }
 
@@ -563,13 +539,11 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
 
     // ===========================================================================================================
     // detector for two-finger scale gestures (pinch, unpinch)
-    private class MyScaleGestureListener extends ScaleGestureDetector.SimpleOnScaleGestureListener
-    {
+    private class MyScaleGestureListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         float lastFocusX, lastFocusY;
 
         @Override
-        public boolean onScale(ScaleGestureDetector detector)
-        {
+        public boolean onScale(ScaleGestureDetector detector) {
             zoomMode = true;
             scaleFactor *= detector.getScaleFactor();
 
@@ -628,8 +602,7 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
          * that the focus point remains between the fingers as the gesture proceeds.
          */
         @Override
-        public boolean onScaleBegin(ScaleGestureDetector detector)
-        {
+        public boolean onScaleBegin(ScaleGestureDetector detector) {
             float focusX = detector.getFocusX();
             float focusY = detector.getFocusY();
             lastFocusX = focusX;
@@ -645,18 +618,15 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         }
 
         @Override
-        public void onScaleEnd(ScaleGestureDetector detector)
-        {
+        public void onScaleEnd(ScaleGestureDetector detector) {
         }
     }
 
     // ===========================================================================================================
     // detector for fling or double tap gestures
-    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener
-    {
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
         @Override
-        public boolean onFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY)
-        {
+        public boolean onFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
             Log.i("MYDEBUG", "Got here: onFling");
             if (velocityX > 3000) // flick to right
             {
@@ -669,15 +639,12 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         }
 
         @Override
-        public boolean onDoubleTap(MotionEvent me)
-        {
+        public boolean onDoubleTap(MotionEvent me) {
             // toggle between normal (x1) and big (x3)
-            if (zoomMode)
-            {
+            if (zoomMode) {
                 scaleFactor = 1f;
                 lastScaleFactor = 1f;
-            } else
-            {
+            } else {
                 scaleFactor = 3f;
                 lastScaleFactor = 3f;
             }
@@ -695,23 +662,20 @@ public class ImageViewerActivity extends Activity implements OnTouchListener
         }
 
         @Override
-        public void onLongPress(MotionEvent me)
-        {
+        public void onLongPress(MotionEvent me) {
             Log.i("MYDEBUG", "Got here: onLongPress");
             // do something interesting for a long press
         }
     }
-    class MyFilenameFilter implements FilenameFilter
-    {
+
+    class MyFilenameFilter implements FilenameFilter {
         String extension;
 
-        MyFilenameFilter(String extensionArg)
-        {
+        MyFilenameFilter(String extensionArg) {
             this.extension = extensionArg;
         }
 
-        public boolean accept(File f, String name)
-        {
+        public boolean accept(File f, String name) {
             return name.endsWith(extension);
         }
     }
