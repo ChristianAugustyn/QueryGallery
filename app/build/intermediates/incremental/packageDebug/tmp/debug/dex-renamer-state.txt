@@ -1,4 +1,4 @@
-#Sun Apr 18 15:43:40 EDT 2021
+#Sun Apr 18 20:38:16 EDT 2021
 base.0=C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

@@ -17,6 +17,7 @@ public class TestInstructions extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.testinstructions);
         b = getIntent().getExtras();
+
         startTest = (Button) findViewById(R.id.start_test);
         startTest.setOnClickListener(this);
     }

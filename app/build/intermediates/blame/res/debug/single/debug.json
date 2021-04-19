@@ -152,6 +152,10 @@
         "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\src\\main\\res\\drawable-hdpi\\ic_rightarrow.png"
     },
     {
+        "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\res\\merged\\debug\\layout_results.xml.flat",
+        "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\src\\main\\res\\layout\\results.xml"
+    },
+    {
         "merged": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_leftarrow.png.flat",
         "source": "C:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\src\\main\\res\\drawable-hdpi\\ic_leftarrow.png"
     },

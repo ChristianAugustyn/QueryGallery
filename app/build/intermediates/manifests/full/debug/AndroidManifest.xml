@@ -43,6 +43,7 @@
         </activity>
         <activity android:name="ca.yorku.eecs.mack.democamera71179.FindThisImage" />
         <activity android:name="ca.yorku.eecs.mack.democamera71179.TestInstructions" />
+        <activity android:name="ca.yorku.eecs.mack.democamera71179.ResultsPage" />
         <!--
     <activity android:name=".SearchResultsActivity"  >
         <intent-filter>

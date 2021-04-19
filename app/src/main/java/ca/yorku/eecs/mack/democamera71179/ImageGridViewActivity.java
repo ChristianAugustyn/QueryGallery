@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /* This activity receives a bundle containing the name of a directory.  All the images
  * in the directory are retrieved and displayed in a grid view.
@@ -40,10 +42,16 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
     String[] filenames;
     TagDB db;
     String directoryString, testingFilePath;
-    int columnWidth;
-    final static String TESTMODE_KEY = "testmode";
-    final static String ALLOW_SEARCH_KEY = "allowsearch";
-    final static String FILE_KEY ="file";
+    ArrayList<String> testScores;
+    long time1,time2;
+
+    int columnWidth, imageCount;
+    final static String TESTMODE_KEY = "testmode"; //tells if the program is in test mode
+    final static String ALLOW_SEARCH_KEY = "allowsearch"; //allows the user to use the search function
+    final static String FILE_KEY ="file"; //passes the file to be used through
+    final static String DIRECTORY_KEY = "directory";
+    final static String IMAGE_INDEX_KEY = "image_index";
+    final static String IMAGE_FILENAMES_KEY = "image_filenames";
     boolean testMode, allowSearch;
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -54,9 +62,12 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
         // data passed from the setup activity in startActivity
         Bundle b = getIntent().getExtras();
         directoryString = b.getString("directory");
-        testMode = b.getBoolean(TESTMODE_KEY);
-        allowSearch = b.getBoolean(ALLOW_SEARCH_KEY);
-        testingFilePath = b.getString(FILE_KEY);
+        testMode = b.getBoolean("testmode");
+        allowSearch = b.getBoolean("allowsearch");
+        testingFilePath = b.getString("file");
+        imageCount = b.getInt("image_index");
+        testScores= b.getStringArrayList("testscores");
+
 
         // get the directory containing some images
         directory = new File(directoryString);
@@ -116,44 +127,47 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
         gridView.setOnItemClickListener(this);
 
         db = QueryGallery.db;
+
+        time1 = System.currentTimeMillis();
     }
 
 
     //Search Bar Functionality
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.options_menu, menu);
+        if(allowSearch) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.options_menu, menu);
 
-        // Associate searchable configuration with the SearchView
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
+            // Associate searchable configuration with the SearchView
+            SearchManager searchManager =
+                    (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+            SearchView searchView =
+                    (SearchView) menu.findItem(R.id.search).getActionView();
+            searchView.setSearchableInfo(
+                    searchManager.getSearchableInfo(getComponentName()));
 
-        //Listener for when the user changes the text in the text bar or submits their query
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String tags) {
-                search(tags);
-                return false;
-            }
-
-            //When there is no text in the search bar, the gridview is reverts back to showing all images
-            @Override
-            public boolean onQueryTextChange(String s) {
-                if(s.length() == 0){
-                    getInitalFileNames();
-                    imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
-                    gridView.setAdapter(null);
-                    gridView.setAdapter(imageAdapter);
+            //Listener for when the user changes the text in the text bar or submits their query
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String tags) {
+                    search(tags);
+                    return false;
                 }
-                return false;
-            }
-        });
 
+                //When there is no text in the search bar, the gridview is reverts back to showing all images
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    if (s.length() == 0) {
+                        getInitalFileNames();
+                        imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
+                        gridView.setAdapter(null);
+                        gridView.setAdapter(imageAdapter);
+                    }
+                    return false;
+                }
+            });
+        }
         return true;
     }
 
@@ -227,6 +241,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
         return inFilesnames;
     }
 
+    //converts the arraylist to an array
     public String[] toArray(ArrayList<String> list){
         String[] theArray = new String[list.size()];
         for(int i = 0; i < theArray.length; i++){
@@ -247,6 +262,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id)
     {
+        //Checks if the user is in test mode
         if(!testMode) {
             final Bundle b = new Bundle();
             b.putStringArray("imageFilenames", filenames);
@@ -258,19 +274,68 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
             i.putExtras(b);
             startActivityForResult(i, RESULT_OK);
         }else {
+            //creates the path of the click
             String path = directory + File.separator + filenames[position];
-
+            //compares the path with the current pictures path
             if(testingFilePath.equalsIgnoreCase(path)){
                 Toast.makeText(this, "They Match ", Toast.LENGTH_SHORT).show();
-                System.out.println("path: " + path);
-                System.out.println("testing file path: " + testingFilePath);
+                time2 = System.currentTimeMillis();
+
+                long score = TimeUnit.MILLISECONDS.toSeconds(time2 - time1);
+
+                imageCount ++;
+
+                String result;
+                if(allowSearch){
+                    int testnum = imageCount/2;
+                    if(testnum == 0){
+                        testnum = 1;
+                    }
+                    result = "Test: " + testnum + " with search - " + score + " seconds";
+                }else{
+                    int testnum = imageCount/2;
+                    result = "Test: " + testnum + " without search - " + score + " seconds";
+                }
+                testScores.add(result);
+
+                //image count is used to ensure that there are not more tests than there are pictures
+
+                //filenames.length*2 to make a direct comparison of search manually and via text bar
+                if(imageCount <= filenames.length *2) {
+                    final Bundle b = new Bundle();
+                    b.putStringArray(IMAGE_FILENAMES_KEY, filenames);
+                    b.putString(DIRECTORY_KEY, directory.toString());
+                    b.putBoolean(TESTMODE_KEY, testMode);
+                    b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
+                    b.putInt(IMAGE_INDEX_KEY, imageCount);
+                    b.putStringArrayList("testscores",testScores);
+                    System.out.println("IMAGE GRID COUNT: " + imageCount);
+                    Intent i = new Intent(getApplicationContext(), FindThisImage.class);
+                    i.putExtras(b);
+                    startActivity(i);
+                }else{
+                    //Get results
+                    final Bundle b = new Bundle();
+                    b.putStringArrayList("testscores",testScores);
+                    Intent i = new Intent(getApplicationContext(), ResultsPage.class);
+                    i.putExtras(b);
+                    startActivity(i);
+                }
 
 
             }else{
                 Toast.makeText(this, "They Dont Match ", Toast.LENGTH_SHORT).show();
-                System.out.println("path: " + path);
-                System.out.println("testing file path: " + testingFilePath);
+
             }
+        }
+    }
+
+    @Override
+    public void onBackPressed () {
+        if (testMode) {
+
+        } else {
+            super.onBackPressed();
         }
     }
 

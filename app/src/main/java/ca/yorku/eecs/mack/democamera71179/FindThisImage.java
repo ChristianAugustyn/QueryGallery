@@ -20,7 +20,7 @@ import java.util.Random;
 
 
 public class FindThisImage extends Activity implements View.OnClickListener {
-    private static final String DIRECTORY_KEY = "directory" ;
+
     ImageView imageToFind;
     String directoryString, fileString;
     File[] files;
@@ -30,11 +30,15 @@ public class FindThisImage extends Activity implements View.OnClickListener {
     boolean testMode, allowSearch;
     String[] imageFilenames;
     TextView header;
+    Bundle b;
+    int imageCount;
     private static final int IMAGE_VIEWER_MODE = 300;
     final static String IMAGE_FILENAMES_KEY = "image_filenames";
     final static String TESTMODE_KEY = "testmode";
     final static String ALLOW_SEARCH_KEY = "allowsearch";
     final static String FILE_KEY ="file";
+    final static String DIRECTORY_KEY = "directory";
+    final static String IMAGE_INDEX_KEY = "image_index";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +46,16 @@ public class FindThisImage extends Activity implements View.OnClickListener {
 
 
         // data passed from the setup activity in startActivity
-        Bundle b = getIntent().getExtras();
+        b = getIntent().getExtras();
         directoryString = b.getString("directory");
         testMode = b.getBoolean("testmode");
         allowSearch = b.getBoolean("allowsearch");
-
+        imageCount = b.getInt("image_index");
         // get the directory containing some images
+
+        System.out.println("DIRECTROY STRING " + directoryString);
         directory = new File(directoryString);
+
         if (!directory.exists())
         {
             super.onDestroy(); // cleanup
@@ -80,27 +87,38 @@ public class FindThisImage extends Activity implements View.OnClickListener {
         Uri uri = Uri.parse(file.toString());
         imageToFind.setImageURI(uri);
 
+        if(imageCount % 2 == 0){
+            allowSearch = false;
+        }else{
+            allowSearch = true;
+        }
 
+        System.out.println("FindThisImage COUNT: " + imageCount);
         if(allowSearch){
             header.setText("Search For This Image Using The Search Bar");
         }else{
             header.setText("Search For This Image Without Using The Search Bar");
         }
 
-        System.out.println("is File null here?" + file.toString());
+
+    }
+
+    //does not allow user to press back
+    @Override
+    public void onBackPressed () {
+
     }
 
     @Override
     public void onClick(View v){
-        System.out.println("is File null here?" + file.toString());
+
         if(v == next){
-            final Bundle b = new Bundle();
             b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
             b.putString(DIRECTORY_KEY, directoryString);
-
             b.putString(FILE_KEY, fileString);
             b.putBoolean(TESTMODE_KEY,testMode);
             b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
+            b.putInt(IMAGE_INDEX_KEY, imageCount);
 
             // start image viewer activity
             Intent i = new Intent(getApplicationContext(), ImageGridViewActivity.class);

@@ -25,6 +25,7 @@ import androidx.room.Room;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -40,7 +41,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
     final static String DIRECTORY_KEY = "directory";
     final static String TESTMODE_KEY = "testmode";
     final static String ALLOW_SEARCH_KEY = "allowsearch";
-
+    final static String AMOUNT_OF_TESTS = "testamount";
     final static String IMAGE_FILENAMES_KEY = "image_filenames";
     private static final String MYDEBUG = "MYDEBUG"; // for Log.i messages
     private static final int IMAGE_CAMERA_MODE = 100;
@@ -55,7 +56,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
     Button test;
     File mediaStorageDirectory;
     String[] imageFilenames;
-    int imageIdx;
+    int imageIdx, imageCount;
     TextView statusTextView;
     TextView imageCountView;
     boolean testMode, allowSearch;
@@ -103,15 +104,16 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
 //        imageCameraButton = (ImageButton) findViewById(R.id.button1);
         imageCameraButton2 = (ImageButton) findViewById(R.id.cam);
         imageGelleryButton=(ImageButton)findViewById(R.id.gallery);
-
         imageView = (ImageView)findViewById(R.id.imageView1);
 
         imagePrevButton = (ImageButton)findViewById(R.id.button1a);
         imageNextButton = (ImageButton)findViewById(R.id.button1b);
         imageCountView = (TextView)findViewById(R.id.imageCount);
         test = (Button)findViewById(R.id.test);
+
         testMode = false;
         allowSearch = true;
+        imageCount = 1;
 
         // attach listeners to UI widgets
         imageView.setOnTouchListener(this);
@@ -130,8 +132,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
             Log.i(MYDEBUG, "Failed to create directory: " + WORKING_DIRECTORY);
             this.finish(); // terminate
         }
-        Log.i(MYDEBUG, "Media directory: " + mediaStorageDirectory.toString());
-        System.out.println("What is this string: " + mediaStorageDirectory.toString());
+
         // fill arrays for image/video filenames currently in the working directory
         imageFilenames = mediaStorageDirectory.list(new MyFilenameFilter(".jpg"));
 
@@ -177,7 +178,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
             startActivityForResult(i, IMAGE_VIEWER_MODE);
 
         }
-        System.out.println("method: on touch");
+
         return true;
     }
 
@@ -208,7 +209,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
             nextImage();
         }else if (v == imageGelleryButton){
 //            displayImage();
-            System.out.println("method: start of gallery button");
+
             if ( imageFilenames.length > 0)
             {
                 final Bundle b = new Bundle();
@@ -219,17 +220,21 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
                 Intent i = new Intent(getApplicationContext(), ImageGridViewActivity.class);
                 i.putExtras(b);
                 startActivityForResult(i, IMAGE_VIEWER_MODE);
-                System.out.println("method: end if in gallery button");
+
             }
-            System.out.println("method: end of gallery button");
+
         }else if (v == test){
             if(imageFilenames.length > 0) {
                 testMode = true;
                 final Bundle b = new Bundle();
+                ArrayList<String> testScores = new ArrayList<String>();
                 b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
+                b.putStringArrayList("testscores", testScores);
                 b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
                 b.putBoolean(TESTMODE_KEY, testMode);
                 b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
+                b.putInt(IMAGE_INDEX_KEY, imageCount);
+                System.out.println("QUERY GALLERY COUNT: " + imageCount);
                 // start image viewer activity
                 Intent i = new Intent(getApplicationContext(), TestInstructions.class);
                 i.putExtras(b);
@@ -240,7 +245,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
         }
 
 
-        System.out.println("method: on click");
+
 
     }
 
@@ -272,7 +277,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
         } else
             imageCountView.setText(String.format("%s", "(no pictures)"));
 
-        System.out.println("method: on display image");
+
     }
 
     /*
