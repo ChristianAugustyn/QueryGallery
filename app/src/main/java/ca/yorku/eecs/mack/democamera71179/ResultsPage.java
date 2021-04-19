@@ -28,8 +28,8 @@ public class ResultsPage extends Activity implements View.OnClickListener {
     ListView list;
     Button goHome;
     ArrayAdapter<String> arrayAdapter;
-    private BufferedWriter sd1, sd2;
-    private File f1, f2;
+    private BufferedWriter sd2;
+    private File f2;
     private final static String DATA_DIRECTORY = "/QueryGalleryData/";
     private final static String SD2_HEADER = "Time";
     private String sd2Leader;
@@ -66,18 +66,16 @@ public class ResultsPage extends Activity implements View.OnClickListener {
             ++blockNumber;
             String blockCode = String.format(Locale.CANADA, "B%02d", blockNumber);
             String baseFilename = String.format("%s", "Results");
-            f1 = new File(dataDirectory, baseFilename + "sd1" + blockNumber + ".txt");
+
             f2 = new File(dataDirectory, baseFilename + "sd2" + blockNumber + ".txt");
 
             // also make a comma-delimited leader that will begin each data line written to the sd2 file
             sd2Leader = String.format("%s-%s", "Times", blockNumber);
-        } while (f1.exists() || f2.exists());
+        } while (f2.exists());
 
         try {
-            sd1 = new BufferedWriter(new FileWriter(f1));
-            sd2 = new BufferedWriter(new FileWriter(f2));
 
-            // output header in sd2 file
+            sd2 = new BufferedWriter(new FileWriter(f2));
             sd2.write(SD2_HEADER, 0, SD2_HEADER.length());
             sd2.flush();
 
@@ -88,16 +86,12 @@ public class ResultsPage extends Activity implements View.OnClickListener {
 
         }
         StringBuilder sd2Data = new StringBuilder(100);
-        StringBuilder sd1Stuff = new StringBuilder(100);
-        sd1Stuff.append("SD1STUFF");
         for (int i = 0; i < results.size(); i++) {
             sd2Data.append(String.format("%s\n", results.get(i)));
         }
 
         // write to data files
         try {
-            sd1.write(sd1Stuff.toString(), 0, sd1Stuff.length());
-            sd1.flush();
             sd2.write(sd2Data.toString(), 0, sd2Data.length());
             sd2.flush();
         } catch (IOException e) {

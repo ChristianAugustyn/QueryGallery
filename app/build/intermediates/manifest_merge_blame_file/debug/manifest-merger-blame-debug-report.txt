@@ -35,69 +35,68 @@
 22        android:debuggable="true"
 23        android:icon="@drawable/icon"
 23-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:14:9-38
-24        android:label="@string/app_name"
+24        android:label="@string/app_name" >
 24-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:15:9-41
-25        android:testOnly="true" >
-26        <activity
-26-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:16:9-25:20
-27            android:name="ca.yorku.eecs.mack.democamera71179.QueryGallery"
-27-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:17:13-75
-28            android:configChanges="orientation|screenSize"
-28-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:18:13-59
-29            android:label="@string/app_name" >
-29-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:19:13-45
-30            <intent-filter>
-30-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:20:13-24:29
-31                <action android:name="android.intent.action.MAIN" />
-31-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:21:17-68
-31-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:21:25-66
-32                <action android:name="android.intent.action.VIEW" />
-32-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:22:17-69
-32-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:22:25-66
-33
-34                <category android:name="android.intent.category.LAUNCHER" />
-34-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:23:17-76
-34-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:23:27-74
-35            </intent-filter>
-36        </activity>
-37        <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity" >
-37-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:26:9-30:20
-37-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:26:19-90
-38            <intent-filter>
-38-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:27:13-29:29
-39                <action android:name="android.intent.action.SEARCH" />
-39-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:28:17-71
-39-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:28:25-68
-40            </intent-filter>
-41        </activity>
-42        <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity" >
-42-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:31:9-32:20
-42-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:31:19-88
-43        </activity>
-44        <activity android:name="ca.yorku.eecs.mack.democamera71179.FindThisImage" />
-44-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:33:9-94
-44-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:33:19-82
-45        <activity android:name="ca.yorku.eecs.mack.democamera71179.TestInstructions" />
-45-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:34:9-97
-45-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:34:19-85
-46        <activity android:name="ca.yorku.eecs.mack.democamera71179.ResultsPage" />
-46-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:35:9-92
-46-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:35:19-80
-47        <!--
-48    <activity android:name=".SearchResultsActivity"  >
-49        <intent-filter>
-50            <action android:name="android.intent.action.SEARCH" />
-51        </intent-filter>
-52    </activity>
-53        -->
-54        <service
-54-->[androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-2\files-2.1\5656c15061bb6c9a45f2785c725710a9\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
-55            android:name="androidx.room.MultiInstanceInvalidationService"
-55-->[androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-2\files-2.1\5656c15061bb6c9a45f2785c725710a9\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
-56            android:directBootAware="true"
-56-->[androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-2\files-2.1\5656c15061bb6c9a45f2785c725710a9\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
-57            android:exported="false" />
-57-->[androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-2\files-2.1\5656c15061bb6c9a45f2785c725710a9\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
-58    </application>
-59
-60</manifest>
+25        <activity
+25-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:16:9-25:20
+26            android:name="ca.yorku.eecs.mack.democamera71179.QueryGallery"
+26-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:17:13-75
+27            android:configChanges="orientation|screenSize"
+27-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:18:13-59
+28            android:label="@string/app_name" >
+28-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:19:13-45
+29            <intent-filter>
+29-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:20:13-24:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:21:17-68
+30-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:21:25-66
+31                <action android:name="android.intent.action.VIEW" />
+31-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:22:17-69
+31-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:22:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:23:17-76
+33-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:23:27-74
+34            </intent-filter>
+35        </activity>
+36        <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity" >
+36-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:26:9-30:20
+36-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:26:19-90
+37            <intent-filter>
+37-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:27:13-29:29
+38                <action android:name="android.intent.action.SEARCH" />
+38-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:28:17-71
+38-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:28:25-68
+39            </intent-filter>
+40        </activity>
+41        <activity android:name="ca.yorku.eecs.mack.democamera71179.ImageViewerActivity" >
+41-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:31:9-32:20
+41-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:31:19-88
+42        </activity>
+43        <activity android:name="ca.yorku.eecs.mack.democamera71179.FindThisImage" />
+43-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:33:9-94
+43-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:33:19-82
+44        <activity android:name="ca.yorku.eecs.mack.democamera71179.TestInstructions" />
+44-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:34:9-97
+44-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:34:19-85
+45        <activity android:name="ca.yorku.eecs.mack.democamera71179.ResultsPage" />
+45-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:35:9-92
+45-->C:\Users\edshi\AndroidStudioProjects\QueryGallery\app\src\main\AndroidManifest.xml:35:19-80
+46        <!--
+47    <activity android:name=".SearchResultsActivity"  >
+48        <intent-filter>
+49            <action android:name="android.intent.action.SEARCH" />
+50        </intent-filter>
+51    </activity>
+52        -->
+53        <service
+53-->[androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-2\files-2.1\5656c15061bb6c9a45f2785c725710a9\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
+54            android:name="androidx.room.MultiInstanceInvalidationService"
+54-->[androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-2\files-2.1\5656c15061bb6c9a45f2785c725710a9\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
+55            android:directBootAware="true"
+55-->[androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-2\files-2.1\5656c15061bb6c9a45f2785c725710a9\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
+56            android:exported="false" />
+56-->[androidx.room:room-runtime:2.2.6] C:\Users\edshi\.gradle\caches\transforms-2\files-2.1\5656c15061bb6c9a45f2785c725710a9\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
+57    </application>
+58
+59</manifest>
