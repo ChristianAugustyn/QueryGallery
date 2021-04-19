@@ -1,0 +1,299 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]" date="1618844531679" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 4/19/2021 11:01 AM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageBean.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageGridViewActivity.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageGridViewActivity$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/FindThisImage$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/mergeJavaRes/debug/0.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/mergeJavaRes/debug/0.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/0.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/fileHashes/fileHashes.lock" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/fileHashes/fileHashes.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/fileHashes.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDAO_Impl.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/R$id.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageGridViewActivity$MyFilenameFilter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/QueryGallery.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/androidx/sqlite/db/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDownloader$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/R$drawable.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$2$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/javaCompile/taskHistory.bin" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/javaCompile/taskHistory.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/taskHistory.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/QueryGallery$MyFilenameFilter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/R$menu.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$MyScaleGestureListener.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$2$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageAdapter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/R$xml.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/TagDB.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDownloader$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/FindThisImage$MyFilenameFilter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/javaCompile/javaCompile.lock" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/javaCompile/javaCompile.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/javaCompile.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDAO_Impl$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/androidx/room/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDAO_Impl$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/dpfNHY+7cJJ0YhEypyB+bfkDz4U=" />
+    <option name="AFTER_PATH" value="app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/dpfNHY+7cJJ0YhEypyB+bfkDz4U=" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/dpfNHY+7cJJ0YhEypyB+bfkDz4U=" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/javaCompile/classAnalysis.bin" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/javaCompile/classAnalysis.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/classAnalysis.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/androidx/sqlite/db/framework/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$1$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/taskHistory/taskHistory.bin" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/taskHistory/taskHistory.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/taskHistory1.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$MyGestureListener.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/outputs/apk/debug/app-debug.apk" />
+    <option name="AFTER_PATH" value="app/build/outputs/apk/debug/app-debug.apk" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/app-debug.apk" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageGridViewActivity$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/androidx/room/guava/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$MyFilenameFilter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDownloader$DownloadedDrawable.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDownloader.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDAO.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/R$string.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageDownloader$BitmapDownloaderTask.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/taskHistory/taskHistory.lock" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/taskHistory/taskHistory.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/taskHistory.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$1$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/R$layout.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/TagDB_Impl$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/androidx/arch/core/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="AFTER_PATH" value=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/buildOutputCleanup.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/TagDB_Impl.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/TestInstructions.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/fileHashes/fileHashes.bin" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/fileHashes/fileHashes.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2021_11_01_AM_[Default_Changelist]/fileHashes.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/FindThisImage.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/BuildConfig.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/10/ca/yorku/eecs/mack/democamera71179/ResultsPage.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>

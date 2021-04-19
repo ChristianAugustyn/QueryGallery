@@ -1,0 +1,286 @@
+Index: app/src/main/java/ca/yorku/eecs/mack/democamera71179/QueryGallery.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ca.yorku.eecs.mack.democamera71179;\r\n\r\nimport android.app.Activity;\r\nimport android.content.Intent;\r\nimport android.content.res.Configuration;\r\nimport android.graphics.Bitmap;\r\nimport android.graphics.BitmapFactory;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.os.Environment;\r\nimport android.provider.MediaStore;\r\nimport android.util.Log;\r\nimport android.view.MotionEvent;\r\nimport android.view.View;\r\nimport android.view.View.OnClickListener;\r\nimport android.view.View.OnTouchListener;\r\nimport android.widget.Button;\r\nimport android.widget.ImageButton;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.room.Room;\r\n\r\nimport java.io.File;\r\nimport java.io.FilenameFilter;\r\nimport java.text.SimpleDateFormat;\r\nimport java.util.Arrays;\r\nimport java.util.Locale;\r\n\r\n\r\n\r\npublic class QueryGallery extends Activity implements OnClickListener, OnTouchListener\r\n{\r\n    public static final int MEDIA_TYPE_IMAGE = 1;\r\n\r\n    public static final String WORKING_DIRECTORY = \"CameraStuff\";\r\n\r\n    final static String IMAGE_INDEX_KEY = \"image_index\";\r\n    final static String DIRECTORY_KEY = \"directory\";\r\n    final static String TESTMODE_KEY = \"testmode\";\r\n    final static String ALLOW_SEARCH_KEY = \"allowsearch\";\r\n\r\n    final static String IMAGE_FILENAMES_KEY = \"image_filenames\";\r\n    private static final String MYDEBUG = \"MYDEBUG\"; // for Log.i messages\r\n    private static final int IMAGE_CAMERA_MODE = 100;\r\n    private static final int VIDEO_CAMERA_MODE = 200;\r\n    private static final int IMAGE_VIEWER_MODE = 300;\r\n    private static final int VIDEO_VIEWER_MODE = 400;\r\n    Uri fileUri;\r\n    static TagDB db;\r\n    ImageButton imageCameraButton, videoCameraButton, imageCameraButton2, imageGelleryButton;\r\n    ImageButton imagePrevButton, imageNextButton, videoPrevButton, videoNextButton;\r\n    ImageView imageView;\r\n    Button test;\r\n    File mediaStorageDirectory;\r\n    String[] imageFilenames;\r\n    int imageIdx;\r\n    TextView statusTextView;\r\n    TextView imageCountView;\r\n    boolean testMode, allowSearch;\r\n\r\n    // create a file Uri for saving an image or video\r\n    private static Uri getOutputMediaFileUri(File directory, int type)\r\n    {\r\n        return Uri.fromFile(getOutputMediaFile(directory, type));\r\n    }\r\n\r\n    // create a File for saving an image or video\r\n    private static File getOutputMediaFile(File directory, int type)\r\n    {\r\n        // create a media file name, encoded with the current date and time\r\n        String timeStamp = new SimpleDateFormat(\"yyyyMMdd_HHmmss\", Locale.CANADA).format(System.currentTimeMillis());\r\n        File mediaFile;\r\n        if (type == MEDIA_TYPE_IMAGE)\r\n        {\r\n            mediaFile = new File(directory.getPath() + File.separator + \"IMG_\" + timeStamp + \".jpg\");\r\n        } else\r\n        {\r\n            return null;\r\n        }\r\n        return mediaFile;\r\n    }\r\n\r\n    @Override\r\n    public void onCreate(Bundle savedInstanceState)\r\n    {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.main);\r\n        initialize();\r\n    }\r\n\r\n    private void initialize()\r\n    {\r\n        // hide the action bar (gives more display space on small screens)\r\n        if (getActionBar() != null)\r\n            getActionBar().hide();\r\n        //setup db\r\n        db = Room.databaseBuilder(getApplicationContext(),\r\n                TagDB.class, \"tagDB\").allowMainThreadQueries().build();\r\n\r\n        // get references to UI widgets\r\n//        imageCameraButton = (ImageButton) findViewById(R.id.button1);\r\n        imageCameraButton2 = (ImageButton) findViewById(R.id.cam);\r\n        imageGelleryButton=(ImageButton)findViewById(R.id.gallery);\r\n\r\n        imageView = (ImageView)findViewById(R.id.imageView1);\r\n\r\n        imagePrevButton = (ImageButton)findViewById(R.id.button1a);\r\n        imageNextButton = (ImageButton)findViewById(R.id.button1b);\r\n        imageCountView = (TextView)findViewById(R.id.imageCount);\r\n        test = (Button)findViewById(R.id.test);\r\n        testMode = false;\r\n        allowSearch = true;\r\n\r\n        // attach listeners to UI widgets\r\n        imageView.setOnTouchListener(this);\r\n//        imageCameraButton.setOnClickListener(this);\r\n        imageCameraButton2.setOnClickListener(this);\r\n        imageGelleryButton.setOnClickListener(this);\r\n        test.setOnClickListener(this);\r\n        imagePrevButton.setOnClickListener(this);\r\n        imageNextButton.setOnClickListener(this);\r\n\r\n        // make a working directory (if necessary) to store the images and videos\r\n        mediaStorageDirectory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),\r\n                WORKING_DIRECTORY);\r\n        if (!mediaStorageDirectory.exists() && !mediaStorageDirectory.mkdirs())\r\n        {\r\n            Log.i(MYDEBUG, \"Failed to create directory: \" + WORKING_DIRECTORY);\r\n            this.finish(); // terminate\r\n        }\r\n        Log.i(MYDEBUG, \"Media directory: \" + mediaStorageDirectory.toString());\r\n        System.out.println(\"What is this string: \" + mediaStorageDirectory.toString());\r\n        // fill arrays for image/video filenames currently in the working directory\r\n        imageFilenames = mediaStorageDirectory.list(new MyFilenameFilter(\".jpg\"));\r\n\r\n\r\n\t\t/*\r\n         * Sort the arrays into chronological order. Note: This only works because the date and time\r\n\t\t * of creation are embedded in the filenames.\r\n\t\t */\r\n\r\n        Arrays.sort(imageFilenames);\r\n\r\n\r\n        Log.i(MYDEBUG, \"Number of image files: \" + imageFilenames.length);\r\n\r\n\r\n        // index of last (most recent) image (or -1 if none)\r\n        imageIdx = imageFilenames == null ? -1 : imageFilenames.length - 1;\r\n\r\n\r\n\r\n        if (imageIdx >= 0) // there is at least one image in the directory (show it!)\r\n            displayImage();\r\n\r\n    }\r\n\r\n    // touch callback for picture and video views\r\n    @Override\r\n    public boolean onTouch(View v, MotionEvent me)\r\n    {\r\n        // we're only interested in ACTION_UP events\r\n        if (me.getAction() != MotionEvent.ACTION_UP)\r\n            return true;\r\n\r\n        if (v == imageView && imageFilenames.length > 0)\r\n        {\r\n            final Bundle b = new Bundle();\r\n            b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);\r\n            b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());\r\n\r\n            // start image viewer activity\r\n            Intent i = new Intent(getApplicationContext(), ImageGridViewActivity.class);\r\n            i.putExtras(b);\r\n            startActivityForResult(i, IMAGE_VIEWER_MODE);\r\n\r\n        }\r\n        System.out.println(\"method: on touch\");\r\n        return true;\r\n    }\r\n\r\n    // callback for the UI buttons used to cycle through images/videos or to launch the camera intent\r\n    @Override\r\n    public void onClick(View v)\r\n    {\r\n        if (v == imageCameraButton2) // launch camera intent (image mode)\r\n        {\r\n            // create Intent to take a picture and return control to the calling application\r\n            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);\r\n\r\n            // specify a file URI where the image will be saved\r\n            fileUri = getOutputMediaFileUri(mediaStorageDirectory, MEDIA_TYPE_IMAGE);\r\n\r\n            // use putExtra to give the file URI to the intent\r\n            intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);\r\n\r\n            // start the Intent (when the intent finishes, onActivityResult will execute)\r\n            // Note: the 2nd argument is the Request Code (will be returned to onActivityResult)\r\n            startActivityForResult(intent, IMAGE_CAMERA_MODE);\r\n\r\n        }\r\n        else if (v == imagePrevButton && imageFilenames.length != 0) {\r\n            previousImage();\r\n\r\n        }else if (v == imageNextButton && imageFilenames.length != 0) {\r\n            nextImage();\r\n        }else if (v == imageGelleryButton){\r\n//            displayImage();\r\n            System.out.println(\"method: start of gallery button\");\r\n            if ( imageFilenames.length > 0)\r\n            {\r\n                final Bundle b = new Bundle();\r\n                b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);\r\n                b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());\r\n\r\n                // start image viewer activity\r\n                Intent i = new Intent(getApplicationContext(), ImageGridViewActivity.class);\r\n                i.putExtras(b);\r\n                startActivityForResult(i, IMAGE_VIEWER_MODE);\r\n                System.out.println(\"method: end if in gallery button\");\r\n            }\r\n            System.out.println(\"method: end of gallery button\");\r\n        }else if (v == test){\r\n            testMode = true;\r\n            final Bundle b = new Bundle();\r\n            b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);\r\n            b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());\r\n            b.putBoolean(TESTMODE_KEY, testMode);\r\n            b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);\r\n            // start image viewer activity\r\n            Intent i = new Intent(getApplicationContext(), FindThisImage.class);\r\n            i.putExtras(b);\r\n            startActivity(i);\r\n        }\r\n\r\n\r\n        System.out.println(\"method: on click\");\r\n\r\n    }\r\n\r\n    private void previousImage()\r\n    {\r\n        --imageIdx;\r\n        if (imageIdx < 0)\r\n            imageIdx = imageFilenames.length - 1;\r\n        displayImage();\r\n    }\r\n\r\n    private void nextImage()\r\n    {\r\n        ++imageIdx;\r\n        if (imageIdx >= imageFilenames.length)\r\n            imageIdx = 0;\r\n        displayImage();\r\n    }\r\n\r\n    private void displayImage()\r\n    {\r\n        if (imageFilenames != null && imageFilenames.length > 0)\r\n        {\r\n            String path = mediaStorageDirectory.toString() + File.separator + imageFilenames[imageIdx];\r\n            Bitmap bmp = BitmapFactory.decodeFile(path);\r\n            imageView.setImageBitmap(bmp);\r\n            imageCountView.setText(String.format(Locale.CANADA, \"%d of %d\", (imageIdx + 1), imageFilenames.length));\r\n\r\n        } else\r\n            imageCountView.setText(String.format(\"%s\", \"(no pictures)\"));\r\n\r\n        System.out.println(\"method: on display image\");\r\n    }\r\n\r\n    /*\r\n     * The onActivityResult method is called upon exiting from either the camera application, the\r\n     * image viewer, or the video viewer. The image viewer and the video viewer are the full-screen\r\n     * activities defined herein to improve the viewing of images or videos. A series of if/else\r\n     * statements are used to select the correct code to execute, which will depend on the\r\n     * requestCode originally used to launch the activity and the resultCode returned from the\r\n     * activity. Data can be returned from the activity via the Intent object passed to\r\n     * onActivityResult.\r\n     */\r\n    @Override\r\n    protected void onActivityResult(int requestCode, int resultCode, Intent data)\r\n    {\r\n        // super.onActivityResult(requestCode, resultCode, data);\r\n        if (requestCode == IMAGE_CAMERA_MODE)\r\n        {\r\n            if (resultCode == Activity.RESULT_OK)\r\n            {\r\n                /*\r\n                 * The following line of commented-out code is from the Android API Guide for\r\n\t\t\t\t * \"Camera\". However, this line of code causes the app to crash with a null pointer\r\n\t\t\t\t * exception. The problem is that the Intent passed to onActivityResult is null.\r\n\t\t\t\t * After some digging, I came across the following explanation in StackOverflow:\r\n\t\t\t\t *\r\n\t\t\t\t * \"The default Android camera application returns a non-null intent only when\r\n\t\t\t\t * passing back a thumbnail in the returned Intent. If you pass EXTRA_OUTPUT with a\r\n\t\t\t\t * URL to write to, it will return a null intent and the picture is in the URL that\r\n\t\t\t\t * you passed in.\"  (Note: The author meant \"URI\", not \"URL\".) See...\r\n\t\t\t\t *\r\n\t\t\t\t * http://stackoverflow.com/questions/9890757/android-camera-data-intent-returns-null\r\n\t\t\t\t */\r\n                // Toast.makeText(this, \"Image saved to:\\n\" + data.getData(),\r\n                // Toast.LENGTH_LONG).show();\r\n\r\n                // the fix...\r\n                Toast.makeText(this, \"Image saved to:\\n\" + fileUri.toString(), Toast.LENGTH_LONG).show();\r\n\r\n                // update file list and index\r\n                imageFilenames = mediaStorageDirectory.list(new MyFilenameFilter(\".jpg\"));\r\n                Arrays.sort(imageFilenames);\r\n\r\n                imageIdx = imageFilenames.length - 1;\r\n                displayImage();\r\n\r\n            } else if (resultCode == Activity.RESULT_CANCELED)\r\n            {\r\n                // user cancelled the image capture\r\n                Toast.makeText(this, \"Image capture cancelled\", Toast.LENGTH_LONG).show();\r\n\r\n            } else\r\n            {\r\n                // image capture failed, advise user\r\n                Toast.makeText(this, \"Image capture failed\", Toast.LENGTH_LONG).show();\r\n            }\r\n        }\r\n\t\t// we're returning via the Back button in the Navigation Bar. Therefore, the return code is CANCEL\r\n        else if (requestCode == IMAGE_VIEWER_MODE)\r\n        {\r\n            if (resultCode == Activity.RESULT_OK)\r\n                displayImage();\r\n            else\r\n                Log.i(MYDEBUG, \"UNKNOWN RESULT CODE (IMAGE)!\");\r\n\r\n        }\r\n    }\r\n\r\n    /*\r\n     * We are handling the configuration change ourself, which is to say, the system will not shut\r\n     * down and restart the activity when the configuration changes (such as occurs if the screen is\r\n     * rotated).\r\n     *\r\n     * If the screen is rotated, the UI will still change (e.g., from portrait to landscape). This\r\n     * occurs through the call to the super method. The new orientation is stored in the newConfig\r\n     * object passed as an argument. The layout will remain the same, however (because onCreate does\r\n     * not execute and no new resource is loaded).\r\n     *\r\n     * Note that this method is only called if the manifest contains\r\n     * android:configChanges=\"orientation\" as an attribute for the Activity element. See...\r\n     *\r\n     * http://developer.android.com/guide/topics/resources/runtime-changes.html#HandlingTheChange\r\n     *\r\n     * Note: Screen orientation changes for this demo occur much faster using this technique\r\n     * compared to the usual approach of implementing onSaveInstanceState and\r\n     * onRestoreInstanceState. This technique is faster because the activity is *not* being shut\r\n     * down and restarted. Just look at the code executed from onCreate and you'll see why.\r\n     *\r\n     * One final note: We are implementing onConfigurationChanged simply to demonstrate this\r\n     * alternative way to handle a configuration change. We aren't actually doing anything except\r\n     * printing a message to the LogCat window. If this method is deleted or commented-out, the\r\n     * app's behaviour is the same. For an example where there is actually some work to do in\r\n     * onConfigurationChanged, see Demo_WebView.\r\n     */\r\n    @Override\r\n    public void onConfigurationChanged(Configuration newConfig)\r\n    {\r\n        Log.i(MYDEBUG, \"onConfigurationChanged! newConfig=\" + newConfig);\r\n        super.onConfigurationChanged(newConfig);\r\n    }\r\n\r\n    // A filter used with listFiles (see above) to return only files with a specified extension\r\n    // (e.g., \".jpg\" or \".mp4\")\r\n    class MyFilenameFilter implements FilenameFilter\r\n    {\r\n        String extension;\r\n\r\n        MyFilenameFilter(String extensionArg)\r\n        {\r\n            this.extension = extensionArg;\r\n        }\r\n\r\n        public boolean accept(File f, String name)\r\n        {\r\n            return name.endsWith(extension);\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ca/yorku/eecs/mack/democamera71179/QueryGallery.java	(revision 2c87d870317fff29299c94a8588af58a39e24690)
++++ app/src/main/java/ca/yorku/eecs/mack/democamera71179/QueryGallery.java	(date 1618773412388)
+@@ -223,16 +223,20 @@
+             }
+             System.out.println("method: end of gallery button");
+         }else if (v == test){
+-            testMode = true;
+-            final Bundle b = new Bundle();
+-            b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
+-            b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
+-            b.putBoolean(TESTMODE_KEY, testMode);
+-            b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
+-            // start image viewer activity
+-            Intent i = new Intent(getApplicationContext(), FindThisImage.class);
+-            i.putExtras(b);
+-            startActivity(i);
++            if(imageFilenames.length > 0) {
++                testMode = true;
++                final Bundle b = new Bundle();
++                b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
++                b.putString(DIRECTORY_KEY, mediaStorageDirectory.toString());
++                b.putBoolean(TESTMODE_KEY, testMode);
++                b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
++                // start image viewer activity
++                Intent i = new Intent(getApplicationContext(), FindThisImage.class);
++                i.putExtras(b);
++                startActivity(i);
++            }else{
++                Toast.makeText(this,"You have no pictures to do the test", Toast.LENGTH_SHORT).show();
++            }
+         }
+ 
+ 
+Index: app/src/main/java/ca/yorku/eecs/mack/democamera71179/FindThisImage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ca.yorku.eecs.mack.democamera71179;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.app.Activity;\r\nimport android.content.Intent;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.ImageView;\r\n\r\nimport java.io.File;\r\nimport java.io.FilenameFilter;\r\nimport java.util.Arrays;\r\nimport java.util.Comparator;\r\nimport java.util.Random;\r\n\r\n\r\n\r\npublic class FindThisImage extends Activity implements View.OnClickListener {\r\n    private static final String DIRECTORY_KEY = \"directory\" ;\r\n    ImageView imageToFind;\r\n    String directoryString, fileString;\r\n    File[] files;\r\n    File file;\r\n    File directory;\r\n    Button next;\r\n    boolean testMode, allowSearch;\r\n    String[] imageFilenames;\r\n    private static final int IMAGE_VIEWER_MODE = 300;\r\n    final static String IMAGE_FILENAMES_KEY = \"image_filenames\";\r\n    final static String TESTMODE_KEY = \"testmode\";\r\n    final static String ALLOW_SEARCH_KEY = \"allowsearch\";\r\n    final static String FILE_KEY =\"file\";\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.findthisimage);\r\n\r\n\r\n        // data passed from the setup activity in startActivity\r\n        Bundle b = getIntent().getExtras();\r\n        directoryString = b.getString(\"directory\");\r\n        testMode = b.getBoolean(\"testmode\");\r\n        allowSearch = b.getBoolean(\"allowsearch\");\r\n\r\n        // get the directory containing some images\r\n        directory = new File(directoryString);\r\n        if (!directory.exists())\r\n        {\r\n            super.onDestroy(); // cleanup\r\n            this.finish(); // terminate\r\n        }\r\n\r\n        // Get a list of files in the directory, sorted by filename. See...\r\n        files = directory.listFiles(new FindThisImage.MyFilenameFilter(\".jpg\"));\r\n        Arrays.sort(files, new Comparator<File>()\r\n        {\r\n            public int compare(File f1, File f2)\r\n            {\r\n                return f1.getName().compareTo(f2.getName());\r\n            }\r\n        });\r\n\r\n        imageToFind = (ImageView)findViewById(R.id.imageToFind);\r\n        next = (Button)findViewById(R.id.next);\r\n        next.setOnClickListener(this);\r\n\r\n\r\n        /*\r\n         * Sort the arrays into chronological order. Note: This only works because the date and time\r\n         * of creation are embedded in the filenames.\r\n         */\r\n\r\n        //Arrays.sort(imageFilenames);\r\n\r\n        Random random = new Random();\r\n        int randomNum = random.nextInt(((files.length-1)-0)+1) + 0;\r\n        file = files[randomNum];\r\n        fileString = file.toString();\r\n        Uri uri = Uri.parse(file.toString());\r\n        imageToFind.setImageURI(uri);\r\n\r\n        System.out.println(\"is File null here?\" + file.toString());\r\n    }\r\n\r\n    @Override\r\n    public void onClick(View v){\r\n        System.out.println(\"is File null here?\" + file.toString());\r\n        if(v == next){\r\n            final Bundle b = new Bundle();\r\n            b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);\r\n            b.putString(DIRECTORY_KEY, directoryString);\r\n\r\n            b.putString(FILE_KEY, fileString);\r\n            b.putBoolean(TESTMODE_KEY,testMode);\r\n            b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);\r\n\r\n            // start image viewer activity\r\n            Intent i = new Intent(getApplicationContext(), ImageGridViewActivity.class);\r\n            i.putExtras(b);\r\n            startActivityForResult(i, IMAGE_VIEWER_MODE);\r\n\r\n        }\r\n    }\r\n\r\n\r\n    class MyFilenameFilter implements FilenameFilter\r\n    {\r\n        String extension;\r\n\r\n        MyFilenameFilter(String extensionArg)\r\n        {\r\n            this.extension = extensionArg;\r\n        }\r\n\r\n        @SuppressLint(\"DefaultLocale\")\r\n        public boolean accept(File f, String name)\r\n        {\r\n            // add toLowerCase to accept \".jpg\" or \".JPG\"\r\n            return name.toLowerCase().endsWith(extension);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ca/yorku/eecs/mack/democamera71179/FindThisImage.java	(revision 2c87d870317fff29299c94a8588af58a39e24690)
++++ app/src/main/java/ca/yorku/eecs/mack/democamera71179/FindThisImage.java	(date 1618773412401)
+@@ -9,6 +9,7 @@
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.ImageView;
++import android.widget.TextView;
+ 
+ import java.io.File;
+ import java.io.FilenameFilter;
+@@ -28,6 +29,7 @@
+     Button next;
+     boolean testMode, allowSearch;
+     String[] imageFilenames;
++    TextView header;
+     private static final int IMAGE_VIEWER_MODE = 300;
+     final static String IMAGE_FILENAMES_KEY = "image_filenames";
+     final static String TESTMODE_KEY = "testmode";
+@@ -65,16 +67,12 @@
+ 
+         imageToFind = (ImageView)findViewById(R.id.imageToFind);
+         next = (Button)findViewById(R.id.next);
++        header = (TextView)findViewById(R.id.header);
++
++
+         next.setOnClickListener(this);
+ 
+-
+-        /*
+-         * Sort the arrays into chronological order. Note: This only works because the date and time
+-         * of creation are embedded in the filenames.
+-         */
+-
+-        //Arrays.sort(imageFilenames);
+-
++        //getting a random image from the files
+         Random random = new Random();
+         int randomNum = random.nextInt(((files.length-1)-0)+1) + 0;
+         file = files[randomNum];
+@@ -82,6 +80,13 @@
+         Uri uri = Uri.parse(file.toString());
+         imageToFind.setImageURI(uri);
+ 
++
++        if(allowSearch){
++            header.setText("Search For This Image Using The Search Bar");
++        }else{
++            header.setText("Search For This Image Without Using The Search Bar");
++        }
++
+         System.out.println("is File null here?" + file.toString());
+     }
+ 
+Index: app/src/main/res/layout/imagegrid.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:orientation=\"vertical\"\r\n    tools:context=\".ImageGridViewActivity\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/textview\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_gravity=\"center_horizontal\"\r\n        android:text=\"@string/textString\" />\r\n\r\n    <GridView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n        android:id=\"@+id/gridview\"\r\n        android:layout_width=\"fill_parent\"\r\n        android:layout_height=\"fill_parent\"\r\n        android:background=\"#ff222222\"\r\n        android:gravity=\"center\"\r\n        android:horizontalSpacing=\"3dp\"\r\n        android:numColumns=\"auto_fit\"\r\n        android:paddingLeft=\"3dp\"\r\n        android:paddingTop=\"3dp\"\r\n        android:paddingRight=\"3dp\"\r\n        android:paddingBottom=\"3dp\"\r\n        android:stretchMode=\"columnWidth\"\r\n        android:verticalSpacing=\"3dp\" />\r\n\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/imagegrid.xml	(revision 2c87d870317fff29299c94a8588af58a39e24690)
++++ app/src/main/res/layout/imagegrid.xml	(date 1618773412380)
+@@ -17,7 +17,6 @@
+         android:id="@+id/gridview"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+-        android:background="#ff222222"
+         android:gravity="center"
+         android:horizontalSpacing="3dp"
+         android:numColumns="auto_fit"
+Index: app/src/main/res/layout/findthisimage.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:orientation=\"vertical\" android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView2\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"TextView\" />\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageToFind\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"661dp\"\r\n        tools:src=\"@tools:sample/avatars\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/next\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Button\" />\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/findthisimage.xml	(revision 2c87d870317fff29299c94a8588af58a39e24690)
++++ app/src/main/res/layout/findthisimage.xml	(date 1618773412394)
+@@ -2,24 +2,30 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+-    android:orientation="vertical" android:layout_width="match_parent"
+-    android:layout_height="match_parent">
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:layout_marginTop="20dp"
++    android:orientation="vertical">
+ 
+     <TextView
+-        android:id="@+id/textView2"
++        android:id="@+id/header"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:text="TextView" />
++        android:gravity="center_horizontal|center_vertical"
++        android:textSize="24sp" />
+ 
+     <ImageView
+         android:id="@+id/imageToFind"
+         android:layout_width="match_parent"
+-        android:layout_height="661dp"
++        android:layout_height="558dp"
+         tools:src="@tools:sample/avatars" />
+ 
+     <Button
+         android:id="@+id/next"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:text="Button" />
++        android:layout_marginTop="10dp"
++        android:background="@android:color/background_dark"
++        android:text="Search"
++        android:textColor="#FFFFFF" />
+ </LinearLayout>
+\ No newline at end of file
+Index: app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>ca.yorku.eecs.mack.democamera\r\nint drawable ic_camera 0x7f010000\r\nint drawable ic_camwhite 0x7f010001\r\nint drawable ic_gallery 0x7f010002\r\nint drawable ic_leftarrow 0x7f010003\r\nint drawable ic_rightarrow 0x7f010004\r\nint drawable ic_search 0x7f010005\r\nint drawable ic_settings 0x7f010006\r\nint drawable ic_videocamera 0x7f010007\r\nint drawable icon 0x7f010008\r\nint id addTag 0x7f020000\r\nint id addTagButton 0x7f020001\r\nint id button1a 0x7f020002\r\nint id button1b 0x7f020003\r\nint id cam 0x7f020004\r\nint id delete 0x7f020005\r\nint id file 0x7f020006\r\nint id gallery 0x7f020007\r\nint id gridview 0x7f020008\r\nint id imageCount 0x7f020009\r\nint id imageToFind 0x7f02000a\r\nint id imageView 0x7f02000b\r\nint id imageView1 0x7f02000c\r\nint id imagecontainer 0x7f02000d\r\nint id next 0x7f02000e\r\nint id popupTitle 0x7f02000f\r\nint id removeTagButton 0x7f020010\r\nint id search 0x7f020011\r\nint id settings 0x7f020012\r\nint id tag 0x7f020013\r\nint id tagView 0x7f020014\r\nint id test 0x7f020015\r\nint id textView 0x7f020016\r\nint id textView2 0x7f020017\r\nint id textview 0x7f020018\r\nint layout findthisimage 0x7f030000\r\nint layout imagegrid 0x7f030001\r\nint layout imageviewer 0x7f030002\r\nint layout main 0x7f030003\r\nint layout popup 0x7f030004\r\nint menu menu 0x7f040000\r\nint menu options_menu 0x7f040001\r\nint string app_name 0x7f050000\r\nint string button1atext 0x7f050001\r\nint string button1btext 0x7f050002\r\nint string button1text 0x7f050003\r\nint string button2text 0x7f050004\r\nint string empty 0x7f050005\r\nint string imageCountString 0x7f050006\r\nint string imageViewText 0x7f050007\r\nint string imageviewtext 0x7f050008\r\nint string search_hint 0x7f050009\r\nint string search_title 0x7f05000a\r\nint string tagViewString 0x7f05000b\r\nint string textString 0x7f05000c\r\nint string textViewString 0x7f05000d\r\nint string videoCountString 0x7f05000e\r\nint string videoviewtext 0x7f05000f\r\nint xml searchable 0x7f060000\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt	(revision 2c87d870317fff29299c94a8588af58a39e24690)
++++ app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt	(date 1618773412406)
+@@ -17,21 +17,21 @@
+ int id file 0x7f020006
+ int id gallery 0x7f020007
+ int id gridview 0x7f020008
+-int id imageCount 0x7f020009
+-int id imageToFind 0x7f02000a
+-int id imageView 0x7f02000b
+-int id imageView1 0x7f02000c
+-int id imagecontainer 0x7f02000d
+-int id next 0x7f02000e
+-int id popupTitle 0x7f02000f
+-int id removeTagButton 0x7f020010
+-int id search 0x7f020011
+-int id settings 0x7f020012
+-int id tag 0x7f020013
+-int id tagView 0x7f020014
+-int id test 0x7f020015
+-int id textView 0x7f020016
+-int id textView2 0x7f020017
++int id header 0x7f020009
++int id imageCount 0x7f02000a
++int id imageToFind 0x7f02000b
++int id imageView 0x7f02000c
++int id imageView1 0x7f02000d
++int id imagecontainer 0x7f02000e
++int id next 0x7f02000f
++int id popupTitle 0x7f020010
++int id removeTagButton 0x7f020011
++int id search 0x7f020012
++int id settings 0x7f020013
++int id tag 0x7f020014
++int id tagView 0x7f020015
++int id test 0x7f020016
++int id textView 0x7f020017
+ int id textview 0x7f020018
+ int layout findthisimage 0x7f030000
+ int layout imagegrid 0x7f030001
+Index: app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Sun Apr 18 14:41:29 EDT 2021\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxhdpi\\\\ic_camera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxhdpi_ic_camera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xhdpi\\\\ic_camera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xhdpi_ic_camera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-ldpi\\\\icon.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-ldpi_icon.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xhdpi\\\\ic_camwhite.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xhdpi_ic_camwhite.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xhdpi\\\\ic_gallery.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xhdpi_ic_gallery.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\ic_gallery.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_ic_gallery.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\generated\\\\res\\\\pngs\\\\debug\\\\drawable-anydpi-v21\\\\ic_search.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-anydpi-v21_ic_search.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xhdpi\\\\ic_settings.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xhdpi_ic_settings.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xhdpi\\\\ic_videocamera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xhdpi_ic_videocamera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xhdpi\\\\ic_rightarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xhdpi_ic_rightarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\icon.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_icon.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\layout\\\\findthisimage.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\layout_findthisimage.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxxhdpi\\\\ic_rightarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxxhdpi_ic_rightarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\ic_rightarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_ic_rightarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\ic_camera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_ic_camera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\generated\\\\res\\\\pngs\\\\debug\\\\drawable-ldpi\\\\ic_search.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-ldpi_ic_search.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\layout\\\\popup.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\layout_popup.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\ic_videocamera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_ic_videocamera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\ic_videocamera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_ic_videocamera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\ic_camwhite.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_ic_camwhite.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\menu\\\\options_menu.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\menu_options_menu.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxhdpi\\\\ic_videocamera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxhdpi_ic_videocamera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxhdpi\\\\ic_search.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxhdpi_ic_search.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xhdpi\\\\ic_search.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xhdpi_ic_search.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxxhdpi\\\\ic_leftarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxxhdpi_ic_leftarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xhdpi\\\\ic_leftarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xhdpi_ic_leftarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\ic_camera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_ic_camera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-anydpi-v24\\\\ic_gallery.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-anydpi-v24_ic_gallery.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\ic_settings.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_ic_settings.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-anydpi-v24\\\\ic_camwhite.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-anydpi-v24_ic_camwhite.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\layout\\\\imagegrid.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\layout_imagegrid.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxhdpi\\\\ic_camwhite.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxhdpi_ic_camwhite.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxxhdpi\\\\ic_camera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxxhdpi_ic_camera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-anydpi-v24\\\\ic_settings.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-anydpi-v24_ic_settings.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxxhdpi\\\\ic_videocamera.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxxhdpi_ic_videocamera.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxhdpi\\\\ic_gallery.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxhdpi_ic_gallery.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxhdpi\\\\ic_settings.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxhdpi_ic_settings.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\ic_leftarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_ic_leftarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\icon.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_icon.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxhdpi\\\\ic_leftarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxhdpi_ic_leftarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\layout\\\\imageviewer.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\layout_imageviewer.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\ic_search.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_ic_search.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\generated\\\\res\\\\pngs\\\\debug\\\\drawable-xxxhdpi\\\\ic_search.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxxhdpi_ic_search.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\layout\\\\main.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\layout_main.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\xml\\\\searchable.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\xml_searchable.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\menu\\\\menu.xml=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\menu_menu.xml.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\ic_camwhite.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_ic_camwhite.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\ic_rightarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_ic_rightarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\ic_gallery.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_ic_gallery.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-hdpi\\\\ic_leftarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-hdpi_ic_leftarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\ic_search.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_ic_search.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-xxhdpi\\\\ic_rightarrow.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-xxhdpi_ic_rightarrow.png.flat\r\nC\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\src\\\\main\\\\res\\\\drawable-mdpi\\\\ic_settings.png=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\res\\\\merged\\\\debug\\\\drawable-mdpi_ic_settings.png.flat\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties	(revision 2c87d870317fff29299c94a8588af58a39e24690)
++++ app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties	(date 1618773412413)
+@@ -1,4 +1,4 @@
+-#Sun Apr 18 14:41:29 EDT 2021
++#Sun Apr 18 15:15:20 EDT 2021
+ C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\src\\main\\res\\drawable-xxhdpi\\ic_camera.png=C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_camera.png.flat
+ C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\src\\main\\res\\drawable-xhdpi\\ic_camera.png=C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_camera.png.flat
+ C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\src\\main\\res\\drawable-ldpi\\icon.png=C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat
+Index: app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Sun Apr 18 14:42:49 EDT 2021\r\nbase.0=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\transforms\\\\dexMerger\\\\debug\\\\0\r\npath.0=classes.dex\r\nrenamed.0=classes.dex\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt	(revision 2c87d870317fff29299c94a8588af58a39e24690)
++++ app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt	(date 1618773412419)
+@@ -1,4 +1,4 @@
+-#Sun Apr 18 14:42:49 EDT 2021
++#Sun Apr 18 15:15:21 EDT 2021
+ base.0=C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+ path.0=classes.dex
+ renamed.0=classes.dex
+Index: app/build/intermediates/symbols/debug/R.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>int drawable ic_camera 0x7f010000\r\nint drawable ic_camwhite 0x7f010001\r\nint drawable ic_gallery 0x7f010002\r\nint drawable ic_leftarrow 0x7f010003\r\nint drawable ic_rightarrow 0x7f010004\r\nint drawable ic_search 0x7f010005\r\nint drawable ic_settings 0x7f010006\r\nint drawable ic_videocamera 0x7f010007\r\nint drawable icon 0x7f010008\r\nint id addTag 0x7f020000\r\nint id addTagButton 0x7f020001\r\nint id button1a 0x7f020002\r\nint id button1b 0x7f020003\r\nint id cam 0x7f020004\r\nint id delete 0x7f020005\r\nint id file 0x7f020006\r\nint id gallery 0x7f020007\r\nint id gridview 0x7f020008\r\nint id imageCount 0x7f020009\r\nint id imageToFind 0x7f02000a\r\nint id imageView 0x7f02000b\r\nint id imageView1 0x7f02000c\r\nint id imagecontainer 0x7f02000d\r\nint id next 0x7f02000e\r\nint id popupTitle 0x7f02000f\r\nint id removeTagButton 0x7f020010\r\nint id search 0x7f020011\r\nint id settings 0x7f020012\r\nint id tag 0x7f020013\r\nint id tagView 0x7f020014\r\nint id test 0x7f020015\r\nint id textView 0x7f020016\r\nint id textView2 0x7f020017\r\nint id textview 0x7f020018\r\nint layout findthisimage 0x7f030000\r\nint layout imagegrid 0x7f030001\r\nint layout imageviewer 0x7f030002\r\nint layout main 0x7f030003\r\nint layout popup 0x7f030004\r\nint menu menu 0x7f040000\r\nint menu options_menu 0x7f040001\r\nint string app_name 0x7f050000\r\nint string button1atext 0x7f050001\r\nint string button1btext 0x7f050002\r\nint string button1text 0x7f050003\r\nint string button2text 0x7f050004\r\nint string empty 0x7f050005\r\nint string imageCountString 0x7f050006\r\nint string imageViewText 0x7f050007\r\nint string imageviewtext 0x7f050008\r\nint string search_hint 0x7f050009\r\nint string search_title 0x7f05000a\r\nint string tagViewString 0x7f05000b\r\nint string textString 0x7f05000c\r\nint string textViewString 0x7f05000d\r\nint string videoCountString 0x7f05000e\r\nint string videoviewtext 0x7f05000f\r\nint xml searchable 0x7f060000\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build/intermediates/symbols/debug/R.txt	(revision 2c87d870317fff29299c94a8588af58a39e24690)
++++ app/build/intermediates/symbols/debug/R.txt	(date 1618773412425)
+@@ -16,21 +16,21 @@
+ int id file 0x7f020006
+ int id gallery 0x7f020007
+ int id gridview 0x7f020008
+-int id imageCount 0x7f020009
+-int id imageToFind 0x7f02000a
+-int id imageView 0x7f02000b
+-int id imageView1 0x7f02000c
+-int id imagecontainer 0x7f02000d
+-int id next 0x7f02000e
+-int id popupTitle 0x7f02000f
+-int id removeTagButton 0x7f020010
+-int id search 0x7f020011
+-int id settings 0x7f020012
+-int id tag 0x7f020013
+-int id tagView 0x7f020014
+-int id test 0x7f020015
+-int id textView 0x7f020016
+-int id textView2 0x7f020017
++int id header 0x7f020009
++int id imageCount 0x7f02000a
++int id imageToFind 0x7f02000b
++int id imageView 0x7f02000c
++int id imageView1 0x7f02000d
++int id imagecontainer 0x7f02000e
++int id next 0x7f02000f
++int id popupTitle 0x7f020010
++int id removeTagButton 0x7f020011
++int id search 0x7f020012
++int id settings 0x7f020013
++int id tag 0x7f020014
++int id tagView 0x7f020015
++int id test 0x7f020016
++int id textView 0x7f020017
+ int id textview 0x7f020018
+ int layout findthisimage 0x7f030000
+ int layout imagegrid 0x7f030001

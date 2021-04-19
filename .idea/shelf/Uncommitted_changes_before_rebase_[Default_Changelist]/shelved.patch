@@ -1,0 +1,72 @@
+Index: app/src/main/java/ca/yorku/eecs/mack/democamera71179/ResultsPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ca.yorku.eecs.mack.democamera71179;\r\n\r\nimport android.app.Activity;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.os.Environment;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.Button;\r\nimport android.widget.ListView;\r\n\r\nimport java.io.BufferedWriter;\r\nimport java.io.File;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\nimport java.util.ArrayList;\r\nimport java.util.Locale;\r\n\r\nimport static ca.yorku.eecs.mack.democamera71179.ImageGridViewActivity.MYDEBUG;\r\n\r\npublic class ResultsPage extends Activity implements View.OnClickListener {\r\n\r\n    ArrayList<String> results;\r\n    ListView list;\r\n    Button goHome;\r\n    ArrayAdapter<String> arrayAdapter;\r\n    private BufferedWriter sd1, sd2;\r\n    private File f1, f2;\r\n    private final static String DATA_DIRECTORY = \"/QueryGalleryData/\";\r\n    private final static String SD2_HEADER = \"Time\";\r\n    private String sd2Leader;\r\n\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.results);\r\n        Bundle b = getIntent().getExtras();\r\n        results = b.getStringArrayList(\"testscores\");\r\n\r\n        list = (ListView) findViewById(R.id.list);\r\n        goHome = (Button) findViewById(R.id.go_home);\r\n\r\n\r\n        arrayAdapter = new ArrayAdapter<String>(ResultsPage.this, android.R.layout.simple_list_item_1, results);\r\n        list.setAdapter(arrayAdapter);\r\n        arrayAdapter.notifyDataSetChanged();\r\n\r\n        goHome.setOnClickListener(this);\r\n\r\n        File dataDirectory = new File(Environment.getExternalStorageDirectory() +\r\n                DATA_DIRECTORY);\r\n        if (!dataDirectory.exists() && !dataDirectory.mkdirs()) {\r\n            Log.e(MYDEBUG, \"ERROR --> FAILED TO CREATE DIRECTORY: \" + DATA_DIRECTORY);\r\n            super.onDestroy(); // cleanup\r\n            this.finish(); // terminate\r\n        }\r\n\r\n\r\n        int blockNumber = 0;\r\n        do {\r\n            ++blockNumber;\r\n            String blockCode = String.format(Locale.CANADA, \"B%02d\", blockNumber);\r\n            String baseFilename = String.format(\"%s\", \"Results\");\r\n            f1 = new File(dataDirectory, baseFilename + \"sd1\" + blockNumber + \".txt\");\r\n            f2 = new File(dataDirectory, baseFilename + \"sd2\" + blockNumber + \".txt\");\r\n\r\n            // also make a comma-delimited leader that will begin each data line written to the sd2 file\r\n            sd2Leader = String.format(\"%s-%s\", \"Times\", blockNumber);\r\n        } while (f1.exists() || f2.exists());\r\n\r\n        try {\r\n            sd1 = new BufferedWriter(new FileWriter(f1));\r\n            sd2 = new BufferedWriter(new FileWriter(f2));\r\n\r\n            // output header in sd2 file\r\n            sd2.write(SD2_HEADER, 0, SD2_HEADER.length());\r\n            sd2.flush();\r\n\r\n        } catch (IOException e) {\r\n            Log.e(MYDEBUG, \"ERROR OPENING DATA FILES! e=\" + e.toString());\r\n            super.onDestroy();\r\n            this.finish();\r\n\r\n        }\r\n        StringBuilder sd2Data = new StringBuilder(100);\r\n        StringBuilder sd1Stuff = new StringBuilder(100);\r\n        sd1Stuff.append(\"SD1STUFF\");\r\n        for (int i = 0; i < results.size(); i++) {\r\n            sd2Data.append(String.format(\"%s\\n\", results.get(i)));\r\n        }\r\n\r\n        // write to data files\r\n        try {\r\n            sd1.write(sd1Stuff.toString(), 0, sd1Stuff.length());\r\n            sd1.flush();\r\n            sd2.write(sd2Data.toString(), 0, sd2Data.length());\r\n            sd2.flush();\r\n        } catch (IOException e) {\r\n            Log.e(\"MYDEBUG\", \"ERROR WRITING TO DATA FILE!\\n\" + e);\r\n            super.onDestroy();\r\n            this.finish();\r\n        }\r\n    }\r\n\r\n\r\n    @Override\r\n    public void onClick(View view) {\r\n        Intent i = new Intent(getApplicationContext(), QueryGallery.class);\r\n        startActivity(i);\r\n\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/ca/yorku/eecs/mack/democamera71179/ResultsPage.java	(revision 3ae2cdf9e905a873b9041ad29367353d2adb6c40)
++++ app/src/main/java/ca/yorku/eecs/mack/democamera71179/ResultsPage.java	(date 1618844045902)
+@@ -25,8 +25,8 @@
+     ListView list;
+     Button goHome;
+     ArrayAdapter<String> arrayAdapter;
+-    private BufferedWriter sd1, sd2;
+-    private File f1, f2;
++    private BufferedWriter sd2;
++    private File f2;
+     private final static String DATA_DIRECTORY = "/QueryGalleryData/";
+     private final static String SD2_HEADER = "Time";
+     private String sd2Leader;
+@@ -61,15 +61,14 @@
+             ++blockNumber;
+             String blockCode = String.format(Locale.CANADA, "B%02d", blockNumber);
+             String baseFilename = String.format("%s", "Results");
+-            f1 = new File(dataDirectory, baseFilename + "sd1" + blockNumber + ".txt");
++
+             f2 = new File(dataDirectory, baseFilename + "sd2" + blockNumber + ".txt");
+ 
+             // also make a comma-delimited leader that will begin each data line written to the sd2 file
+             sd2Leader = String.format("%s-%s", "Times", blockNumber);
+-        } while (f1.exists() || f2.exists());
++        } while (f2.exists());
+ 
+         try {
+-            sd1 = new BufferedWriter(new FileWriter(f1));
+             sd2 = new BufferedWriter(new FileWriter(f2));
+ 
+             // output header in sd2 file
+@@ -83,16 +82,14 @@
+ 
+         }
+         StringBuilder sd2Data = new StringBuilder(100);
+-        StringBuilder sd1Stuff = new StringBuilder(100);
+-        sd1Stuff.append("SD1STUFF");
++
+         for (int i = 0; i < results.size(); i++) {
+             sd2Data.append(String.format("%s\n", results.get(i)));
+         }
+ 
+         // write to data files
+         try {
+-            sd1.write(sd1Stuff.toString(), 0, sd1Stuff.length());
+-            sd1.flush();
++
+             sd2.write(sd2Data.toString(), 0, sd2Data.length());
+             sd2.flush();
+         } catch (IOException e) {
+Index: app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Mon Apr 19 00:51:17 EDT 2021\r\nbase.0=C\\:\\\\Users\\\\edshi\\\\AndroidStudioProjects\\\\QueryGallery4\\\\app\\\\build\\\\intermediates\\\\transforms\\\\dexMerger\\\\debug\\\\0\r\npath.0=classes.dex\r\nrenamed.0=classes.dex\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt	(revision 3ae2cdf9e905a873b9041ad29367353d2adb6c40)
++++ app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt	(date 1618844052197)
+@@ -1,4 +1,4 @@
+-#Mon Apr 19 00:51:17 EDT 2021
++#Mon Apr 19 10:54:12 EDT 2021
+ base.0=C\:\\Users\\edshi\\AndroidStudioProjects\\QueryGallery4\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+ path.0=classes.dex
+ renamed.0=classes.dex

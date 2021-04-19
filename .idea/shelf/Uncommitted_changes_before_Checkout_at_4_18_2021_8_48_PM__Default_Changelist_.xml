@@ -1,0 +1,739 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]" date="1618793313593" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 4/18/2021 8:48 PM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_leftarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_leftarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_ic_leftarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_gallery.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_gallery.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xhdpi_ic_gallery.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_gallery.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_gallery.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_ic_gallery.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_settings.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_settings.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_ic_settings.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDAO.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/4.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/4.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/4.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/R$layout.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_camera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_camera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_ic_camera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-ldpi_ic_search.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-ldpi_ic_search.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-ldpi_ic_search.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/values_values.arsc.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/values_values.arsc.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/values_values.arsc.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_rightarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_rightarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xhdpi_ic_rightarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/TagDB.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/Qy3ov9HErP9qClkAPdHK7hIneqA=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_videocamera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_videocamera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_ic_videocamera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/9.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/9.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/9.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/WyUwnM_7XeptRd8+37TjZdSKvRg=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_rightarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_rightarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_ic_rightarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_camera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_camera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxhdpi_ic_camera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/layout_imageviewer.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/layout_imageviewer.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/layout_imageviewer.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDAO_Impl.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/G1KXil+2WJV91dzl+KzohBCd0UE=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_gallery.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_gallery.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_ic_gallery.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/Vy+ChQ5ixpVyCoRUOU86gW3webI=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/javaCompile/taskHistory.bin" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/javaCompile/taskHistory.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/taskHistory.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/layout_findthisimage.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/layout_findthisimage.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/layout_findthisimage.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/7g9_nh2Hiks3dw5cXd_DB0jmqIg=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/QueryGallery$MyFilenameFilter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/FindThisImage$MyFilenameFilter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDownloader.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Vy+ChQ5ixpVyCoRUOU86gW3webI=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_search.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_search.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_ic_search.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/BuildConfig.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDownloader$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$MyScaleGestureListener.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/R$drawable.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_settings.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_settings.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-anydpi-v24_ic_settings.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$1$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_camera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_camera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_ic_camera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/androidx/arch/core/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/androidx/room/guava/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_rightarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_rightarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_ic_rightarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/R$string.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_settings.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_settings.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxhdpi_ic_settings.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/YJN+XSUJbfsA4W7nK6IWW71pu7c=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_icon.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_icon.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_icon.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_camera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_camera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxxhdpi_ic_camera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/taskHistory/taskHistory.bin" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/taskHistory/taskHistory.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/taskHistory1.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_search.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_search.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxhdpi_ic_search.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$2$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/outputs/apk/debug/app-debug.apk" />
+    <option name="AFTER_PATH" value="app/build/outputs/apk/debug/app-debug.apk" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/app-debug.apk" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_search.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_search.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xhdpi_ic_search.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDownloader$DownloadedDrawable.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_gallery.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_gallery.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxhdpi_ic_gallery.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_camwhite.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_ic_camwhite.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_ic_camwhite.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/javaCompile/taskJars.bin" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/javaCompile/taskJars.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/taskJars.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/2dGTwdlJJOmVF8dWvKz0_tTW_cc=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/taskHistory/taskHistory.lock" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/taskHistory/taskHistory.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/taskHistory.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_leftarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_leftarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xhdpi_ic_leftarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_settings.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_settings.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_ic_settings.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/YJN+XSUJbfsA4W7nK6IWW71pu7c=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/R$id.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$MyFilenameFilter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/R$xml.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageAdapter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_leftarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_leftarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxhdpi_ic_leftarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/fileHashes/fileHashes.bin" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/fileHashes/fileHashes.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/fileHashes.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" />
+    <option name="AFTER_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/merge-state" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_search.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_search.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_ic_search.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$2$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDownloader$BitmapDownloaderTask.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_gallery.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_gallery.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-anydpi-v24_ic_gallery.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/0z1cApdVI+R6D52Ll2GI7ZCLooc=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_search.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_search.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxxhdpi_ic_search.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" />
+    <option name="AFTER_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/merge-state1" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_camwhite.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_camwhite.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_ic_camwhite.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/2dGTwdlJJOmVF8dWvKz0_tTW_cc=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/3aWCNHBdS34EPYDb9HbMFOCpVfc=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_camwhite.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_camwhite.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxhdpi_ic_camwhite.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/androidx/room/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/mergeJavaRes/debug/0.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/mergeJavaRes/debug/0.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/0.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/fileHashes/fileHashes.lock" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/fileHashes/fileHashes.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/fileHashes.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/0.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/0.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/01.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDownloader$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$1$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_icon.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-hdpi_icon.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-hdpi_icon.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_videocamera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_videocamera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxxhdpi_ic_videocamera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageGridViewActivity$MyFilenameFilter.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/3.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/3.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/3.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/caches/build_file_checksums.ser" />
+    <option name="AFTER_PATH" value=".idea/caches/build_file_checksums.ser" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/build_file_checksums.ser" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/WyUwnM_7XeptRd8+37TjZdSKvRg=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/5.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/5.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/5.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageViewerActivity$MyGestureListener.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_videocamera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_videocamera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xhdpi_ic_videocamera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageBean.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/TagDB_Impl$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/dfOLM23+JLTwLXdCIL+OXS6dYxA=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/androidx/sqlite/db/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/layout_imagegrid.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/layout_imagegrid.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/layout_imagegrid.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/8.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/8.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/8.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/o9QXv_qHrriZYIPD4_ZNPEMr_bQ=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_search.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_search.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-anydpi-v21_ic_search.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/FindThisImage.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/debug/resources-debug.ap_" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/debug/resources-debug.ap_" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/resources-debug.ap_" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/4.4.1/javaCompile/javaCompile.lock" />
+    <option name="AFTER_PATH" value=".gradle/4.4.1/javaCompile/javaCompile.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/javaCompile.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/dfOLM23+JLTwLXdCIL+OXS6dYxA=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/xml_searchable.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/xml_searchable.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/xml_searchable.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/R$style.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/R$menu.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_rightarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_rightarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxhdpi_ic_rightarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageGridViewActivity$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/QueryGallery.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_leftarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_leftarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_ic_leftarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_videocamera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-mdpi_ic_videocamera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-mdpi_ic_videocamera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/2.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/2.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/2.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_videocamera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_videocamera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxhdpi_ic_videocamera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageGridViewActivity.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/menu_menu.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/menu_menu.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/menu_menu.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_camwhite.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_camwhite.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xhdpi_ic_camwhite.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/menu_options_menu.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/menu_options_menu.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/menu_options_menu.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_rightarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_rightarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxxhdpi_ic_rightarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/layout_popup.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/layout_popup.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/layout_popup.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/0z1cApdVI+R6D52Ll2GI7ZCLooc=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/7g9_nh2Hiks3dw5cXd_DB0jmqIg=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/TagDB_Impl.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Qy3ov9HErP9qClkAPdHK7hIneqA=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-ldpi_icon.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-ldpi_icon.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-ldpi_icon.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_settings.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_settings.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xhdpi_ic_settings.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/6.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/6.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/6.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/3aWCNHBdS34EPYDb9HbMFOCpVfc=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/androidx/sqlite/db/framework/R.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDAO_Impl$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_leftarrow.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_leftarrow.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xxxhdpi_ic_leftarrow.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_camwhite.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_camwhite.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-anydpi-v24_ic_camwhite.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/qYpydug1gca_YVR7KP3FAxJsJto=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/qYpydug1gca_YVR7KP3FAxJsJto=" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/layout_main.xml.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/layout_main.xml.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/layout_main.xml.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageGridViewActivity$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/7.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/7.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/7.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="AFTER_PATH" value=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/buildOutputCleanup.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/FindThisImage$1.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_camera.png.flat" />
+    <option name="AFTER_PATH" value="app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_camera.png.flat" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/drawable-xhdpi_ic_camera.png.flat" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/11/ca/yorku/eecs/mack/democamera71179/ImageDAO_Impl$2.dex" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/1.jar" />
+    <option name="AFTER_PATH" value="app/build/intermediates/transforms/dexBuilder/debug/1.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2021_8_48_PM_[Default_Changelist]/1.jar" />
+  </binary>
+</changelist>
