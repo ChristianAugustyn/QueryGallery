@@ -60,6 +60,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
     TextView statusTextView;
     TextView imageCountView;
     boolean testMode, allowSearch;
+    ArrayList<String> usedFiles;
 
     // create a file Uri for saving an image or video
     private static Uri getOutputMediaFileUri(File directory, int type)
@@ -156,6 +157,8 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
         if (imageIdx >= 0) // there is at least one image in the directory (show it!)
             displayImage();
 
+        usedFiles = new ArrayList<String>();
+
     }
 
     // touch callback for picture and video views
@@ -224,7 +227,7 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
             }
 
         }else if (v == test){
-            if(imageFilenames.length > 0) {
+            if(imageFilenames.length > 1) {
                 testMode = true;
                 final Bundle b = new Bundle();
                 ArrayList<String> testScores = new ArrayList<String>();
@@ -234,13 +237,14 @@ public class QueryGallery extends Activity implements OnClickListener, OnTouchLi
                 b.putBoolean(TESTMODE_KEY, testMode);
                 b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
                 b.putInt(IMAGE_INDEX_KEY, imageCount);
+                b.putStringArrayList("usedfiles", usedFiles);
                 System.out.println("QUERY GALLERY COUNT: " + imageCount);
                 // start image viewer activity
                 Intent i = new Intent(getApplicationContext(), TestInstructions.class);
                 i.putExtras(b);
                 startActivity(i);
             }else{
-                Toast.makeText(this,"You have no pictures to do the test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"You must have more than 3 pictures to do the test", Toast.LENGTH_SHORT).show();
             }
         }
 

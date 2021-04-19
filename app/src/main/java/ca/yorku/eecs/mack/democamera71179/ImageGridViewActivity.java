@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /* This activity receives a bundle containing the name of a directory.  All the images
@@ -43,12 +42,13 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
     TagDB db;
     String directoryString, testingFilePath;
     ArrayList<String> testScores;
+    ArrayList<String> usedFiles;
     long time1,time2;
+    boolean searchAttempted;
 
-    int columnWidth, imageCount;
+    int columnWidth, imageCount, amountOfImageFiles;
     final static String TESTMODE_KEY = "testmode"; //tells if the program is in test mode
     final static String ALLOW_SEARCH_KEY = "allowsearch"; //allows the user to use the search function
-    final static String FILE_KEY ="file"; //passes the file to be used through
     final static String DIRECTORY_KEY = "directory";
     final static String IMAGE_INDEX_KEY = "image_index";
     final static String IMAGE_FILENAMES_KEY = "image_filenames";
@@ -67,7 +67,8 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
         testingFilePath = b.getString("file");
         imageCount = b.getInt("image_index");
         testScores= b.getStringArrayList("testscores");
-
+        usedFiles = b.getStringArrayList("usedfiles");
+        amountOfImageFiles = b.getInt("fileAmount");
 
         // get the directory containing some images
         directory = new File(directoryString);
@@ -158,6 +159,7 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
                 //When there is no text in the search bar, the gridview is reverts back to showing all images
                 @Override
                 public boolean onQueryTextChange(String s) {
+                    searchAttempted = true;
                     if (s.length() == 0) {
                         getInitalFileNames();
                         imageAdapter = new ImageAdapter(filenames, directoryString, columnWidth);
@@ -275,59 +277,71 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
             startActivityForResult(i, RESULT_OK);
         }else {
             //creates the path of the click
-            String path = directory + File.separator + filenames[position];
-            //compares the path with the current pictures path
-            if(testingFilePath.equalsIgnoreCase(path)){
-                Toast.makeText(this, "They Match ", Toast.LENGTH_SHORT).show();
-                time2 = System.currentTimeMillis();
+            if (validSelection()) {
+                String path = directory + File.separator + filenames[position];
+                //compares the path with the current pictures path
+                if (testingFilePath.equalsIgnoreCase(path)) {
+                    Toast.makeText(this, "They Match ", Toast.LENGTH_SHORT).show();
+                    time2 = System.currentTimeMillis();
 
-                long score = TimeUnit.MILLISECONDS.toSeconds(time2 - time1);
+                    long score = TimeUnit.MILLISECONDS.toSeconds(time2 - time1);
 
-                imageCount ++;
+                    imageCount++;
 
-                String result;
-                if(allowSearch){
-                    int testnum = imageCount/2;
-                    if(testnum == 0){
-                        testnum = 1;
+                    System.out.println("IMAGE COUNT: " + imageCount);
+                    System.out.println("FILENAMESLENGTH" + filenames.length*2 );
+
+                    String result;
+                    if (allowSearch) {
+                        int testnum = imageCount / 2;
+                        if (testnum == 0) {
+                            testnum = 1;
+                        }
+                        result = "Test: " + testnum + " with search - " + score + " seconds";
+                    } else {
+                        int testnum = imageCount / 2;
+                        result = "Test: " + testnum + " without search - " + score + " seconds";
                     }
-                    result = "Test: " + testnum + " with search - " + score + " seconds";
-                }else{
-                    int testnum = imageCount/2;
-                    result = "Test: " + testnum + " without search - " + score + " seconds";
+                    testScores.add(result);
+
+                    //image count is used to ensure that there are not more tests than there are pictures
+
+                    //filenames.length*2 to make a direct comparison of search manually and via text bar
+                    if (imageCount <= amountOfImageFiles * 2) {
+                        final Bundle b = new Bundle();
+                        b.putStringArray(IMAGE_FILENAMES_KEY, filenames);
+                        b.putString(DIRECTORY_KEY, directory.toString());
+                        b.putBoolean(TESTMODE_KEY, testMode);
+                        b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
+                        b.putInt(IMAGE_INDEX_KEY, imageCount);
+                        b.putStringArrayList("testscores", testScores);
+                        b.putString("file", testingFilePath);
+                        System.out.println("IMAGE GRID COUNT: " + imageCount);
+                        b.putStringArrayList("usedfiles", usedFiles);
+                        Intent i = new Intent(getApplicationContext(), FindThisImage.class);
+                        i.putExtras(b);
+                        startActivity(i);
+                    } else {
+                        //Get results
+
+                        final Bundle b = new Bundle();
+                        b.putStringArrayList("testscores", testScores);
+
+                        Intent i = new Intent(getApplicationContext(), ResultsPage.class);
+                        i.putExtras(b);
+                        startActivity(i);
+                    }
+
+
+                } else {
+                    Toast.makeText(this, "They Dont Match ", Toast.LENGTH_SHORT).show();
+
                 }
-                testScores.add(result);
-
-                //image count is used to ensure that there are not more tests than there are pictures
-
-                //filenames.length*2 to make a direct comparison of search manually and via text bar
-                if(imageCount <= filenames.length *2) {
-                    final Bundle b = new Bundle();
-                    b.putStringArray(IMAGE_FILENAMES_KEY, filenames);
-                    b.putString(DIRECTORY_KEY, directory.toString());
-                    b.putBoolean(TESTMODE_KEY, testMode);
-                    b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
-                    b.putInt(IMAGE_INDEX_KEY, imageCount);
-                    b.putStringArrayList("testscores",testScores);
-                    System.out.println("IMAGE GRID COUNT: " + imageCount);
-                    Intent i = new Intent(getApplicationContext(), FindThisImage.class);
-                    i.putExtras(b);
-                    startActivity(i);
-                }else{
-                    //Get results
-                    final Bundle b = new Bundle();
-                    b.putStringArrayList("testscores",testScores);
-                    Intent i = new Intent(getApplicationContext(), ResultsPage.class);
-                    i.putExtras(b);
-                    startActivity(i);
-                }
-
-
             }else{
-                Toast.makeText(this, "They Dont Match ", Toast.LENGTH_SHORT).show();
-
-            }
+                Toast.makeText(this, "You Must Use The Toolbar To Search", Toast.LENGTH_SHORT).show();
         }
+
+    }
     }
 
     @Override
@@ -336,6 +350,19 @@ public class ImageGridViewActivity extends Activity implements AdapterView.OnIte
 
         } else {
             super.onBackPressed();
+        }
+    }
+
+    public boolean validSelection(){
+        if(allowSearch){
+            if(searchAttempted){
+                return true;
+            }else{
+                return false;
+            }
+
+        }else{
+            return true;
         }
     }
 

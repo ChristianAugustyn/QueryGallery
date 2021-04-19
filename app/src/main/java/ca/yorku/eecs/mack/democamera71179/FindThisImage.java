@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
@@ -31,7 +32,8 @@ public class FindThisImage extends Activity implements View.OnClickListener {
     String[] imageFilenames;
     TextView header;
     Bundle b;
-    int imageCount;
+    ArrayList<String> usedFiles;
+    int imageCount, totalImages;
     private static final int IMAGE_VIEWER_MODE = 300;
     final static String IMAGE_FILENAMES_KEY = "image_filenames";
     final static String TESTMODE_KEY = "testmode";
@@ -51,6 +53,7 @@ public class FindThisImage extends Activity implements View.OnClickListener {
         testMode = b.getBoolean("testmode");
         allowSearch = b.getBoolean("allowsearch");
         imageCount = b.getInt("image_index");
+        usedFiles = b.getStringArrayList("usedfiles");
         // get the directory containing some images
 
         System.out.println("DIRECTROY STRING " + directoryString);
@@ -76,22 +79,36 @@ public class FindThisImage extends Activity implements View.OnClickListener {
         next = (Button)findViewById(R.id.next);
         header = (TextView)findViewById(R.id.header);
 
-
+        totalImages = files.length;
         next.setOnClickListener(this);
 
-        //getting a random image from the files
-        Random random = new Random();
-        int randomNum = random.nextInt(((files.length-1)-0)+1) + 0;
-        file = files[randomNum];
+
+
+
+        //checks to see if the second test has been done or not
+        if(imageCount % 2 == 0){
+            //second test, use the same image
+            allowSearch = false;
+            file = new File(b.getString("file"));
+        }else{
+            //first test, getting a random image from the files that hasnt been used before
+            boolean fileHasBeenUsed = true;
+            while(fileHasBeenUsed){
+                Random random = new Random();
+                int randomNum = random.nextInt(((files.length-1)-0)+1) + 0;
+                file = files[randomNum];
+
+                if(!fileUsedBefore(file)){
+                    fileHasBeenUsed = false;
+                    usedFiles.add(file.toString());
+                }
+            }
+            allowSearch = true;
+        }
+
         fileString = file.toString();
         Uri uri = Uri.parse(file.toString());
         imageToFind.setImageURI(uri);
-
-        if(imageCount % 2 == 0){
-            allowSearch = false;
-        }else{
-            allowSearch = true;
-        }
 
         System.out.println("FindThisImage COUNT: " + imageCount);
         if(allowSearch){
@@ -113,12 +130,14 @@ public class FindThisImage extends Activity implements View.OnClickListener {
     public void onClick(View v){
 
         if(v == next){
+            b.putInt("fileAmount", totalImages);
             b.putStringArray(IMAGE_FILENAMES_KEY, imageFilenames);
             b.putString(DIRECTORY_KEY, directoryString);
             b.putString(FILE_KEY, fileString);
             b.putBoolean(TESTMODE_KEY,testMode);
             b.putBoolean(ALLOW_SEARCH_KEY, allowSearch);
             b.putInt(IMAGE_INDEX_KEY, imageCount);
+            b.putStringArrayList("usedfiles", usedFiles);
 
             // start image viewer activity
             Intent i = new Intent(getApplicationContext(), ImageGridViewActivity.class);
@@ -126,6 +145,19 @@ public class FindThisImage extends Activity implements View.OnClickListener {
             startActivityForResult(i, IMAGE_VIEWER_MODE);
 
         }
+    }
+
+    public boolean fileUsedBefore(File f){
+        boolean fileUsedAlready = false;
+        String file = f.toString();
+
+        for(int i = 0; i < usedFiles.size(); i++){
+            if(usedFiles.get(i).compareTo(file) == 0){
+                fileUsedAlready = true;
+            }
+        }
+
+        return fileUsedAlready;
     }
 
 
