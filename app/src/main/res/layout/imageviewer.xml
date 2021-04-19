@@ -2,27 +2,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:text="@string/textViewString" />
+
     <TextView
         android:id="@+id/tagView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:text="@string/tagViewString" />
 
     <RelativeLayout
         android:id="@+id/imagecontainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ff222222" >
+        android:layout_height="544dp"
+        android:background="#ff222222">
 
         <ImageView
             android:id="@+id/imageView"
@@ -31,23 +35,22 @@
             android:background="#ff222222"
             android:contentDescription="@string/imageViewText" />
 
-        <Button
-            android:id="@+id/addTagButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#2196F3"
-            android:text="Add Tag" />
-
-        <Button
-            android:id="@+id/removeTagButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginLeft="14dp"
-            android:layout_toEndOf="@+id/addTagButton"
-            android:layout_toRightOf="@+id/addTagButton"
-            android:background="#DD1212"
-            android:text="REMOVE TAG" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/addTagButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#2196F3"
+        android:text="Add Tag" />
+
+    <Button
+        android:id="@+id/removeTagButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#DD1212"
+        android:text="REMOVE TAG" />
 
 </LinearLayout>

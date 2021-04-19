@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/QueryGallery4.iml" filepath="$PROJECT_DIR$/.idea/modules/QueryGallery4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QueryGallery4.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QueryGallery4.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/QueryGallery.iml" filepath="$PROJECT_DIR$/.idea/modules/QueryGallery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QueryGallery.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QueryGallery.app.iml" />
     </modules>
   </component>
 </project>

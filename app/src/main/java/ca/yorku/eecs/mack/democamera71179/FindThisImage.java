@@ -1,8 +1,11 @@
 package ca.yorku.eecs.mack.democamera71179;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,7 +49,8 @@ public class FindThisImage extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.findthisimage);
 
-
+        ActionBar actionBar = getActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.RED));
         // data passed from the setup activity in startActivity
         b = getIntent().getExtras();
         directoryString = b.getString("directory");
